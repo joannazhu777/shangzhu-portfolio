@@ -5,6 +5,7 @@ import './styles.css'
 const experiences = [
   {
     slug: 'bright-saver', company: 'Bright Saver', role: 'Research Analyst', year: 'Mar. 2025 — Mar. 2026', location: 'San Francisco Bay Area',
+    brandLogo: '/bright-saver-logo.png', brandAccent: '#dfae23', brandInk: '#18283e', brandSurface: '#fff7dd', brandAccentInk: '#18283e',
     summary: 'Policy research and community engagement for accessible clean energy.',
     about: 'As a Research Analyst, I connected policy research, data validation, and student engagement to help make plug-in solar more understandable and actionable. I translated policy findings into recommendations, strengthened a public-facing white paper, and designed a campus program around local clean-energy adoption.',
     aboutLines: ['As a Research Analyst, I connected policy', 'research, data validation, and student engagement', 'to make plug-in solar more understandable', 'and actionable. I translated policy findings into', 'recommendations and campus engagement.'],
@@ -18,6 +19,7 @@ const experiences = [
   },
   {
     slug: 'piper-ai', company: 'Piper AI', role: 'Market Intelligence Intern', year: 'Jun. — Jul. 2025',
+    brandLogo: '/piper-logo.png', brandAccent: '#55c98e', brandInk: '#062b3c', brandSurface: '#e9f8f1', brandAccentInk: '#062b3c',
     summary: 'Market intelligence and product strategy for an AI sales platform.', location: 'Madrid, Spain',
     about: 'As a Market Intelligence Intern, I built the analytical foundations that connected market intelligence, product strategy, and measurement, turning fragmented signals into decisions the team could use across market research, product development, and analytics implementation.',
     aboutLines: ['As a Market Intelligence Intern, I built the', 'analytical foundations that connected market', 'intelligence, product strategy, and measurement,', 'turning fragmented signals into decisions across', 'research, product development, and analytics.'],
@@ -101,6 +103,7 @@ const experiences = [
   },
   {
     slug: 'bangers-snacks', company: 'Bangers Snacks', role: 'Business Analyst Intern', year: 'Jan. — Feb. 2025', location: 'San Francisco Bay Area',
+    brandLogo: '/bangers-logo-cutout.png', brandAccent: '#ff9600', brandInk: '#191919', brandSurface: '#fff1dc', brandAccentInk: '#191919', brandLogoClass: 'brand-logo-bangers',
     summary: 'Strategy, financial planning, and operations for an emerging consumer brand.',
     about: 'As a Business Analyst Intern, I brought market evidence, financial scenarios, and operational data together to support decisions from early product ideas to retail growth. I worked across competitive research, unit economics, KPI reporting, and supplier outreach to clarify demand, pricing, production, and opportunity.',
     aboutLines: ['As a Business Analyst Intern, I brought market', 'evidence, financial scenarios, and operational data', 'together to support decisions from early product', 'ideas to retail growth, clarifying demand, pricing,', 'production, and opportunity.'],
@@ -118,6 +121,7 @@ const experiences = [
   },
   {
     slug: 'berkeley-haas', company: 'Berkeley Haas', role: 'Research Assistant', year: 'Sept. 2023 — Dec. 2024', location: 'Berkeley, CA',
+    brandLogo: '/berkeley-haas-logo-cutout.png', brandAccent: '#fdb515', brandInk: '#172e52', brandSurface: '#eef3fa', brandAccentInk: '#172e52', brandLogoClass: 'brand-logo-haas',
     summary: 'Research, evaluation, and data infrastructure for better teamwork learning.',
     about: 'As a Research Assistant, I helped build the research and measurement infrastructure behind a multi-year initiative for improving teamwork instruction in engineering courses. I worked across curriculum design, course evaluation, natural-language processing, and prototype testing to make teamwork learning more measurable and useful.',
     aboutLines: ['As a Research Assistant, I helped build research', 'and measurement infrastructure for improving', 'teamwork instruction in engineering courses.', 'I worked across curriculum, evaluation, NLP,', 'and prototype testing to make learning useful.'],
@@ -174,6 +178,7 @@ const experiences = [
   },
   {
     slug: 'lenovo-research', company: 'Lenovo Research', role: 'AI Research Intern', year: 'Jun. — Aug. 2023', location: 'Shanghai, China',
+    brandLogo: '/lenovo-logo.png', brandAccent: '#e2231a', brandInk: '#171717', brandSurface: '#fff1ef', brandAccentInk: '#fff', brandLogoClass: 'brand-logo-lenovo',
     summary: 'An analysis of AI’s impact on China’s market and Lenovo’s product ecosystem.',
     about: 'As an AI Research Intern, I examined how AI was reshaping China’s market and Lenovo’s global operations, translating internal research and industry signals into strategic direction. I synthesized findings across cloud computing, manufacturing, and consumer electronics to clarify opportunities and vulnerabilities in Lenovo’s product ecosystem.',
     aboutLines: ['As an AI Research Intern, I examined how AI', 'was reshaping China’s market and Lenovo’s', 'global operations, translating research and', 'industry signals into strategic direction across', 'Lenovo’s product ecosystem.'],
@@ -188,18 +193,264 @@ const experiences = [
 ]
 
 const education = [
-  { slug: 'stanford-mse', school: 'Stanford University', program: 'M.S. in Management Science and Engineering', date: 'Expected Mar. 2028', summary: 'Graduate study in management science, engineering, and decision-making.', detail: 'Graduate study in management science, engineering, and decision-making.' },
-  { slug: 'uc-berkeley', school: 'University of California, Berkeley', program: 'B.A. Applied Mathematics; B.A. Political Economy; Minor in Data Science', date: 'Aug. 2022 — May 2026', summary: 'A cross-disciplinary undergraduate education, graduated Cum Laude.', detail: 'Graduated Cum Laude.' },
-  { slug: 'hbs-negotiation', school: 'Harvard Business School Online', program: 'Negotiation Mastery Certificate Program', date: 'Mar. — May 2026', summary: 'A focused program in practical negotiation strategy and leadership.', detail: 'A focused program in practical negotiation strategy and leadership.' },
-  { slug: 'skydeck-ace', school: 'Berkeley SkyDeck', program: 'Accelerating Careers in Entrepreneurship (ACE) Program', date: 'Sept. 2025 — Jan. 2026', summary: 'Career development and entrepreneurship program.', detail: 'Career development and entrepreneurship program.' },
-  { slug: 'cfa-level-one', school: 'CFA Institute', program: 'Chartered Financial Analyst® (CFA®) Program, Level I Passed', date: 'Aug. 2024', summary: 'Completed the CFA Program Level I examination.', detail: 'Completed the CFA Program Level I examination.' },
-  { slug: 'bloomberg-markets', school: 'Bloomberg L.P.', program: 'Bloomberg Market Concepts (BMC) Certification', date: 'Oct. 2024', summary: 'Certification in core finance, markets, and Bloomberg Terminal concepts.', detail: 'Certification in core finance, markets, and Bloomberg Terminal concepts.' },
-  { slug: 'peking-business', school: 'Peking University Guanghua School of Management', program: 'Doing Business in China (DBIC) Program', date: 'Jun. — Jul. 2024', summary: 'Summer program focused on business practice in China.', detail: 'Summer program focused on business practice in China.' },
+  {
+    slug: 'stanford-mse', school: 'Stanford University', heroTitle: 'Stanford University', degreeTitle: 'M.S. in Management Science & Engineering', program: 'M.S. in Management Science and Engineering', date: 'Expected Mar. 2028', credential: 'Degree · In progress', academicProfile: true, institutionLogo: '/stanford-logo.png', institutionAccent: '#8c1515',
+    academicDetails: [{ label: 'Timeline', value: 'Expected Mar. 2028' }, { label: 'College', value: 'School of Engineering' }, { label: 'Track', value: '/' }],
+    summary: 'The MS prepares engineers to address the critical technical and managerial needs of complex public and private organizations. Combining quantitative analysis with the behavioral challenges of leadership, it develops stronger decision-making, strategy execution, innovation, and entrepreneurial thinking.', detail: 'Graduate study in management science, engineering, and decision-making.', skills: ['Decision Analysis', 'Optimization', 'Operations', 'Data & AI', 'Management Science'], skillsPlaceholder: true, url: 'https://msande.stanford.edu/academics-admissions/graduate/ms-program', websiteLabel: 'Visit program website', hideReflection: true,
+  },
+  {
+    slug: 'uc-berkeley', school: 'University of California, Berkeley', heroTitle: 'UC Berkeley', degreeTitle: 'B.A. Applied Mathematics & Political Economy', degreeLines: ['B.A. in Applied Mathematics;', 'B.A. in Political Economy;', 'Minor in Data Science'], program: 'B.A. Applied Mathematics; B.A. Political Economy; Minor in Data Science', date: 'Aug. 2022 — May 2026', credential: 'Diploma', academicProfile: true, institutionLogo: '/berkeley-logo.png', institutionAccent: '#003262',
+    academicDetails: [{ label: 'Timeline', value: 'Aug. 2022 — May 2026' }, { label: 'College', value: 'College of Letters & Science' }, { label: 'Distinction', value: 'Cum Laude' }],
+    summary: 'A cross-disciplinary undergraduate education spanning mathematical reasoning, political economy, and data science. Graduated Cum Laude.', detail: 'Graduated Cum Laude.', skills: ['Applied Mathematics', 'Political Economy', 'Data Science', 'Quantitative Research', 'Statistical Modeling'], url: 'https://www.berkeley.edu/', websiteLabel: 'Visit institution website',
+    academicPortfolio: {
+      eyebrow: 'Three distinct but connected fields',
+      title: 'Math, markets, and the systems around them.',
+      intro: 'Two majors and a minor gave me three ways to approach the same question: how can rigorous evidence help us understand complex systems and make better decisions?',
+      chapters: [
+        {
+          type: 'Major · B.A.', title: 'Applied Mathematics', subtitle: 'Data Science Cluster',
+          summary: 'A proof-based mathematical foundation shaped around computation, modeling, and real-world decision problems.',
+          about: 'Applied Mathematics pairs rigorous mathematical foundations with a customizable cluster in another field. I chose Data Science, connecting abstract reasoning with numerical methods, optimization, and computational models for problems across research, technology, and industry.',
+          skills: ['Proof & abstraction', 'Numerical methods', 'Optimization', 'Mathematical modeling'],
+          tools: ['Python', 'R', 'NumPy', 'pandas'],
+          url: 'https://guide.berkeley.edu/undergraduate/degree-programs/applied-mathematics/',
+          courseGroups: [
+            { label: 'Mathematical foundations', courses: [
+              { code: 'MATH 53', title: 'Multivariable Calculus', note: 'Calculus of several variables, vector fields, and multidimensional change.' },
+              { code: 'MATH 54', title: 'Linear Algebra & Differential Equations', note: 'Matrix methods, linear systems, eigenvalues, and differential equations.' },
+              { code: 'MATH 55', title: 'Discrete Mathematics', note: 'Logic, proofs, combinatorics, graphs, and discrete structures.' },
+            ] },
+            { label: 'Structure & proof', courses: [
+              { code: 'MATH 110', title: 'Abstract Linear Algebra', note: 'Vector spaces, transformations, eigenvectors, factorizations, and quadratic forms.' },
+              { code: 'MATH 104', title: 'Introduction to Analysis', note: 'Proof-based foundations for limits, continuity, differentiation, and integration.' },
+              { code: 'MATH 113', title: 'Abstract Algebra', note: 'Algebraic structures and rigorous reasoning through groups, rings, and fields.' },
+              { code: 'MATH 185', title: 'Complex Analysis', note: 'Analytic functions and complex-variable methods for mathematical problem solving.' },
+            ] },
+            { label: 'Applied & computational methods', courses: [
+              { code: 'MATH 128A', title: 'Numerical Analysis', note: 'Computational approximation, interpolation, integration, and differential equations.' },
+              { code: 'MATH 170', title: 'Mathematical Methods for Optimization', note: 'Linear, integer, nonlinear, and convex approaches to constrained decisions.' },
+              { code: 'STAT 133', title: 'Concepts in Computing with Data', note: 'R, databases, visualization, statistical learning, and model validation.' },
+            ] },
+          ],
+        },
+        {
+          type: 'Major · B.A.', title: 'Political Economy', subtitle: 'The Political Economy of the Environment',
+          summary: 'A multidisciplinary study of how economic systems are embedded in politics, institutions, history, and society.',
+          about: 'Political Economy examines the relationship among government, society, and the economy through both scientific and normative lenses. My concentration in The Political Economy of the Environment focused that perspective on climate governance, resource distribution, development, inequality, and the political institutions that shape environmental action.',
+          skills: ['Institutional analysis', 'Micro & macroeconomics', 'Policy evaluation', 'Global systems'],
+          tools: ['Economic models', 'Comparative case studies', 'Policy research', 'Literature synthesis'],
+          url: 'https://guide.berkeley.edu/undergraduate/degree-programs/political-economy/',
+          courseGroups: [
+            { label: 'History, theory & economic foundations', courses: [
+              { code: 'GLOBAL 45', title: 'Survey of World History', note: 'Historical foundations for understanding global institutions and economic change.' },
+              { code: 'POLECON 100', title: 'Classical Theories of Political Economy', note: 'Foundational ideas about markets, states, labor, power, and social order.' },
+              { code: 'POLECON 101', title: 'Contemporary Theories of Political Economy', note: 'Modern frameworks for interpreting institutions and economic change.' },
+              { code: 'POLECON 106', title: 'Intermediate Microeconomic Theory', note: 'Incentives, consumer and firm behavior, equilibrium, and market structure.' },
+              { code: 'POLECON 107', title: 'Intermediate Macroeconomic Theory', note: 'Growth, inflation, employment, and economy-wide policy dynamics.' },
+            ] },
+            { label: 'Environment, development & globalization', courses: [
+              { code: 'ESPM W169', title: 'International Environmental Politics', note: 'International institutions, cooperation, and conflict around environmental problems.' },
+              { code: 'GEOG 138', title: 'Global Environmental Politics', note: 'How power, place, markets, and governance shape environmental outcomes.' },
+              { code: 'SOCIOL 127', title: 'Development and Globalization', note: 'Social change, global integration, development strategies, and inequality.' },
+              { code: 'GPP 115', title: 'Global Poverty', note: 'Evidence and policy approaches for understanding and reducing global poverty.' },
+            ] },
+            { label: 'Policy in practice', courses: [
+              { code: 'ECON 134', title: 'Macroeconomic Policy', note: 'How historical evidence and economic ideas shape modern policy choices.' },
+            ] },
+          ],
+        },
+        {
+          type: 'Minor', title: 'Data Science', subtitle: 'Methods, computation & inference',
+          summary: 'Practical training in the full data lifecycle, paired with critical thinking about models and their implications.',
+          about: 'The Data Science minor builds practical fluency in statistics, probability, and computation while emphasizing critical thinking about how data and models are constructed. It prepared me to design rigorous analyses, move from messy information to defensible insight, and communicate results in context.',
+          skills: ['Data wrangling', 'Statistical inference', 'Machine learning', 'Data communication'],
+          tools: ['Python', 'pandas', 'NumPy', 'R', 'SQL', 'Jupyter'],
+          url: 'https://guide.berkeley.edu/undergraduate/degree-programs/data-science/',
+          courseGroups: [
+            { label: 'Foundations & programming', courses: [
+              { code: 'DATA C8', title: 'Foundations of Data Science', note: 'Computation, inference, prediction, and responsible reasoning with data.' },
+              { code: 'DATA C88C', title: 'Computational Structures in Data Science', note: 'Algorithms, abstraction, program design, and managing computational complexity.' },
+            ] },
+            { label: 'Analysis, modeling & application', courses: [
+              { code: 'DATA C100', title: 'Principles & Techniques of Data Science', note: 'The data lifecycle from cleaning and visualization to inference and prediction.' },
+              { code: 'ENERES 131', title: 'Data, Environment and Society', note: 'Data-driven modeling for energy, resources, and environmental decisions.' },
+            ] },
+            { label: 'Digital humanities', courses: [
+              { code: 'DIGHUM 150A', title: 'Archival Digital Humanities', note: 'Computational approaches to archives, collections, and cultural evidence.' },
+              { code: 'DIGHUM 100', title: 'Theory and Method', note: 'Critical frameworks and research methods for digital humanities projects.' },
+            ] },
+          ],
+        },
+      ],
+    },
+    reflection: {
+      stories: [{
+        title: 'What Berkeley taught me beyond the classroom.',
+        intro: 'At Cal, I received an interdisciplinary education, producing highly technical math proofs and code on the one hand, and engaging with intensive English reading and writing on the other.',
+        paragraphs: [
+          { text: 'After commencement, I was invited to a dinner where a small group of students, faculty, and alumni gathered for roundtable conversations. The first question I was asked was: ', quote: 'What did I learn at Berkeley outside the classroom?' },
+          'Too many lessons to list in one reflection, so I will share the three that first came to mind.',
+          { bold: 'First, being adaptable and resilient.', text: ' In the summer of 2022, I came to the United States alone, with no family or friends—just a place that worked completely differently from the one I had known. I built a new life from the ground up. I discovered that I can adapt, rebuild, and thrive in unfamiliar environments. Berkeley taught me to meet the unknown with curiosity and excitement, not fear.' },
+          'Berkeley was very difficult at times. I cried at my desk, doubted myself, and pushed my body and mind beyond what was healthy. It forced me to confront the limits of endurance and to navigate the discipline of balance. I do not know what comes next, but I know I can meet it.',
+          { bold: 'Second, standing up for myself.', text: ' Berkeley offers extraordinary resources, but they do not come delivered to my door. I have had to seek them out, advocate for myself, and fight for what I desire in every way I can. At the same time, I have learned to put my real self out there: unfiltered, without trying to perform or stressing over how I appear.' },
+          'In that process, I have realized the importance of building relationships and cultivating a network. I am becoming a more active listener as well as a more resourceful, approachable presence.',
+          { bold: 'Third, a clearer view of the world.', text: ' At the dinner, we spoke about Berkeley’s “scrappiness”: an unadorned, grounded sincerity, humble in style but powerful in substance. The culture showed me a more honest world—less sheltered and less skewed.' },
+          'Because of Berkeley’s sheer scale and diversity, I met many people with distinct backgrounds, widely varied experiences, mindsets, and ambitions. Here, I learned to listen to, respect, and appreciate each perspective. I came closer to understanding what it means to be open and inclusive.',
+          'Berkeley is, and will always be, a part of me.',
+        ],
+        images: [
+          { src: '/berkeley-yearbook.jpeg', alt: 'Shang Zhu in UC Berkeley commencement regalia for her yearbook portrait', caption: 'My UC Berkeley yearbook portrait, Class of 2026.' },
+          { src: '/berkeley-commencement.jpeg', alt: 'Shang Zhu wearing a Chinese qipao beneath her UC Berkeley graduation gown after commencement', caption: 'After commencement, celebrating Cal while wearing a Chinese qipao beneath my graduation gown.' },
+        ],
+      }],
+    },
+  },
+  {
+    slug: 'hbs-negotiation', school: 'Harvard Business School Online', heroTitle: 'Negotiation Mastery', program: 'Negotiation Mastery Certificate Program', date: 'Mar. — May 2026', credential: 'Certificate', credentialImage: '/hbs-negotiation-certificate.jpg', institutionAccent: '#a41034',
+    summary: 'Negotiation Mastery develops practical strategies for preparing under uncertainty, creating value, resolving conflict, and identifying walkaway points. Interactive simulations and personalized feedback help participants adapt in real time and strengthen their negotiation approach.',
+    detail: 'A focused program in practical negotiation strategy and leadership.',
+    skills: ['Strategic Preparation', 'Value Creation', 'Conflict Resolution', 'Adaptive Negotiation', 'Emotional Intelligence'],
+    url: 'https://pll.harvard.edu/course/negotiation-mastery', websiteLabel: 'Visit program website',
+    reflection: {
+      stories: [{
+        title: 'Turning tension into value.',
+        magazine: true,
+        paragraphs: [
+          'I think the skill of negotiation is holding tension without breaking it, and mastering that balance is what turns tension into value.',
+          { bold: 'I realized negotiation is not a fight.', text: ' I used to think negotiation was mostly about competing. But I learned that the best negotiators do both at once: they create value together while also claiming value for themselves. That balance takes greater creativity and empathy. Sometimes, the smartest move is to give in on what matters less to me so I can create something much better for both sides. Importantly, how the pie is expanded directly affects how it is divided.' },
+          { bold: 'In addition, clear goals are critical.', text: ' A strong negotiator needs to know what they want. That means preparing well: analyzing and knowing my target, my ceiling, my walkaway point, and each side’s BATNA. Clear goals sharpen both my tactical decisions and my confidence. They also help me adapt as the negotiation evolves, whether that means reassessing the ZOPA as new information emerges. Goals may shift, but aiming for clarity keeps the process strategic and grounded.' },
+          { bold: 'And finally, emotions matter more than I expected.', text: ' The outcome often depends on who is across the table, making it key to read the person and build trust. I learned to ask stronger open-ended questions, encourage the other side to share their priorities, and talk with people, not at them. I also learned that managing my own emotions matters just as much because they shape the interaction. I now actively identify my underlying concerns and anxieties and use rescue routines when I feel off balance.' },
+        ],
+      }],
+    },
+  },
+  {
+    slug: 'skydeck-ace', school: 'Berkeley SkyDeck', heroTitle: 'ACE Intern', program: 'Accelerating Careers in Entrepreneurship (ACE) Program', date: 'Sept. 2025 – Jan. 2026', credential: 'Program certificate', credentialImage: '/skydeck-ace-certificate.png', credentialLandscape: true, institutionAccent: '#003262',
+    summary: 'Berkeley SkyDeck’s Accelerating Careers in Entrepreneurship (ACE) Program brings UC Berkeley students together for ten workshops, office hours, and a founder expo. Through conversations with founders, venture capitalists, and Berkeley’s entrepreneurship community, students explore storytelling, branding, fundraising, and the realities of startup life.',
+    detail: 'A semester-long entrepreneurship certificate track for UC Berkeley students.',
+    skills: ['Entrepreneurial Storytelling', 'Marketing & Branding', 'Venture Capital', 'Fundraising Strategy', 'Founder Engagement'],
+    url: 'https://skydeck.berkeley.edu/ace/', websiteLabel: 'Visit program website', hideReflection: true,
+  },
+  {
+    slug: 'cfa-level-one', school: 'CFA Institute', heroTitle: 'CFA Level I', program: 'Chartered Financial Analyst® (CFA®) Program, Level I Passed', date: 'Aug. 2024', credential: 'Exam credential', credentialImage: '/cfa-level-one-credential.png', institutionAccent: '#315efb',
+    summary: 'The CFA Program Level I curriculum builds a broad investment foundation across ethics, quantitative methods, economics, financial statement analysis, asset valuation, and portfolio management. Through the Practical Skills Module (PSM), I developed financial modeling skills by building a three-statement model that connects business drivers, forecasts, and financial performance to support scenario analysis and decision-making.',
+    detail: 'Passed the CFA Program Level I examination.',
+    skills: ['Investment Foundations', 'Financial Modeling', 'Financial Statement Analysis', 'Asset Valuation', 'Portfolio Management'],
+    url: 'https://www.cfainstitute.org/programs/cfa-program/candidate-resources/level-i-exam', websiteLabel: 'Visit program website', hideReflection: true,
+  },
+  {
+    slug: 'bloomberg-markets', school: 'Bloomberg L.P.', heroTitle: 'BMC', program: 'Bloomberg Market Concepts (BMC) Certification', date: 'Oct. 2024', credential: 'Certificate', credentialImage: '/bloomberg-market-concepts-certificate.png', credentialLandscape: true, institutionAccent: '#f5a623', accentInk: '#171717',
+    summary: 'Bloomberg Market Concepts (BMC) is a self-paced, interactive course that introduces financial markets through the Bloomberg Terminal. Its eight sections cover economic indicators, currencies, fixed income, equities, commodities, stock options, portfolio management, and Terminal navigation.',
+    detail: 'Completed Bloomberg Market Concepts certification.',
+    skills: ['Economic Indicators', 'Fixed Income Valuation', 'Currency Markets', 'Terminal Navigation', 'Portfolio Analysis'],
+    url: 'https://professional.bloomberg.com/products/bloomberg-terminal/education/certificate-courses/', websiteLabel: 'Visit program website', hideReflection: true,
+  },
+  {
+    slug: 'peking-business', school: 'Peking University · Guanghua School of Management', institutionTitle: 'Peking University', heroTitle: 'Peking University', degreeTitle: 'Doing Business in China (DBIC)', program: 'Doing Business in China (DBIC) Program', date: 'Jun. — Jul. 2024', credential: 'Summer program', academicProfile: true, institutionLogo: '/pku-university-logo.png', institutionAccent: '#8f1d22',
+    academicDetails: [{ label: 'Timeline', value: 'Jun. — Jul. 2024' }, { label: 'College', value: 'Guanghua School of Management' }, { label: 'Grade', value: '97%' }],
+    summary: 'Guanghua’s Doing Business in China program combines online preparation, focused modules, company visits, and cultural activities to explore China’s business landscape. By connecting classroom knowledge with real business practice, it equips students to understand how organizations operate and compete in China.', detail: 'Summer program focused on business practice in China.', skills: ['China Business', 'Market Strategy', 'Cross-cultural Management', 'Economic Policy', 'Global Business'], url: 'https://dbic.gsm.pku.edu.cn/', websiteLabel: 'Visit program website',
+    reflection: {
+      stories: [{
+        title: 'Where analysis met belonging.',
+        wide: true,
+        intro: 'At DBIC, I engaged with leading experts across the country, delving into economic management, political dynamics, and cultural narratives unique to China. This experience reshaped my understanding of the international economy and cultural relationships.',
+        paragraphs: [
+          { bold: 'Two courses resonated with my background in applied math and data science.', text: ' In Prof. Wang Hansheng’s class, we explored how “uncertainty” creates business opportunities and used linear and logistic regression to analyze and optimize business operations. In Prof. Weng Xi’s course, we learned how federated learning addresses data isolation concerns and the legal and logistical implications for business.' },
+          { bold: 'Equally important were the friendships and professional relationships formed here that span continents.', text: ' I met and bonded with teammates studying around the world, including Hong Kong, the UK, Australia, and Canada. Together, we used data to promote corporate innovation in the project defense.' },
+          'This experience was more than educational. It reconnected me with my heritage and opened my eyes to diverse global perspectives.',
+        ],
+        midImageAfter: 0,
+        midImages: [
+          { src: '/pku-guanghua.jpeg', alt: 'Shang wearing a red Peking University shirt at Guanghua School of Management', caption: 'At Guanghua School of Management during DBIC.' },
+          { src: '/pku-project-defense.jpeg', alt: 'Shang presenting during the DBIC project defense', caption: 'Presenting our data-driven corporate innovation project at the final defense.' },
+        ],
+      }],
+    },
+  },
 ]
 
+const capabilityDescriptions = {
+  'Decision Analysis': 'Structure uncertain choices and compare tradeoffs with evidence.',
+  Optimization: 'Find the strongest solution within real-world constraints.',
+  Operations: 'Design systems that turn resources into reliable outcomes.',
+  'Data & AI': 'Use data and intelligent tools to improve decisions and products.',
+  'Management Science': 'Combine analytical methods with practical management judgment.',
+  'Applied Mathematics': 'Translate complex questions into models that can be tested.',
+  'Political Economy': 'Understand how institutions, markets, and power shape outcomes.',
+  'Data Science': 'Find useful patterns through computation, statistics, and context.',
+  'Quantitative Research': 'Turn evidence into rigorous, defensible insight.',
+  'Statistical Modeling': 'Represent uncertainty and relationships through statistical models.',
+  'Strategic Preparation': 'Set priorities, limits, and flexible plans before negotiating.',
+  'Value Creation': 'Find trades that expand what both sides can gain.',
+  'Conflict Resolution': 'Address differences early and keep tension productive.',
+  'Adaptive Negotiation': 'Read new signals and adjust strategy in real time.',
+  'Emotional Intelligence': 'Build trust, read the room, and manage emotion under pressure.',
+  'Investment Foundations': 'Apply the core concepts and formulas used across investment analysis.',
+  'Financial Modeling': 'Build structured financial models that connect assumptions with business outcomes.',
+  'Three-Statement Modeling': 'Connect the income statement, balance sheet, and cash flow statement in one model.',
+  'Practice-Aligned Learning': 'Apply an industry-informed curriculum through practical modules and real-world scenarios.',
+  'Ethics & Professional Standards': 'Evaluate decisions through professional conduct and investor responsibility.',
+  'Financial Statement Analysis': 'Interpret financial reporting to assess performance and business quality.',
+  'Asset Valuation': 'Connect market evidence with the value and risk of securities.',
+  'Entrepreneurial Storytelling': 'Make an idea clear, memorable, and compelling to others.',
+  'Marketing & Branding': 'Shape how a venture communicates its value and identity.',
+  'Venture Capital': 'Understand how investors evaluate startups, risk, and potential.',
+  'Fundraising Strategy': 'Prepare a credible case for capital and long-term growth.',
+  'Founder Engagement': 'Learn directly from builders across industries and stages.',
+  'Economic Indicators': 'Read published economic data and understand what moves markets.',
+  'Fixed Income Valuation': 'Connect bond prices with credit, inflation, and interest rates.',
+  'Currency Markets': 'Understand the forces that influence exchange rates and currencies.',
+  'Terminal Navigation': 'Find market-moving data through Bloomberg Terminal tools and commands.',
+  'Portfolio Analysis': 'Assess investments together through risk, return, and diversification.',
+  Entrepreneurship: 'Move from an unmet need toward a viable new venture.',
+  'Venture Strategy': 'Choose where and how an early-stage company can win.',
+  'Customer Discovery': 'Learn directly from users before committing to a solution.',
+  'Startup Operations': 'Build lightweight systems that help a young company execute.',
+  Networking: 'Create genuine relationships across people and communities.',
+  'Financial Analysis': 'Evaluate performance, value, and risk through financial evidence.',
+  Ethics: 'Apply professional judgment with integrity and accountability.',
+  Economics: 'Interpret how incentives and markets shape decisions.',
+  'Quantitative Methods': 'Use mathematical tools to evaluate financial questions.',
+  'Portfolio Management': 'Balance risk, return, and objectives across investments.',
+  'Market Concepts': 'Connect economic signals with the behavior of financial markets.',
+  'Fixed Income': 'Understand debt instruments, rates, pricing, and risk.',
+  Equities: 'Assess ownership securities, valuation, and market performance.',
+  Currencies: 'Understand exchange rates and global currency markets.',
+  'Bloomberg Terminal': 'Navigate professional market data, news, and analytics.',
+  'China Business': 'Read China’s commercial environment through local context.',
+  'Market Strategy': 'Turn market insight into positioning and action.',
+  'Cross-cultural Management': 'Lead and collaborate across different cultural expectations.',
+  'Economic Policy': 'Connect policy choices with business and market consequences.',
+  'Global Business': 'Evaluate opportunities across borders, systems, and cultures.',
+}
+
+function capabilityDescription(skill) {
+  return capabilityDescriptions[skill] || 'A core capability developed through this learning experience.'
+}
+
 const leadership = [
-  { slug: 'berkeley-model-un', company: 'UC Berkeley Model United Nations', role: 'Chair', year: 'Mar. 2025', summary: 'Designed and chaired a committee for a three-day annual Model UN conference.', about: 'I designed and chaired a committee for UC Berkeley Model United Nations, shaping a thoughtful and high-energy experience for delegates.', details: ['Designed and chaired a committee for 500+ delegates from 15+ institutions.', 'Guided debate, facilitated discussion, and shaped the delegate experience across the conference.'] },
-  { slug: 'asuc-marketing', company: 'Associated Students of the University of California', role: <><br/>Marketing & Design Executive</>, year: 'Jun. 2023 — May 2024', summary: 'Led marketing and design initiatives for UC Berkeley’s largest student organization.', about: 'At ASUC, I led a small team developing campaigns and communications for the campus community.', details: ['Led a five-person team across 12+ marketing initiatives.', 'Reached a 2,000+ audience through campaigns and campus communications.'] },
+  {
+    slug: 'berkeley-model-un', company: 'UC Berkeley Model United Nations', role: 'Chair', year: 'Mar. 2025', location: 'Berkeley, CA',
+    brandLogo: '/ucbmun-logo.png', brandAccent: '#f6a313', brandInk: '#073a61', brandSurface: '#edf6fb', brandAccentInk: '#073a61', brandLogoClass: 'brand-logo-mark',
+    summary: 'Designed and chaired a committee for a three-day annual Model UN conference.',
+    about: 'UC Berkeley Model United Nations brings students across majors together to explore international diplomacy, policy, and leadership through debate, conference organizing, and travel-team participation. The organization develops negotiation, public speaking, and collaborative leadership while engaging members with real-world global challenges.',
+    details: ['Designed and chaired a committee for 500+ delegates from 15+ institutions.', 'Guided debate, facilitated discussion, and shaped the delegate experience across the conference.'],
+    tasks: [
+      { title: 'Designing the committee', bullets: ['Designed and chaired a committee for 500+ delegates from 15+ institutions.'], facts: ['500+', '15+'] },
+      { title: 'Leading the room', bullets: ['Guided debate, facilitated discussion, and shaped the delegate experience across the conference.'], facts: [] },
+    ],
+  },
+  {
+    slug: 'asuc-marketing', company: 'Associated Students of the University of California', role: 'Marketing & Design Executive', year: 'Jun. 2023 — May 2024', location: 'Berkeley, CA',
+    brandLogo: '/asuc-logo-cutout.png', brandAccent: '#fdb515', brandInk: '#003262', brandSurface: '#edf4fb', brandAccentInk: '#003262', brandLogoClass: 'brand-logo-asuc',
+    summary: 'Led marketing and design initiatives for UC Berkeley’s largest student organization.',
+    about: 'The Associated Students of the University of California supports Berkeley’s campus community through student-led services, events, programs, and responsible businesses. As Marketing & Design Executive in Senator Andy Liu’s Office, I helped translate student priorities into accessible campaigns and communications.',
+    details: ['Led a five-person team across 12+ marketing initiatives.', 'Reached a 2,000+ audience through campaigns and campus communications.'],
+    tasks: [
+      { title: 'Leading creative delivery', bullets: ['Led a five-person team across 12+ marketing initiatives.'], facts: ['five-person team', '12+'] },
+      { title: 'Growing campus reach', bullets: ['Reached a 2,000+ audience through campaigns and campus communications.'], facts: ['2,000+'] },
+    ],
+  },
 ]
 
 const lifePages = {
@@ -212,6 +463,7 @@ const lifePages = {
 function Arrow() { return <span className="arrow">↗</span> }
 
 function HandArrow({ direction = 'up' }) {
+  if (direction === 'bubble') return <svg className="hand-arrow hand-arrow-bubble" viewBox="0 0 58 62" aria-hidden="true"><path d="M51 7c-15-2-18 9-11 18 8 11 1 20-22 25"/><path d="m22 39-5 12 13 1"/></svg>
   if (direction === 'down') return <svg className="hand-arrow hand-arrow-down" viewBox="0 0 48 58" aria-hidden="true"><path d="M20 4c10 7-4 13 3 20 9 8-5 12 5 20"/><path d="m17 40 11 5 8-9"/></svg>
   return <svg className="hand-arrow" viewBox="0 0 52 42" aria-hidden="true"><path d="M5 33c10 2 8-13 18-12 9 1 6-13 17-16"/><path d="m31 5 10 1-3 10"/></svg>
 }
@@ -262,7 +514,102 @@ function PortfolioRow({ item, index }) {
   </article>
 }
 
-function CasePage({ item }) {
+function factToken(fact) {
+  return fact.match(/~?\d[\d,.]*(?:\+)?/)?.[0] || ''
+}
+
+function MetricText({ text, facts = [] }) {
+  const metrics = facts.map(fact => ({ fact, token: factToken(fact) })).filter(metric => metric.token && text.includes(metric.token))
+  if (!metrics.length) return text
+  const tokens = [...new Set(metrics.map(metric => metric.token))].sort((a, b) => b.length - a.length)
+  const pattern = new RegExp(`(${tokens.map(token => token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
+  return text.split(pattern).map((part, index) => {
+    const metric = metrics.find(item => item.token === part)
+    return metric
+      ? <span className="inline-metric" data-label={metric.fact} tabIndex="0" aria-label={`Key result: ${metric.fact}`} key={`${part}-${index}`}>{part}</span>
+      : <Fragment key={`${part}-${index}`}>{part}</Fragment>
+  })
+}
+
+function StoryParagraph({ paragraph }) {
+  if (typeof paragraph === 'string') return paragraph
+  if (paragraph.quote) return <>{paragraph.text}<em className="reflection-question">{paragraph.quote}</em></>
+  return <><strong>{paragraph.bold}</strong>{paragraph.text}</>
+}
+
+function AcademicPortfolio({ portfolio, accent }) {
+  return <section className="berkeley-portfolio" style={{ '--case-accent': accent }}>
+    <header className="berkeley-portfolio-intro">
+      <p className="hand-label"># About</p>
+      <div>
+        <span>{portfolio.eyebrow}</span>
+        <h2>{portfolio.title}</h2>
+        <p>{portfolio.intro}</p>
+      </div>
+    </header>
+    <div className="academic-chapters">
+      {portfolio.chapters.map((chapter, index) => <details className="academic-chapter" key={chapter.title}>
+        <summary>
+          <span className="academic-chapter-number">0{index + 1}</span>
+          <div className="academic-chapter-overview">
+            <span className="academic-chapter-type">{chapter.type}</span>
+            <h3>{chapter.title}</h3>
+            <p className="academic-chapter-subtitle">{chapter.subtitle}</p>
+            <p className="academic-chapter-summary">{chapter.summary}</p>
+            <div className="academic-chapter-skills" aria-label={`${chapter.title} capabilities`}>{chapter.skills.map(skill => <span key={skill}>{skill}</span>)}</div>
+          </div>
+          <span className="academic-chapter-toggle" aria-hidden="true"><i/><i/></span>
+        </summary>
+        <div className="academic-chapter-body">
+          <div className="academic-chapter-left">
+            <div className="academic-chapter-about">
+              <span>About the program</span>
+              <p>{chapter.about}</p>
+              <a href={chapter.url} target="_blank" rel="noreferrer">View Berkeley program <Arrow /></a>
+            </div>
+            <div className="academic-chapter-tool-skills">
+              <section><h4>Tools</h4><div className="academic-tool-list">{chapter.tools.map(tool => <span key={tool}>{tool}</span>)}</div></section>
+              <section><h4>Skills</h4><ul>{chapter.skills.map(skill => <li key={skill}>{skill}</li>)}</ul></section>
+            </div>
+          </div>
+          <div className="academic-course-area">
+            <span>Coursework by theme</span>
+            <div className="academic-course-groups">{chapter.courseGroups.map(group => <section key={group.label}>
+              <h4>{group.label}</h4><div className="academic-course-grid">{group.courses.map(course => <article key={course.code}>
+                <small>{course.code}</small><h5>{course.title}</h5><p>{course.note}</p>
+              </article>)}</div>
+            </section>)}</div>
+          </div>
+        </div>
+      </details>)}
+    </div>
+  </section>
+}
+
+function EducationCasePage({ item }) {
+  const [navCompact, setNavCompact] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setNavCompact(window.scrollY > 80)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return <main className={`education-case-page education-case-${item.slug}`}>
+    <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#education" className="case-home">Back to Education</a><a href="#contact" className="contact-pill">Contact Me</a></header>
+    {item.academicProfile ? <section className={`academic-case-hero ${item.academicPortfolio ? 'berkeley-academic-hero' : ''}`} style={{ '--institution-accent': item.institutionAccent }}><div className="academic-hero-card"><div className="academic-logo-panel"><span>Academic chapter</span><img src={item.institutionLogo} alt={`${item.school} logo`}/></div><div className="academic-profile-copy"><div className="academic-title-lockup"><p className="hand-label"># Education</p><h1>{item.degreeLines ? item.degreeLines.map(line => <span className="degree-line" key={line}>{line}</span>) : item.degreeTitle || item.program}</h1><p className="academic-institution">{item.institutionTitle || item.school}</p></div></div><div className="academic-details" aria-label="Academic details">{item.academicDetails.map(detail => <div key={detail.label}><small>{detail.label}</small><strong>{detail.value}</strong></div>)}</div></div></section> : item.credentialImage ? <section className="credential-profile-hero" style={{ '--institution-accent': item.institutionAccent || '#159660', '--accent-ink': item.accentInk || '#fff' }}><div className={`credential-profile-card ${item.credentialLandscape ? 'is-landscape' : 'is-portrait'}`}><div className="credential-preview-panel"><span>Verified credential</span><a href={item.credentialImage} target="_blank" rel="noreferrer" aria-label={`Open full ${item.program} credential`}><img src={item.credentialImage} alt={`${item.program} credential`}/></a></div><div className="credential-profile-copy"><div className="credential-title-lockup"><p className="hand-label"># Education</p><h1>{item.heroTitle || item.program}</h1><p>{item.school}</p></div><small>{item.date}</small><a className="credential-open-link" href={item.credentialImage} target="_blank" rel="noreferrer">View full credential <Arrow /></a></div></div></section> : <section className="education-case-hero">
+      <div className={`credential-stage ${item.credentialImage ? 'has-credential-image' : ''} ${item.credentialLandscape ? 'has-landscape-credential' : ''}`}>
+        {item.credentialImage ? <a className={`credential-document credential-image ${item.credentialLandscape ? 'credential-landscape' : ''}`} href={item.credentialImage} target="_blank" rel="noreferrer"><img src={item.credentialImage} alt={`${item.program} credential`}/></a> : <div className="credential-document" aria-label={`Placeholder for ${item.program} credential`}>
+          <span className="credential-type">{item.credential}</span><div className="credential-emblem">✦</div><p>Presented by</p><h2>{item.school}</h2><i/><strong>{item.program}</strong><small>{item.date}</small><span className="credential-ready">Credential image can be added here</span>
+        </div>}
+      </div>
+    </section>}
+    {item.academicPortfolio ? <AcademicPortfolio portfolio={item.academicPortfolio} accent={item.institutionAccent}/> : <section className="education-about" style={{ '--case-accent': item.institutionAccent || '#159660', '--case-accent-ink': item.accentInk || '#fff' }}><p className="hand-label"># About</p><div className="education-about-panel"><div className="education-about-copy"><p className="case-lead">{item.summary}</p><a href={item.url} target="_blank" rel="noreferrer">{item.websiteLabel} <Arrow /></a></div>{item.skillsPlaceholder ? <div className="education-skill-placeholder" aria-label="Capabilities placeholder"><span>Capabilities · In progress</span><div className="skill-placeholder-rings" aria-hidden="true"><i/><i/><i/></div><h3>Learning profile<br/>coming into focus.</h3><p>Specific capabilities will be added as the track and coursework are confirmed.</p></div> : <div className="education-skill-map"><p>Capabilities developed</p><div className="skill-hover-note" aria-hidden="true"><HandArrow direction="bubble"/><span className="hover-copy">hover over me</span><span className="tap-copy">tap to explore</span></div><div className="skill-orbit" role="list" aria-label="Skills developed through this program">{item.skills.map((skill, index) => <span className={skill.length >= 20 ? 'skill-label-long' : skill.length >= 15 ? 'skill-label-medium' : ''} role="listitem" tabIndex="0" data-description={capabilityDescription(skill)} aria-label={`${skill}: ${capabilityDescription(skill)}`} style={{ '--bubble-index': index }} key={skill}>{skill}</span>)}</div></div>}</div></section>}
+    {item.hideReflection ? null : item.reflection ? <section className="case-reflection education-case-reflection" style={{ '--case-accent': item.institutionAccent || '#159660', '--case-accent-ink': item.accentInk || '#fff' }}><p className="hand-label"># Reflection</p><div className="reflection-stories">{item.reflection.stories.map((story, index) => <article className={`reflection-story story-${index + 1} ${story.compact ? 'compact' : ''} ${story.magazine ? 'magazine-layout' : ''} ${story.wide ? 'wide-layout' : ''} ${!story.images?.length ? 'no-photo-column' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 90}ms` }} key={story.title || `story-${index}`}>{story.images?.length ? <div className="story-photo-column">{story.images.map((image, imageIndex) => <figure className="story-image reflection-image reveal-on-scroll" style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><img src={image.src} alt={image.alt}/><figcaption>{image.caption}</figcaption></figure>)}</div> : null}<div className="story-copy-block">{story.date && <p className="story-date">{story.date}</p>}{story.title && <h2>{story.title}</h2>}{story.intro && <p className="story-intro">{story.intro}</p>}{story.paragraphs.map((paragraph, paragraphIndex) => <Fragment key={typeof paragraph === 'string' ? paragraph : paragraph.bold || paragraph.quote}><p><StoryParagraph paragraph={paragraph}/></p>{story.midImages && paragraphIndex === story.midImageAfter && <div className="story-mid-images">{story.midImages.map((image, imageIndex) => <figure className="story-image reflection-image reveal-on-scroll" style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><img src={image.src} alt={image.alt}/><figcaption>{image.caption}</figcaption></figure>)}</div>}</Fragment>)}</div></article>)}</div></section> : <section className="case-reflection education-case-reflection" style={{ '--case-accent': item.institutionAccent || '#159660', '--case-accent-ink': item.accentInk || '#fff' }}><p className="hand-label"># Reflection</p><div className="reflection-stories"><article className="reflection-story no-photo-column"><div className="story-copy-block"><h2>Reflections<br/>coming soon.</h2><p className="story-intro">This section is ready for the same image-and-story format used across the experience case studies.</p><p>Photos and personal writing for this learning chapter will live here.</p></div></article></div></section>}
+    <footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer>
+  </main>
+}
+
+function CasePage({ item, sectionHref = '#experience', sectionLabel = 'Experience', chapterLabel = 'Experience' }) {
   const [navCompact, setNavCompact] = useState(false)
   const name = item.company || item.school
   const title = item.role || item.program
@@ -275,20 +622,27 @@ function CasePage({ item }) {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-  return <main className="case-page">
-    <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#home" className="case-home">Back to Home</a><a href="mailto:shangzhu@stanford.edu" className="contact-pill">Contact Me</a></header>
-    <section className="case-hero"><div><p className="hand-label"># Details</p><h1>{name}</h1><p>{item.location ? <>{date} <span>/</span> {item.location}</> : <>{title} <span>/</span> {date}</>}</p></div>{item.tools ? <div className="case-visual case-tools"><p>The Tools I Used</p><div className="tool-stack">{item.tools.map(tool => <div className="tool-item" key={tool.name}><span className="tool-icon"><ToolIcon type={tool.type}/></span><span className="tool-reveal"><HandArrow direction="down"/><b>{tool.name}</b></span></div>)}</div></div> : item.visual === 'market-map' ? <div className="case-visual market-map"><span>MARKET INTELLIGENCE</span><b>Signal<br/>Map</b><div className="market-nodes"><i/><i/><i/><i/><i/></div><small>Abstracted from confidential project work.</small></div> : <div className="case-visual"><span>PROJECT VISUAL</span><b>{name}</b><small>Images and work samples will live here.</small></div>}</section>
+  return <main className={`case-page branded-experience-page case-${item.slug}`} style={{ '--brand-accent': item.brandAccent || '#159660', '--brand-ink': item.brandInk || '#183228', '--brand-surface': item.brandSurface || '#edf6ef', '--brand-accent-ink': item.brandAccentInk || '#fff' }}>
+    <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href={sectionHref} className="case-home">Back to {sectionLabel}</a><a href="#contact" className="contact-pill">Contact Me</a></header>
+    <section className="experience-profile-hero"><div className="experience-profile-card"><div className={`experience-logo-panel ${item.brandLogoClass || ''}`}><span>{chapterLabel} chapter</span>{item.brandLogo ? <img src={item.brandLogo} alt={`${name} logo`}/> : <strong>{name}</strong>}</div><div className="experience-profile-copy"><p className="hand-label"># {chapterLabel}</p><h1>{name}</h1><p className="experience-role">{title}</p><div className="experience-meta"><span>{date}</span><span>{item.location || '—'}</span></div></div></div></section>
     {item.results && !item.hideResults && <section className="result-grid">{item.results.map(([number, label], index) => <div key={label}><span>Result 0{index + 1}</span><b>{number}</b><p>{label}</p></div>)}</section>}
-    <section className={`case-about ${item.tasks ? 'case-about-simple' : ''}`}><div><p className="hand-label"># About</p><h2>{item.aboutTitle || <>The work,<br/><i>in context.</i></>}</h2></div><div><p className="case-lead">{item.aboutLines ? item.aboutLines.map((line, index) => <span key={line}>{line}{index < item.aboutLines.length - 1 && <br/>}</span>) : about}</p>{!item.tasks && <ul>{details.map(detail => <li key={detail}>{detail}</li>)}</ul>}{item.url && <a href={item.url} target="_blank" rel="noreferrer">Visit company website <Arrow /></a>}</div></section>
-    {item.tasks && <section className="case-tasks"><p className="hand-label"># The work</p>{item.tasks.map((task, index) => <article className="reveal-on-scroll" style={{ '--reveal-delay': `${index * 120}ms` }} key={task.title}><div><p className="task-label">0{index + 1} / {task.title}</p>{task.bullets ? <ul className="task-copy task-bullets">{task.bullets.map(point => <li key={point}>{point}</li>)}</ul> : <p className="task-copy">{task.text}</p>}</div><div className="task-facts">{task.facts.map(fact => <span key={fact}>{fact}</span>)}</div></article>)}</section>}
-    {item.recommendation && <section className="case-recommendation"><p className="hand-label"># Recommendation</p><article className="recommendation-card">{item.recommendation.pending ? <div className="recommendation-pending"><span className="quote-mark">“</span><p>{item.recommendation.message}</p></div> : <><span className="quote-mark">“</span><div className="recommendation-quote">{item.recommendation.quote.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div><div className="recommendation-author"><div><span>A note from</span><h3>{item.recommendation.name}</h3><p>{item.recommendation.role}</p></div><small>{item.recommendation.date}</small></div><a className="recommendation-link" href={item.recommendation.url} target="_blank" rel="noreferrer">Open LinkedIn to read more <Arrow /></a></>}</article></section>}
-    {item.reflection ? item.reflection.pending ? <section className="case-reflection reflection-pending"><p className="hand-label"># Reflection</p><h2>Research notes<br/>and <i>reflections.</i></h2><p>A longer reflection on this work will live here.</p></section> : <section className="case-reflection"><p className="hand-label"># Reflection</p><div className="reflection-stories">{item.reflection.stories.map((story, index) => <article className={`reflection-story story-${index + 1} ${story.compact ? 'compact' : ''} ${!story.images?.length ? 'no-photo-column' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 90}ms` }} key={story.title || `story-${index}`}>{story.images?.length ? <div className="story-photo-column">{story.images.map((image, imageIndex) => <figure className="story-image reflection-image reveal-on-scroll" style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><img src={image.src} alt={image.alt}/><figcaption>{image.caption}</figcaption></figure>)}</div> : null}<div className="story-copy-block">{story.date && <p className="story-date">{story.date}</p>}{story.title && <h2>{story.title}</h2>}{story.intro && <p className="story-intro">{story.intro}</p>}{story.paragraphs.map((paragraph, paragraphIndex) => <Fragment key={typeof paragraph === 'string' ? paragraph : paragraph.bold}><p>{typeof paragraph === 'string' ? paragraph : <><strong>{paragraph.bold}</strong>{paragraph.text}</>}</p>{story.midImages && paragraphIndex === story.midImageAfter && <div className="story-mid-images">{story.midImages.map((image, imageIndex) => <figure className="story-image reflection-image reveal-on-scroll" style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><img src={image.src} alt={image.alt}/><figcaption>{image.caption}</figcaption></figure>)}</div>}</Fragment>)}</div></article>)}</div></section> : !item.tasks ? <section className="case-placeholder"><p className="hand-label"># More to come</p><h2>Artifacts, images,<br/>and <i>impact.</i></h2><p>This page is ready for project materials, process notes, and a deeper impact story.</p></section> : null}
-    <footer><span>© 2026 SHANG ZHU</span><a href="#home">Back to home</a><a href="mailto:shangzhu@stanford.edu">shangzhu@stanford.edu</a></footer>
+    <section className={`case-about experience-about ${item.tasks ? 'case-about-simple' : ''}`}><div><p className="hand-label"># About</p><h2>{item.aboutTitle || <>The work,<br/><i>in context.</i></>}</h2></div><div><p className="case-lead">{item.aboutLines ? item.aboutLines.join(' ') : about}</p>{!item.tasks && <ul>{details.map(detail => <li key={detail}>{detail}</li>)}</ul>}{item.url && <a href={item.url} target="_blank" rel="noreferrer">Visit company website <Arrow /></a>}</div></section>
+    {item.tasks && <section className="case-tasks experience-tasks"><div className="experience-work-header"><p className="hand-label"># The work</p>{item.tools && <div className="experience-tools-inline"><strong>Tools</strong><div>{item.tools.map(tool => <span className="experience-tool-chip" key={tool.name}><span className="tool-icon"><ToolIcon type={tool.type}/></span><span>{tool.name}</span></span>)}</div></div>}</div><div className="task-list">{item.tasks.map((task, index) => {
+      const taskText = task.bullets ? task.bullets.join(' ') : task.text
+      const unmatchedFacts = task.facts.filter(fact => !taskText.includes(factToken(fact)))
+      return <article className="reveal-on-scroll" style={{ '--reveal-delay': `${index * 120}ms` }} key={task.title}>
+        <div className="task-heading"><span className="task-number">0{index + 1}</span><h3>{task.title}</h3></div>
+        <div className="task-body">{task.bullets ? <ul className="task-copy task-bullets">{task.bullets.map(point => <li key={point}><MetricText text={point} facts={task.facts}/></li>)}</ul> : <p className="task-copy"><MetricText text={task.text} facts={task.facts}/></p>}{unmatchedFacts.length > 0 && <div className="task-metric-fallbacks">{unmatchedFacts.map(fact => <span className="inline-metric inline-metric-standalone" data-label={fact} tabIndex="0" key={fact}>{fact}</span>)}</div>}</div>
+      </article>
+    })}</div></section>}
+    {item.recommendation && <section className="case-recommendation experience-recommendation"><p className="hand-label"># Recommendation</p><article className="recommendation-card">{item.recommendation.pending ? <div className="recommendation-pending"><span className="quote-mark">“</span><p>{item.recommendation.message}</p></div> : <><span className="quote-mark">“</span><div className="recommendation-quote">{item.recommendation.quote.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div><div className="recommendation-author"><div><span>A note from</span><h3>{item.recommendation.name}</h3><p>{item.recommendation.role}</p></div><small>{item.recommendation.date}</small></div><a className="recommendation-link" href={item.recommendation.url} target="_blank" rel="noreferrer">Open LinkedIn to read more <Arrow /></a></>}</article></section>}
+    {item.reflection ? item.reflection.pending ? <section className="case-reflection experience-reflection reflection-pending"><p className="hand-label"># Reflection</p><h2>Research notes<br/>and <i>reflections.</i></h2><p>A longer reflection on this work will live here.</p></section> : <section className="case-reflection experience-reflection"><p className="hand-label"># Reflection</p><div className="reflection-stories">{item.reflection.stories.map((story, index) => <article className={`reflection-story story-${index + 1} ${story.compact ? 'compact' : ''} ${!story.images?.length ? 'no-photo-column' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 90}ms` }} key={story.title || `story-${index}`}>{story.images?.length ? <div className="story-photo-column">{story.images.map((image, imageIndex) => <figure className="story-image reflection-image reveal-on-scroll" style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><img src={image.src} alt={image.alt}/><figcaption>{image.caption}</figcaption></figure>)}</div> : null}<div className="story-copy-block">{story.date && <p className="story-date">{story.date}</p>}{story.title && <h2>{story.title}</h2>}{story.intro && <p className="story-intro">{story.intro}</p>}{story.paragraphs.map((paragraph, paragraphIndex) => <Fragment key={typeof paragraph === 'string' ? paragraph : paragraph.bold || paragraph.quote}><p><StoryParagraph paragraph={paragraph}/></p>{story.midImages && paragraphIndex === story.midImageAfter && <div className="story-mid-images">{story.midImages.map((image, imageIndex) => <figure className="story-image reflection-image reveal-on-scroll" style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><img src={image.src} alt={image.alt}/><figcaption>{image.caption}</figcaption></figure>)}</div>}</Fragment>)}</div></article>)}</div></section> : !item.tasks ? <section className="case-placeholder"><p className="hand-label"># More to come</p><h2>Artifacts, images,<br/>and <i>impact.</i></h2><p>This page is ready for project materials, process notes, and a deeper impact story.</p></section> : null}
+    <footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer>
   </main>
 }
 
 function LifePage({ page }) {
-  return <main className="life-page"><header className="case-nav"><a href="#home" className="logo">Shang</a><a href="#about" className="back-link">← Back To About</a><a href="#contact" className="contact-pill">Contact Me</a></header><section className="life-hero"><p className="hand-label"># Beyond work</p><h1>{page.title}</h1><p>{page.intro}</p></section><section className="life-gallery"><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div></section><footer><span>© 2026 SHANG ZHU</span><a href="#about">Back To About</a><a href="mailto:shangzhu@stanford.edu">shangzhu@stanford.edu</a></footer></main>
+  return <main className="life-page"><header className="case-nav"><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header><section className="life-hero"><p className="hand-label"># Beyond work</p><h1>{page.title}</h1><p>{page.intro}</p></section><section className="life-gallery"><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div></section><footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer></main>
 }
 
 function App() {
@@ -299,19 +653,40 @@ function App() {
   const [nameRevealKey, setNameRevealKey] = useState(0)
   useEffect(() => { const onHashChange = () => setRoute(window.location.hash); window.addEventListener('hashchange', onHashChange); return () => window.removeEventListener('hashchange', onHashChange) }, [])
   useEffect(() => { const onScroll = () => setNavCompact(window.scrollY > 80); onScroll(); window.addEventListener('scroll', onScroll, { passive: true }); return () => window.removeEventListener('scroll', onScroll) }, [])
-  useEffect(() => { const observer = new IntersectionObserver((entries) => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target) } }), { threshold: .12 }); document.querySelectorAll('.reveal-on-scroll').forEach(element => observer.observe(element)); return () => observer.disconnect() }, [route])
+  useEffect(() => {
+    if (!['#home', '#about', '#experience', '#education', '#leadership', '#contact'].includes(route)) return
+    const frame = window.requestAnimationFrame(() => document.querySelector(route)?.scrollIntoView())
+    return () => window.cancelAnimationFrame(frame)
+  }, [route])
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible')
+        observer.unobserve(entry.target)
+      }
+    }), { threshold: .12 })
+    document.querySelectorAll('.reveal-on-scroll, .case-page > section, .education-case-page > section, .life-page > section').forEach(element => {
+      element.classList.add('reveal-on-scroll')
+      observer.observe(element)
+    })
+    return () => observer.disconnect()
+  }, [route])
   const copyEmail = async (email) => { await navigator.clipboard?.writeText(email); setCopiedEmail(email); window.setTimeout(() => setCopiedEmail(''), 1600) }
   const togglePortrait = () => { if (showSummary) setNameRevealKey(key => key + 1); setShowSummary(!showSummary) }
   const caseSlug = route.startsWith('#case/') ? route.replace('#case/', '') : null
   const caseItem = [...experiences, ...education, ...leadership].find(item => item.slug === caseSlug)
   const lifeSlug = route.startsWith('#life/') ? route.replace('#life/', '') : null
-  if (caseItem) return <CasePage item={caseItem} />
+  if (caseItem) {
+    if (caseItem.school) return <EducationCasePage item={caseItem} />
+    const isLeadership = leadership.some(item => item.slug === caseItem.slug)
+    return <CasePage item={caseItem} sectionHref={isLeadership ? '#leadership' : '#experience'} sectionLabel={isLeadership ? 'Extracurricular' : 'Experience'} chapterLabel={isLeadership ? 'Leadership' : 'Experience'} />
+  }
   if (lifeSlug && lifePages[lifeSlug]) return <LifePage page={lifePages[lifeSlug]} />
   return <main>
     <nav className={`site-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><div className="landing-links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#leadership">Extracurricular</a></div><a href="#contact" className="contact-pill">Contact Me</a></nav>
     <section className="landing" id="home">
       <div className="name-backdrop" aria-hidden="true">Shang Zhu</div>
-      <div className="hero-center"><div className="portrait-stage"><div className="quiet-summary"><span>Research & strategy</span><span>Market intelligence</span><span>Data analysis & storytelling</span><span>Python · R · SQL · Excel</span></div><p className="hand-note note-click">click me <HandArrow direction="down"/></p><div className={`portrait-card ${showSummary ? 'show-summary' : ''}`} onClick={togglePortrait} onKeyDown={(event) => { if (event.key === 'Enter') togglePortrait() }} role="button" tabIndex="0" aria-label="Show Shang's quick profile"><span className="portrait-face"><img src="/hero-headshot.jpg" alt="Shang Zhu"/></span><span key={nameRevealKey} className="portrait-name">{'Shang'.split('').map((letter, index) => <span key={letter} style={{ '--letter-delay': `${index * 120}ms` }}>{letter}</span>)}</span><span className="summary-card"><b>Who I Am</b><small className="who-lines">MS&E @ Stanford<br/>Applied Math & Political Economy @ UC Berkeley</small><b className="bring-title">What I Bring</b><small>Research & Strategy<br/>Market Intelligence<br/>Data Analysis & Storytelling<br/>Python · R · SQL · Excel</small><a href="#contact" onClick={(event) => event.stopPropagation()}>Contact Me</a></span></div></div></div>
+      <div className="hero-center"><div className="portrait-stage"><div className="quiet-summary"><span>Research & strategy</span><span>Market intelligence</span><span>Data analysis & storytelling</span><span>Python · R · SQL · Excel</span></div><p className="hand-note note-click">click me <HandArrow direction="down"/></p><div className={`portrait-card ${showSummary ? 'show-summary' : ''}`} onClick={togglePortrait} onKeyDown={(event) => { if (event.key === 'Enter') togglePortrait() }} role="button" tabIndex="0" aria-label="Show Shang's quick profile"><span className="portrait-face"><img src="/hero-headshot.jpg" alt="Shang Zhu"/></span><span key={nameRevealKey} className="portrait-name">{'Shang'.split('').map((letter, index) => <span key={letter} style={{ '--letter-delay': `${index * 120}ms` }}>{letter}</span>)}</span><span className="summary-card"><b>Who I Am</b><small className="who-lines">MS&E @ Stanford<br/>Applied Math, Political Economy & Data Science @ UC Berkeley</small><b className="bring-title">What I Bring</b><small>Research & Strategy<br/>Market Intelligence<br/>Data Analysis & Storytelling<br/>Python · R · SQL · Excel</small><a href="#contact" onClick={(event) => event.stopPropagation()}>Contact Me</a></span></div></div></div>
     </section>
 
     <section className="about reveal-on-scroll" id="about"><div><p className="hand-label"># A little about me</p><h1>I make<br/>complex things<br/><i>clear.</i></h1></div><div className="about-copy"><p>I’m an interdisciplinary researcher and strategist, originally from Shanghai and now based in the Bay Area. I translate between numbers and words, research and markets, and people across disciplines and places.</p><p>My work pairs rigorous analysis with human context to address complex social challenges and help create opportunities for people who have not had the ones I have.</p><div className="outside-work"><p>Outside My Work</p><div>{[['writer', 'Writer'], ['tennis', 'Tennis Player'], ['fashion', 'Fashion Model'], ['travel', 'Traveler']].map(([type, label]) => <a href={`#life/${type}`} key={type} aria-label={label}><LifeIcon type={type}/><span className="life-label"><HandArrow /><b>{label}</b></span></a>)}</div></div></div></section>
@@ -323,7 +698,7 @@ function App() {
     <section className="list-section leadership" id="leadership"><p className="hand-label"># Leadership</p><div className="section-intro reveal-on-scroll"><div><h2>How I’ve <i>led.</i></h2><p>Building communities, ideas, and momentum beyond the classroom.</p></div></div><div className="expand-list">{leadership.map((item, index) => <PortfolioRow item={item} index={index} key={item.slug} />)}</div></section>
 
     <section className="contact-section" id="contact"><div><p className="hand-label"># Hire me</p><h2>Let’s get in touch.</h2><p>Open to conversations, questions, and new ideas!</p></div><div className="contact-details"><div><small>Work Email</small><p>shangzhu@stanford.edu <button onClick={() => copyEmail('shangzhu@stanford.edu')}>{copiedEmail === 'shangzhu@stanford.edu' ? 'Copied!' : 'Copy'}</button></p></div><div><small>Personal Email</small><p>shang.zhu.77@gmail.com <button onClick={() => copyEmail('shang.zhu.77@gmail.com')}>{copiedEmail === 'shang.zhu.77@gmail.com' ? 'Copied!' : 'Copy'}</button></p></div><a href="https://www.linkedin.com/in/shangzhu77/" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a></div></section>
-    <footer><span>© 2026 SHANG ZHU</span><a href="#home">Back To Top</a><a href="mailto:shangzhu@stanford.edu">shangzhu@stanford.edu</a></footer>
+    <footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer>
   </main>
 }
 
