@@ -632,7 +632,7 @@ footer a:last-child { color: #c6e9cf; text-align: right; }
 .case-piper-ai .experience-reflection .portrait-reflection-image,
 .case-berkeley-haas .experience-reflection .story-1 .portrait-reflection-image { width: min(56%, 280px); }
 .case-berkeley-haas .experience-reflection .story-2.wide-layout .story-copy-block > p { max-width: none; }
-.case-berkeley-haas .experience-reflection .story-2.wide-layout .story-mid-images .reflection-image { width: 100%; max-width: none; }
+.case-berkeley-haas .experience-reflection .story-2.wide-layout .story-mid-images .reflection-image { width: min(72%, 350px); max-width: 350px; }
 .education-case-uc-berkeley .education-case-reflection .portrait-reflection-image { width: min(68%, 360px); margin-right: auto; margin-left: auto; }
 
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-13px); } }
@@ -873,6 +873,7 @@ footer a:last-child { color: #c6e9cf; text-align: right; }
   .case-reflection .reflection-image.story-image img { height: auto; }
   .case-piper-ai .experience-reflection .reflection-image,
   .case-berkeley-haas .experience-reflection .story-1 .reflection-image { width: min(82%, 380px); }
+  .case-berkeley-haas .experience-reflection .story-2.wide-layout .story-mid-images .reflection-image { width: min(82%, 380px); max-width: 380px; }
   .case-berkeley-haas .experience-reflection .reflection-image { width: min(92%, 420px); }
   .case-piper-ai .experience-reflection .portrait-reflection-image,
   .case-berkeley-haas .experience-reflection .story-1 .portrait-reflection-image { width: min(70%, 320px); }
