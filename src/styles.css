@@ -13,6 +13,87 @@
   scroll-behavior: smooth;
 }
 
+/* Fashion cover: the editorial archive becomes the opening scene. */
+.fashion-cover {
+  --fashion-x-1: 0px;
+  --fashion-y-1: 0px;
+  --fashion-x-2: 0px;
+  --fashion-y-2: 0px;
+  --fashion-x-3: 0px;
+  --fashion-y-3: 0px;
+  --fashion-x-4: 0px;
+  --fashion-y-4: 0px;
+  position: relative;
+  isolation: isolate;
+  display: block;
+  height: max(780px, calc(100svh - 94px));
+  min-height: 780px;
+  max-height: 1020px;
+  padding: 0;
+  overflow: hidden;
+  background: #fbfaf7;
+  cursor: crosshair;
+}
+.fashion-cover:before, .fashion-cover:after { display: none; }
+.fashion-cover-cloud { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.fashion-cover-photo { position: absolute; margin: 0; overflow: hidden; background: #111; box-shadow: 0 20px 55px rgba(22,18,28,.16); transition: translate .55s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease; will-change: translate; }
+.fashion-cover-photo img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.92) contrast(1.025); }
+.fashion-cover-photo span { position: absolute; right: 10px; bottom: 8px; color: rgba(255,255,255,.86); font-size: 9px; font-weight: 850; letter-spacing: .14em; text-shadow: 0 1px 8px rgba(0,0,0,.7); }
+.fashion-depth-1 { translate: var(--fashion-x-1) var(--fashion-y-1); }
+.fashion-depth-2 { translate: var(--fashion-x-2) var(--fashion-y-2); }
+.fashion-depth-3 { translate: var(--fashion-x-3) var(--fashion-y-3); }
+.fashion-depth-4 { translate: var(--fashion-x-4) var(--fashion-y-4); }
+.fashion-cover-photo-1 { left: 2.5%; top: 8%; width: clamp(205px, 17vw, 310px); aspect-ratio: .69; rotate: -2deg; }
+.fashion-cover-photo-2 { left: 39%; top: 3%; width: clamp(175px, 13vw, 235px); aspect-ratio: .72; rotate: 1.4deg; }
+.fashion-cover-photo-3 { right: 3%; top: 9%; width: clamp(215px, 18vw, 325px); aspect-ratio: .72; rotate: 1.8deg; }
+.fashion-cover-photo-4 { left: 4.5%; bottom: 5%; width: clamp(250px, 22vw, 390px); aspect-ratio: 1.45; rotate: 1deg; }
+.fashion-cover-photo-5 { left: 33%; bottom: 2%; width: clamp(190px, 16vw, 285px); aspect-ratio: .7; rotate: -1.3deg; }
+.fashion-cover-photo-6 { right: 3%; bottom: 4%; width: clamp(275px, 24vw, 430px); aspect-ratio: 1.48; rotate: -1.2deg; }
+.fashion-cover-photo-7 { left: 19%; top: 37%; width: clamp(150px, 12vw, 215px); aspect-ratio: .71; rotate: 2.3deg; }
+.fashion-cover-photo-8 { right: 22%; top: 36%; width: clamp(160px, 13vw, 225px); aspect-ratio: .72; rotate: -2deg; }
+.fashion-cover-photo-9 { left: 57%; top: 10%; width: clamp(150px, 11vw, 205px); aspect-ratio: .7; rotate: -1deg; }
+.fashion-cover-title { position: absolute; inset: 43% 2.5% auto; z-index: 3; text-align: center; transform: translateY(-50%); pointer-events: none; mix-blend-mode: difference; }
+.fashion-cover-title p { margin: 0 0 20px; color: #fff; font-size: 11px; font-weight: 850; letter-spacing: .2em; text-transform: uppercase; }
+.fashion-cover-title h1 { margin: 0; color: #fff; font: 850 clamp(76px, 9.7vw, 164px)/.82 Manrope, Arial, sans-serif; letter-spacing: -.075em; white-space: nowrap; }
+.fashion-cover-intro { position: absolute; right: 5vw; bottom: clamp(28px, 4vw, 62px); z-index: 5; width: min(480px, 38vw); padding: 25px 27px 23px; border: 1px solid rgba(18,18,20,.16); background: rgba(251,250,247,.9); box-shadow: 12px 12px 0 rgba(116,65,239,.12); backdrop-filter: blur(10px); }
+.fashion-cover-intro > span { color: #7341ef; font-size: 10px; font-weight: 850; letter-spacing: .18em; text-transform: uppercase; }
+.fashion-cover-intro p { margin: 12px 0 17px; color: #373238; font: 400 16px/1.52 Newsreader, Georgia, serif; }
+.fashion-cover-intro a { color: #17151a; font-size: 10px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+.fashion-cover-intro a span { display: inline-block; margin-left: 7px; color: #ef6b58; transition: transform .25s ease; }
+.fashion-cover-intro a:hover span { transform: translateY(4px); }
+
+@media (max-width: 960px) {
+  .fashion-cover { height: 820px; min-height: 820px; max-height: none; }
+  .fashion-cover-title { left: 1.5%; right: 1.5%; }
+  .fashion-cover-title h1 { font-size: clamp(66px, 9.5vw, 92px); }
+  .fashion-cover-photo-3 { right: -3%; }
+  .fashion-cover-photo-4 { left: -3%; }
+  .fashion-cover-photo-6 { right: -3%; }
+  .fashion-cover-photo-7, .fashion-cover-photo-8 { display: none; }
+  .fashion-cover-intro { right: 4vw; width: min(470px, 54vw); }
+}
+
+@media (max-width: 720px) {
+  .fashion-cover { height: 830px; min-height: 830px; padding: 0; cursor: default; }
+  .fashion-cover-photo { box-shadow: 0 14px 32px rgba(22,18,28,.15); }
+  .fashion-cover-photo-1 { left: -10%; top: 4%; width: 44vw; }
+  .fashion-cover-photo-2 { left: 40%; top: 2%; width: 33vw; }
+  .fashion-cover-photo-3 { right: -11%; top: 16%; width: 42vw; }
+  .fashion-cover-photo-4 { left: -10%; bottom: 20%; width: 52vw; }
+  .fashion-cover-photo-5 { left: 39%; bottom: 19%; width: 37vw; }
+  .fashion-cover-photo-6 { right: -15%; bottom: 31%; width: 52vw; }
+  .fashion-cover-photo-7, .fashion-cover-photo-8, .fashion-cover-photo-9 { display: none; }
+  .fashion-cover-title { inset: 39% 10px auto; }
+  .fashion-cover-title p { margin-bottom: 12px; font-size: 9px; }
+  .fashion-cover-title h1 { font-size: clamp(48px, 15vw, 68px); line-height: .86; white-space: normal; }
+  .fashion-cover-intro { right: 18px; bottom: 25px; left: 18px; width: auto; padding: 21px 22px 19px; box-shadow: 8px 8px 0 rgba(116,65,239,.12); }
+  .fashion-cover-intro p { font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fashion-cover-photo { translate: 0 0 !important; transition: none; }
+}
+
 /* Education case studies share Berkeley's readable 16px minimum for supporting content. */
 .education-case-page .academic-logo-panel > span,
 .education-case-page .academic-logo-panel > small,
@@ -335,6 +416,90 @@ footer a:last-child { color: #c6e9cf; text-align: right; }
 .life-hero > p:last-child { max-width: 560px; color: var(--muted); font: 25px/1.38 Newsreader, Georgia, serif; }
 .life-gallery { max-width: 1280px; margin: auto; padding: 0 5vw 115px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .life-gallery div { aspect-ratio: .83; border-radius: 25px; background: linear-gradient(135deg, #e1eee3, #c2ddc7); color: #63816b; display: flex; align-items: center; justify-content: center; text-align: center; font: 600 28px/1.1 Caveat, cursive; }
+
+.fashion-page { max-width: 1700px; margin: auto; overflow-x: clip; overflow-y: visible; background: #f5efe8; color: #17151a; }
+.fashion-cover { position: relative; isolation: isolate; min-height: calc(100vh - 94px); padding: clamp(42px, 5vw, 82px) 5vw clamp(44px, 5vw, 78px); overflow: hidden; background: #efe7ff; }
+.fashion-cover:before { position: absolute; z-index: -2; width: clamp(440px, 55vw, 880px); aspect-ratio: 1; right: -21vw; bottom: -30vw; border: clamp(66px, 8vw, 128px) solid rgba(115,65,239,.15); border-radius: 50%; content: ''; pointer-events: none; }
+.fashion-cover:after { position: absolute; z-index: -1; width: clamp(150px, 19vw, 310px); height: 115%; left: 42%; top: -8%; background: rgba(239,107,88,.9); content: ''; transform: rotate(8deg); transform-origin: center; pointer-events: none; }
+.fashion-cover-topline { position: relative; z-index: 2; display: flex; justify-content: space-between; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,.2); color: #d8d0c7; font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+.fashion-cover-display { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(300px, .62fr); gap: clamp(70px, 10vw, 170px); align-items: center; min-height: calc(100vh - 250px); }
+.fashion-cover-heading { position: relative; z-index: 1; }
+.fashion-kicker { margin: 0 0 clamp(25px, 2.7vw, 43px); color: #7341ef; font-size: 12px; font-weight: 850; letter-spacing: .17em; text-transform: uppercase; }
+.fashion-cover-display h1 { position: relative; z-index: 1; margin: 0; color: #17151a; letter-spacing: -.095em; }
+.fashion-cover-display h1 span { display: block; font: 850 clamp(90px, 13vw, 216px)/.7 Manrope, Arial, sans-serif; text-transform: uppercase; }
+.fashion-cover-display h1 i { display: block; width: max-content; margin: clamp(20px, 2.7vw, 43px) 0 0 clamp(55px, 8vw, 128px); color: #7341ef; font: 400 clamp(76px, 9.2vw, 152px)/.72 Newsreader, Georgia, serif; }
+.fashion-cover-index { display: flex; flex-direction: column; gap: 0; padding: clamp(28px, 3vw, 48px); border: 1px solid rgba(23,21,26,.14); background: rgba(255,255,255,.58); box-shadow: 18px 18px 0 rgba(115,65,239,.12); backdrop-filter: blur(8px); }
+.fashion-index-column { display: block; padding: 24px 0 28px; border-top: 1px solid rgba(23,21,26,.15); }
+.fashion-index-column:first-child { padding-top: 0; border-top: 0; }
+.fashion-index-column:last-child { padding-bottom: 0; }
+.fashion-index-heading { display: grid; grid-template-columns: 25px 1fr; align-items: baseline; width: 100%; padding: 0; border: 0; background: none; color: #17151a; font: inherit; text-align: left; cursor: pointer; }
+.fashion-index-heading span { color: #ef6b58; font-size: 11px; font-weight: 850; letter-spacing: .12em; }
+.fashion-index-heading b { font-size: clamp(25px, 2.2vw, 36px); letter-spacing: -.055em; }
+.fashion-index-heading i { grid-column: 2; margin-top: 4px; color: #817b76; font: 400 14px Newsreader, Georgia, serif; }
+.fashion-index-column > div { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; padding: 22px 0 0 25px; }
+.fashion-index-column > div button { position: relative; padding: 0 0 3px; border: 0; background: none; color: #776e68; font: inherit; font-size: 11px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: color .25s ease, transform .25s ease; }
+.fashion-index-column > div button:after { position: absolute; right: 0; bottom: 0; left: 0; height: 1px; background: #7341ef; content: ''; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+.fashion-index-column > div button:hover, .fashion-index-column > div button:focus-visible { color: #7341ef; transform: translateX(6px); }
+.fashion-index-column > div button:hover:after, .fashion-index-column > div button:focus-visible:after { transform: scaleX(1); }
+.fashion-index-heading:focus-visible { outline: 2px solid #7341ef; outline-offset: 7px; }
+
+.fashion-runway-intro { display: grid; grid-template-columns: minmax(180px, .42fr) minmax(0, 1fr); gap: clamp(42px, 8vw, 130px); padding: clamp(92px, 10vw, 150px) 6vw; background: #f3eee7; color: #151417; scroll-margin-top: 94px; }
+.fashion-runway-intro > .hand-label { color: #e54b38; }
+.fashion-runway-intro > div > span { display: block; margin-bottom: 20px; color: #8e8278; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.fashion-runway-intro h2 { max-width: 800px; margin: 0; color: #111114; font: 800 clamp(57px, 7vw, 108px)/.86 Manrope, Arial, sans-serif; letter-spacing: -.08em; }
+.fashion-runway-intro h2 i { color: #e54b38; font-family: Newsreader, Georgia, serif; font-weight: 400; }
+.fashion-runway-intro > div > p { max-width: 680px; margin: 37px 0 0; color: #625b55; font: 400 21px/1.58 Newsreader, Georgia, serif; }
+.fashion-runway-intro > div > p + p { margin-top: 18px; }
+
+.fashion-runway-archive { background: #0b0b0d; }
+.fashion-story { --story-bg: #101014; --story-ink: #f4eee6; --story-muted: #aaa19a; display: grid; grid-template-columns: minmax(230px, .48fr) minmax(0, 1.52fr); gap: clamp(42px, 7vw, 118px); padding: clamp(82px, 9vw, 138px) 6vw; border-top: 1px solid rgba(255,255,255,.14); background: var(--story-bg); color: var(--story-ink); scroll-margin-top: 94px; }
+.fashion-story:nth-child(even) { grid-template-columns: minmax(0, 1.52fr) minmax(230px, .48fr); }
+.fashion-story:nth-child(even) > header { order: 2; }
+.fashion-story:nth-child(even) > .fashion-story-gallery { order: 1; }
+.fashion-story-1 { --story-bg: #f1ddd8; --story-ink: #21191b; --story-muted: #736467; }
+.fashion-story-2 { --story-bg: #d5d8e2; --story-ink: #171820; --story-muted: #5e6372; }
+.fashion-story-3 { --story-bg: #090a0d; }
+.fashion-story-4 { --story-bg: #9b755b; --story-ink: #17120f; --story-muted: #3d2e26; }
+.fashion-story-5 { --story-bg: #b9dff2; --story-ink: #122735; --story-muted: #496575; }
+.fashion-story > header { align-self: start; position: sticky; top: 110px; }
+.fashion-story > header > span { display: block; margin-bottom: 25px; color: #e54b38; font-size: 11px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+.fashion-story h2 { margin: 0; color: var(--story-ink); font: 500 clamp(48px, 5vw, 82px)/.9 Newsreader, Georgia, serif; letter-spacing: -.055em; }
+.fashion-story header p { margin: 30px 0 0; color: var(--story-muted); font-size: 17px; line-height: 1.68; }
+.fashion-story-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.3vw, 38px); align-items: start; }
+.fashion-story.single-look .fashion-story-gallery { grid-template-columns: minmax(0, 1fr); width: min(100%, 620px); }
+.fashion-story:nth-child(odd).single-look .fashion-story-gallery { margin-left: auto; }
+.fashion-story-gallery figure { margin: 0; }
+.fashion-story-gallery img { display: block; width: 100%; height: auto; background: #19191b; box-shadow: 0 22px 60px rgba(0,0,0,.22); transition: transform .55s cubic-bezier(.2,.8,.2,1), filter .55s ease; }
+.fashion-story-gallery figure:hover img { transform: translateY(-8px) scale(1.008); filter: contrast(1.035); }
+.fashion-photoshoot-intro { display: grid; grid-template-columns: minmax(180px, .42fr) minmax(0, 1fr); gap: clamp(42px, 8vw, 130px); align-items: start; padding: clamp(92px, 10vw, 154px) 6vw clamp(72px, 8vw, 118px); background: #e8dcff; color: #0b0b0d; scroll-margin-top: 94px; }
+.fashion-photoshoot-intro > .hand-label { color: #7341ef; }
+.fashion-photoshoot-intro h2 { margin: 0; color: #0b0b0d; font: 800 clamp(58px, 7vw, 112px)/.84 Manrope, Arial, sans-serif; letter-spacing: -.083em; text-transform: uppercase; }
+.fashion-photoshoot-intro h2 i { display: inline-block; color: #7341ef; font-family: Newsreader, Georgia, serif; font-weight: 400; text-transform: none; }
+.fashion-photoshoot-intro > div > p { max-width: 680px; margin: 37px 0 0; color: #4f4857; font: 400 21px/1.58 Newsreader, Georgia, serif; }
+.fashion-editorial-layout { display: block; padding: clamp(72px, 7vw, 112px) clamp(18px, 3vw, 52px) clamp(90px, 9vw, 140px); border-top: 1px solid rgba(255,255,255,.15); background: #050506; }
+.fashion-editorial-statement { position: sticky; top: 112px; align-self: start; }
+.fashion-editorial-statement > span { display: block; margin-bottom: 24px; color: #d8ff39; font-size: 10px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+.fashion-editorial-statement h2 { margin: 0; color: #f5efe7; font: 500 clamp(52px, 5.6vw, 92px)/.84 Newsreader, Georgia, serif; letter-spacing: -.065em; }
+.fashion-editorial-statement h2 i { color: #bda9ff; }
+.fashion-editorial-statement p { max-width: 330px; margin: 30px 0 0; color: #9f9790; font-size: 15px; line-height: 1.68; }
+.fashion-photo-wall { display: flex; flex-wrap: wrap; gap: clamp(18px, 2.15vw, 36px) clamp(12px, 1.35vw, 23px); align-items: flex-start; justify-content: center; max-width: 1640px; margin: auto; }
+.fashion-photo-wall figure { position: relative; flex: 0 0 clamp(210px, 17.5vw, 286px); margin: 0; overflow: hidden; background: #18181b; }
+.fashion-photo-wall figure:nth-child(4n + 1) { flex-basis: clamp(225px, 19vw, 318px); }
+.fashion-photo-wall figure:nth-child(6n + 3) { flex-basis: clamp(195px, 16vw, 258px); }
+.fashion-photo-wall .fashion-photo-landscape { flex-basis: clamp(320px, 27vw, 455px); }
+.fashion-photo-wall .fashion-photo-featured { flex-basis: clamp(310px, 26vw, 440px); }
+.fashion-photo-wall .fashion-photo-landscape.fashion-photo-featured { flex-basis: clamp(450px, 39vw, 650px); }
+.fashion-photo-wall figure:nth-child(5n + 2) { margin-top: clamp(24px, 3.3vw, 54px); }
+.fashion-photo-wall figure:nth-child(7n + 4) { margin-top: clamp(38px, 5vw, 82px); }
+.fashion-photo-wall figure:nth-child(8n + 1) { rotate: -.35deg; }
+.fashion-photo-wall figure:nth-child(9n + 6) { rotate: .4deg; }
+.fashion-photo-wall figure:nth-child(7n + 2) { box-shadow: 10px 10px 0 #d8ff39; margin-bottom: clamp(25px, 2.6vw, 42px); }
+.fashion-photo-wall figure:nth-child(9n + 5) { box-shadow: -10px 10px 0 #7341ef; margin-bottom: clamp(25px, 2.6vw, 42px); }
+.fashion-photo-wall figure:after { position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.16); pointer-events: none; content: ''; }
+.fashion-photo-wall img { display: block; width: 100%; height: auto; filter: saturate(.94) contrast(1.025); transition: transform .7s cubic-bezier(.2,.8,.2,1), filter .7s ease; }
+.fashion-photo-wall figure:hover img { transform: scale(1.018); filter: saturate(1.06) contrast(1.05); }
+.fashion-photo-wall figure > span { position: absolute; right: 11px; bottom: 9px; z-index: 1; color: rgba(255,255,255,.74); font-size: 9px; font-weight: 850; letter-spacing: .16em; text-shadow: 0 1px 8px rgba(0,0,0,.7); }
+.fashion-footer { border-top-color: rgba(255,255,255,.16); background: #0b0b0d; color: #a49d95; }
 .case-nav { position: sticky; top: 0; z-index: 30; height: 94px; width: min(100%, 1700px); margin: auto; padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(13px); transition: width .45s cubic-bezier(.2,.8,.2,1), height .45s cubic-bezier(.2,.8,.2,1), border-radius .45s ease, box-shadow .45s ease, margin-top .45s ease, padding .45s ease; }
 .case-nav.nav-compact { width: min(720px, calc(100% - 10vw)); height: 66px; margin-top: 14px; padding: 0 14px 0 22px; border-bottom: 0; border-radius: 20px; background: rgba(255,255,255,.88); box-shadow: 0 12px 34px rgba(47, 68, 55, .12); }
 .case-nav.nav-compact .logo { font-size: 37px; }
@@ -416,6 +581,53 @@ footer a:last-child { color: #c6e9cf; text-align: right; }
 .inline-metric:after { display: none; content: none; }
 .inline-metric:hover, .inline-metric:focus-visible { z-index: 7; padding: 0; margin: 0; background: transparent; color: var(--green); box-shadow: none; transform: scale(1.28); }
 .task-metric-fallbacks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+.leadership-about { max-width: 1280px; margin: auto; padding: 88px 5vw 98px; background: color-mix(in srgb, var(--case-accent) 8%, #f7faf7); }
+.leadership-about > .hand-label { margin: 0 0 25px; color: var(--case-accent); }
+.leadership-about-panel { grid-template-columns: minmax(0, .96fr) minmax(430px, 1.04fr); }
+.leadership-timeline-section { max-width: 1280px; margin: auto; padding: 92px 5vw 116px; }
+.leadership-timeline-header { margin-bottom: 42px; }
+.leadership-about > .hand-label { font-size: 31px; line-height: normal; }
+.leadership-timeline-header .hand-label { margin: 0; color: var(--brand-accent); }
+.leadership-timeline-header h2 { margin: 0; color: var(--ink); font: 800 clamp(42px, 5.2vw, 74px)/.98 Manrope, Arial, sans-serif; letter-spacing: -.065em; }
+.leadership-timeline-header h2 i { color: var(--brand-ink); font-family: Lora, Georgia, serif; font-weight: 500; }
+.leadership-timeline-header p:last-child:not(.hand-label) { max-width: 650px; margin: 24px 0 0; color: #61716a; font-size: 16px; line-height: 1.7; }
+.leadership-role-summaries { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 54px; }
+.leadership-role-summaries article { padding: 29px 30px 31px; border: 1px solid color-mix(in srgb, var(--brand-accent) 24%, #e2e8e4); border-radius: 22px; background: color-mix(in srgb, var(--brand-surface) 42%, #fff); }
+.leadership-role-summaries strong { display: block; margin-bottom: 13px; color: var(--brand-ink); font-size: 14px; font-weight: 800; letter-spacing: .075em; text-transform: uppercase; }
+.leadership-role-summaries p { margin: 0; color: #56665e; font-size: 16px; line-height: 1.7; }
+.leadership-timeline { --timeline-gutter: 168px; position: relative; }
+.leadership-timeline:before { content: ''; position: absolute; top: 31px; bottom: 31px; left: calc(var(--timeline-gutter) + 12px); width: 1px; background: color-mix(in srgb, var(--brand-ink) 22%, #dfe7e2); }
+.leadership-timeline-event { position: relative; border-bottom: 1px solid #e2e8e4; }
+.leadership-timeline-event:first-child { border-top: 1px solid #e2e8e4; }
+.leadership-timeline-event summary, .timeline-static-summary { display: grid; grid-template-columns: var(--timeline-gutter) 25px minmax(0, 1fr) 36px; gap: 0 22px; align-items: center; min-height: 122px; padding: 24px 8px 24px 0; list-style: none; }
+.leadership-timeline-event summary { cursor: pointer; }
+.timeline-static-summary { cursor: default; }
+.leadership-timeline-event summary::-webkit-details-marker { display: none; }
+.timeline-marker { position: relative; z-index: 1; grid-column: 2; width: 25px; height: 25px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--brand-ink) 34%, #fff); border-radius: 50%; background: var(--paper); transition: border-color .3s ease, background .3s ease, transform .3s ease; }
+.timeline-marker i { width: 7px; height: 7px; border-radius: 50%; background: var(--brand-accent); }
+.timeline-date { grid-column: 1; grid-row: 1; color: #75827b; font-size: 14px; font-weight: 750; letter-spacing: .03em; }
+.timeline-title { grid-column: 3; display: block; }
+.timeline-title.has-description { display: block; }
+.timeline-role-group { display: flex; align-items: baseline; justify-content: space-between; gap: 26px; }
+.timeline-title strong { color: var(--ink); font: 750 clamp(25px, 2.6vw, 36px)/1.1 Manrope, Arial, sans-serif; letter-spacing: -.045em; white-space: nowrap; }
+.timeline-title small { display: block; flex: 0 0 auto; color: color-mix(in srgb, var(--brand-ink) 72%, #6e7b74); font-size: 13px; font-weight: 750; letter-spacing: .06em; text-align: right; text-transform: uppercase; white-space: nowrap; }
+.timeline-title p { max-width: 760px; margin: 16px 0 0; color: #61716a; font-size: 15px; line-height: 1.65; }
+.timeline-toggle { position: relative; grid-column: 4; width: 34px; height: 34px; border: 1px solid #dce4df; border-radius: 50%; background: #fff; }
+.timeline-toggle i { position: absolute; top: 50%; left: 50%; width: 11px; height: 1.5px; border-radius: 2px; background: var(--brand-ink); transform: translate(-50%, -50%); transition: transform .3s ease, opacity .3s ease; }
+.timeline-toggle i:last-child { transform: translate(-50%, -50%) rotate(90deg); }
+.leadership-timeline-event[open] .timeline-marker { border-color: var(--brand-accent); background: color-mix(in srgb, var(--brand-accent) 12%, #fff); transform: scale(1.08); }
+.leadership-timeline-event[open] .timeline-toggle i:last-child { opacity: 0; transform: translate(-50%, -50%) rotate(0); }
+.timeline-event-body { margin-left: calc(var(--timeline-gutter) + 69px); padding: 0 56px 56px 0; }
+.timeline-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(22px, 3vw, 38px); align-items: start; }
+.timeline-gallery.single-image { display: flex; justify-content: center; }
+.timeline-gallery.single-image .leadership-timeline-image { width: calc(50% - 19px); }
+.leadership-timeline-image { margin: 0; }
+.leadership-timeline-image img, .leadership-timeline-image video { display: block; width: 100%; height: auto; margin: 0 auto; border: 1px solid color-mix(in srgb, var(--brand-accent) 35%, #dce4df); border-radius: 20px; background: transparent; box-shadow: 0 18px 40px color-mix(in srgb, var(--brand-ink) 12%, transparent); }
+.leadership-timeline-image.portrait-timeline-image img, .leadership-timeline-image.portrait-timeline-image video { width: auto; max-width: 100%; height: clamp(250px, 27vw, 340px); object-fit: contain; }
+.leadership-timeline-image figcaption { margin-top: 12px; color: #64766d; font-size: 15px; line-height: 1.55; }
+.case-berkeley-model-un .leadership-timeline-section > .hand-label,
+.case-berkeley-model-un .leadership-timeline-header .hand-label { color: var(--brand-accent); }
 .inline-metric-standalone { padding: 8px 11px; border-radius: 12px; background: var(--pale-green); font-size: 13px; }
 .case-recommendation { max-width: 1280px; margin: auto; padding: 24px 5vw 66px; }
 .case-recommendation > .hand-label { margin: 0 0 28px; }
@@ -561,6 +773,9 @@ footer a:last-child { color: #c6e9cf; text-align: right; }
   font: 800 clamp(42px, 5.1vw, 72px)/.96 Manrope, Arial, sans-serif;
   letter-spacing: -.065em;
 }
+.experience-profile-copy .case-title-line { display: block; }
+.case-berkeley-model-un .experience-profile-copy h1 { font-size: clamp(36px, 3.7vw, 52px); line-height: 1.02; }
+.case-asuc-marketing .experience-profile-copy h1 { font-size: clamp(34px, 3.05vw, 42px); line-height: 1.04; }
 .experience-role { max-width: 600px; margin: 0; color: var(--brand-ink); font: 400 clamp(20px, 2.2vw, 28px)/1.32 Newsreader, Georgia, serif; }
 .experience-meta { display: flex; flex-wrap: wrap; gap: 12px 22px; margin-top: 42px; padding-top: 18px; border-top: 2px solid color-mix(in srgb, var(--brand-accent) 65%, #dce4de); }
 .experience-meta span { color: #68746d; font-size: 16px; font-weight: 750; line-height: 1.45; }
@@ -583,6 +798,8 @@ footer a:last-child { color: #c6e9cf; text-align: right; }
 .branded-experience-page .experience-about a { color: var(--brand-ink); border-color: var(--brand-accent); font-size: 16px; }
 
 .experience-work-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 34px; }
+.experience-work-header > .hand-label,
+.leadership-timeline-header .hand-label { font-size: 31px; line-height: normal; }
 .experience-work-header > .hand-label { flex: 0 0 auto; margin: 0; color: var(--brand-accent); }
 .experience-tools-inline { display: flex; min-width: 0; align-items: center; justify-content: flex-end; gap: 16px; }
 .experience-tools-inline > strong { color: var(--brand-ink); font-size: 16px; letter-spacing: .06em; text-transform: uppercase; }
@@ -623,6 +840,7 @@ footer a:last-child { color: #c6e9cf; text-align: right; }
 .case-piper-ai .experience-reflection .story-image img { border-color: #a7dfc5; background: #e4f7ee; box-shadow: 0 18px 40px rgba(6, 43, 60, .12); }
 .case-berkeley-haas .experience-reflection .story-image img { border-color: #d5c074; background: #e8eef6; box-shadow: 0 18px 40px rgba(23, 46, 82, .13); }
 .case-reflection .reflection-image.story-image img { width: 100%; height: auto; max-height: none; border: 1px solid color-mix(in srgb, #fdb515 46%, #d9e0e3); border-radius: 20px; background: transparent; object-fit: contain; object-position: center; box-shadow: 0 18px 40px rgba(0, 50, 98, .12); }
+.case-reflection .reflection-image.story-image video { display: block; width: 100%; height: auto; max-height: none; border: 1px solid color-mix(in srgb, #fdb515 46%, #d9e0e3); border-radius: 20px; background: #000; object-fit: contain; object-position: center; box-shadow: 0 18px 40px rgba(0, 50, 98, .12); }
 .case-reflection .reflection-image.story-image figcaption { margin-top: 12px; color: #647681; font-size: 15px; line-height: 1.55; }
 .case-piper-ai .experience-reflection .reflection-image { width: min(72%, 350px); margin-right: auto; margin-left: auto; }
 .case-berkeley-haas .experience-reflection .reflection-image { width: min(86%, 420px); margin-right: auto; margin-left: auto; }
@@ -652,6 +870,22 @@ footer a:last-child { color: #c6e9cf; text-align: right; }
 }
 
 @media (max-width: 960px) and (min-width: 721px) {
+  .fashion-cover { min-height: 820px; }
+  .fashion-cover-display { grid-template-columns: minmax(0, .95fr) minmax(250px, .65fr); gap: 48px; min-height: 680px; }
+  .fashion-cover-display h1 span { font-size: clamp(76px, 12vw, 116px); }
+  .fashion-cover-display h1 i { margin-left: 42px; font-size: clamp(70px, 9vw, 95px); }
+  .fashion-cover-index { gap: 0; padding: 28px; }
+  .fashion-story, .fashion-story:nth-child(even) { grid-template-columns: minmax(190px, .5fr) minmax(0, 1.5fr); gap: 44px; }
+  .fashion-story:nth-child(even) > header { order: 0; }
+  .fashion-story:nth-child(even) > .fashion-story-gallery { order: 0; }
+  .fashion-photoshoot-intro { grid-template-columns: minmax(160px, .42fr) minmax(0, 1fr); gap: 48px; }
+  .fashion-editorial-layout { padding-left: 24px; padding-right: 24px; }
+  .fashion-photo-wall figure { flex-basis: clamp(180px, 27vw, 260px); }
+  .fashion-photo-wall figure:nth-child(4n + 1) { flex-basis: clamp(195px, 30vw, 285px); }
+  .fashion-photo-wall figure:nth-child(6n + 3) { flex-basis: clamp(170px, 24vw, 230px); }
+  .fashion-photo-wall .fashion-photo-landscape { flex-basis: clamp(270px, 42vw, 405px); }
+  .fashion-photo-wall .fashion-photo-featured { flex-basis: clamp(270px, 39vw, 375px); }
+  .fashion-photo-wall .fashion-photo-landscape.fashion-photo-featured { flex-basis: clamp(360px, 55vw, 525px); }
   .experience-profile-card { grid-template-columns: .76fr 1.24fr; }
   .experience-logo-panel { padding: 48px 28px; }
   .experience-profile-copy { padding: 42px; }
@@ -841,6 +1075,32 @@ footer a:last-child { color: #c6e9cf; text-align: right; }
   .result-grid > div { min-height: 124px; }
   .case-about { grid-template-columns: 1fr; gap: 37px; padding-top: 76px; padding-bottom: 77px; }
   .case-about.case-about-simple { grid-template-columns: 1fr; gap: 37px; padding-top: 80px; padding-bottom: 82px; }
+  .leadership-about { padding: 76px 24px 82px; }
+  .leadership-about-panel { grid-template-columns: 1fr; }
+  .leadership-timeline-section { padding: 76px 24px 84px; }
+  .leadership-timeline-header { display: block; margin-bottom: 34px; }
+  .leadership-timeline-header h2 { font-size: 48px; }
+  .leadership-timeline-header p:last-child:not(.hand-label) { margin-top: 20px; }
+  .leadership-role-summaries { grid-template-columns: 1fr; margin-bottom: 40px; }
+  .leadership-role-summaries article { padding: 24px 22px 26px; }
+  .leadership-timeline { --timeline-gutter: 0px; }
+  .leadership-timeline:before { left: 12px; }
+  .leadership-timeline-event summary, .timeline-static-summary { grid-template-columns: 25px minmax(0, 1fr) 36px; gap: 0 15px; min-height: 116px; padding: 22px 0; }
+  .timeline-marker { grid-column: 1; }
+  .timeline-date { grid-column: 2; grid-row: 1; align-self: start; margin-top: 5px; font-size: 12px; }
+  .timeline-title { grid-column: 2; grid-row: 1; display: block; align-self: end; padding-top: 27px; }
+  .timeline-role-group { display: block; }
+  .timeline-title strong { display: block; font-size: 25px; }
+  .timeline-title strong { white-space: normal; }
+  .timeline-title small { display: block; margin-top: 6px; font-size: 12px; text-align: left; }
+  .timeline-title p { margin-top: 12px; font-size: 14px; }
+  .timeline-toggle { grid-column: 3; grid-row: 1; }
+  .timeline-event-body { margin-left: 40px; padding: 0 0 42px; }
+  .timeline-event-body > p { margin-bottom: 24px; }
+  .timeline-gallery, .timeline-gallery.single-image { display: grid; grid-template-columns: 1fr; gap: 26px; }
+  .timeline-gallery.single-image .leadership-timeline-image { width: 100%; }
+  .leadership-timeline-image.portrait-timeline-image { max-width: none; }
+  .leadership-timeline-image.portrait-timeline-image img, .leadership-timeline-image.portrait-timeline-image video { height: 280px; }
   .case-tasks { padding: 76px 24px 28px; }
   .task-list { gap: 14px; }
   .case-tasks article { grid-template-columns: 1fr; gap: 22px; padding: 25px 22px; border-radius: 22px; }
@@ -884,4 +1144,40 @@ footer a:last-child { color: #c6e9cf; text-align: right; }
   .life-hero > p:last-child { font-size: 22px; }
   .life-gallery { padding: 0 24px 75px; grid-template-columns: 1fr; }
   .life-gallery div { aspect-ratio: 1.15; }
+  .fashion-cover { grid-template-rows: auto auto; min-height: 0; padding: 30px 24px 64px; }
+  .fashion-cover:before { width: 510px; right: -330px; top: -150px; bottom: auto; border-width: 78px; }
+  .fashion-cover:after { width: 125px; height: 58%; left: 62%; top: -5%; }
+  .fashion-cover-topline span:nth-child(2) { display: none; }
+  .fashion-cover-display { grid-template-columns: 1fr; gap: 62px; min-height: 0; padding: 68px 0 0; }
+  .fashion-kicker { max-width: 250px; margin-bottom: 30px; line-height: 1.5; }
+  .fashion-cover-display h1 span { font-size: clamp(62px, 20.5vw, 95px); line-height: .75; }
+  .fashion-cover-display h1 i { margin: 20px 0 0 42px; font-size: clamp(60px, 18vw, 86px); }
+  .fashion-cover-index { gap: 0; padding: 25px; box-shadow: 11px 11px 0 rgba(115,65,239,.12); }
+  .fashion-index-column > div { gap: 7px 13px; }
+  .fashion-runway-intro { grid-template-columns: 1fr; gap: 26px; padding: 76px 24px 82px; }
+  .fashion-runway-intro h2 { font-size: 58px; }
+  .fashion-runway-intro > div > p { font-size: 19px; }
+  .fashion-story, .fashion-story:nth-child(even) { display: grid; grid-template-columns: 1fr; gap: 40px; padding: 72px 24px 80px; }
+  .fashion-story:nth-child(even) > header, .fashion-story:nth-child(even) > .fashion-story-gallery { order: initial; }
+  .fashion-story > header { position: static; }
+  .fashion-story h2 { font-size: 52px; }
+  .fashion-story header p { margin-top: 22px; }
+  .fashion-story-gallery { gap: 13px; }
+  .fashion-story.single-look .fashion-story-gallery { width: min(84%, 480px); margin: 0 auto; }
+  .fashion-photoshoot-intro { grid-template-columns: 1fr; gap: 36px; padding: 78px 24px 72px; }
+  .fashion-photoshoot-intro h2 { font-size: 57px; }
+  .fashion-photoshoot-intro > div > p { font-size: 19px; }
+  .fashion-editorial-layout { padding: 64px 13px 88px; }
+  .fashion-editorial-statement { position: static; padding: 0 8px; }
+  .fashion-editorial-statement h2 { font-size: 56px; }
+  .fashion-editorial-statement p { max-width: 520px; }
+  .fashion-photo-wall { gap: 15px 9px; }
+  .fashion-photo-wall figure, .fashion-photo-wall figure:nth-child(4n + 1), .fashion-photo-wall figure:nth-child(6n + 3) { flex-basis: calc(46% - 5px); }
+  .fashion-photo-wall .fashion-photo-landscape { flex-basis: 68%; }
+  .fashion-photo-wall .fashion-photo-featured { flex-basis: 66%; }
+  .fashion-photo-wall .fashion-photo-landscape.fashion-photo-featured { flex-basis: 90%; }
+  .fashion-photo-wall figure:nth-child(5n + 2) { margin-top: 20px; }
+  .fashion-photo-wall figure:nth-child(7n + 4) { margin-top: 34px; }
+  .fashion-photo-wall figure:nth-child(7n + 2) { box-shadow: 6px 6px 0 #d8ff39; margin-bottom: 16px; }
+  .fashion-photo-wall figure:nth-child(9n + 5) { box-shadow: -6px 6px 0 #7341ef; margin-bottom: 16px; }
 }

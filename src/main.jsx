@@ -1,6 +1,7 @@
-import { Fragment, StrictMode, useEffect, useState } from 'react'
+import { Fragment, StrictMode, useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
+import './fashion-cover.css'
 
 const experiences = [
   {
@@ -301,7 +302,7 @@ const education = [
         ],
         images: [
           { src: '/berkeley-yearbook.jpeg', alt: 'Shang Zhu in UC Berkeley commencement regalia for her yearbook portrait', caption: 'My UC Berkeley yearbook portrait, Class of 2026.', portrait: true },
-          { src: '/berkeley-commencement.jpeg', alt: 'Shang Zhu wearing a Chinese qipao beneath her UC Berkeley graduation gown after commencement', caption: 'After commencement, celebrating Cal while wearing a Chinese qipao beneath my graduation gown.', portrait: true },
+          { src: '/berkeley-commencement-stage.mp4', alt: 'Shang Zhu walking down the stage during her UC Berkeley commencement ceremony', caption: 'Walking down the stage at UC Berkeley commencement, wearing a Chinese qipao beneath my graduation gown.', portrait: true, video: true },
         ],
       }],
     },
@@ -326,7 +327,7 @@ const education = [
     },
   },
   {
-    slug: 'skydeck-ace', school: 'Berkeley SkyDeck', heroTitle: 'ACE Intern', program: 'Accelerating Careers in Entrepreneurship (ACE) Program', date: 'Sept. 2025 – Jan. 2026', credential: 'Program certificate', credentialImage: '/skydeck-ace-certificate.png', credentialLandscape: true, institutionAccent: '#003262',
+    slug: 'skydeck-ace', school: 'Berkeley SkyDeck', heroTitle: 'ACE Intern', program: 'Accelerating Careers in Entrepreneurship (ACE) Program', date: 'Sept. 2025 — Jan. 2026', credential: 'Program certificate', credentialImage: '/skydeck-ace-certificate.png', credentialLandscape: true, institutionAccent: '#003262',
     summary: 'Berkeley SkyDeck’s Accelerating Careers in Entrepreneurship (ACE) Program brings UC Berkeley students together for ten workshops, office hours, and a founder expo. Through conversations with founders, venture capitalists, and Berkeley’s entrepreneurship community, students explore storytelling, branding, fundraising, and the realities of startup life.',
     detail: 'A semester-long entrepreneurship certificate track for UC Berkeley students.',
     skills: ['Entrepreneurial Storytelling', 'Marketing & Branding', 'Venture Capital', 'Fundraising Strategy', 'Founder Engagement'],
@@ -423,6 +424,16 @@ const capabilityDescriptions = {
   'Cross-cultural Management': 'Lead and collaborate across different cultural expectations.',
   'Economic Policy': 'Connect policy choices with business and market consequences.',
   'Global Business': 'Evaluate opportunities across borders, systems, and cultures.',
+  'Diplomatic Facilitation': 'Guide complex debate while keeping the room focused and inclusive.',
+  'Negotiation': 'Build agreement across different interests and priorities.',
+  'Public Speaking': 'Communicate ideas with clarity, confidence, and presence.',
+  'Conference Planning': 'Turn an idea into a clear and engaging conference experience.',
+  'Team Building': 'Create trust and help people work toward a shared direction.',
+  'Project Coordination': 'Keep people, priorities, and timelines moving together.',
+  'Team Leadership': 'Set direction and support a team through delivery.',
+  'Marketing Strategy': 'Connect audience insight with clear campaign decisions.',
+  'Visual Design': 'Turn ideas into clear and engaging visual communication.',
+  'Campus Outreach': 'Reach students with useful and accessible information.',
 }
 
 function capabilityDescription(skill) {
@@ -431,25 +442,93 @@ function capabilityDescription(skill) {
 
 const leadership = [
   {
-    slug: 'berkeley-model-un', company: 'UC Berkeley Model United Nations', role: 'Chair', year: 'Mar. 2025', location: 'Berkeley, CA',
+    slug: 'berkeley-model-un', company: 'UC Berkeley Model United Nations', role: 'Chair', year: 'Mar. 2023 — Mar. 2025', listYear: 'Mar. 2025', location: 'San Francisco Bay Area', caseTitleLines: ['Competitive Delegate;', 'Vice Chair; Chair'], caseSubtitle: 'UC Berkeley Model United Nations',
     brandLogo: '/ucbmun-logo.png', brandAccent: '#f6a313', brandInk: '#073a61', brandSurface: '#edf6fb', brandAccentInk: '#073a61', brandLogoClass: 'brand-logo-mark',
-    summary: 'Designed and chaired a committee for a three-day annual Model UN conference.',
-    about: 'UC Berkeley Model United Nations brings students across majors together to explore international diplomacy, policy, and leadership through debate, conference organizing, and travel-team participation. The organization develops negotiation, public speaking, and collaborative leadership while engaging members with real-world global challenges.',
+    summary: 'Designed and chaired a committee for UC Berkeley’s annual Model UN conference.',
+    about: 'UC Berkeley Model United Nations brings students from every major together to explore international diplomacy, policy, and leadership. Members compete on the travel team, organize conferences, and develop negotiation, public speaking, and collaborative leadership through global issues.',
+    url: 'https://ucbmun.com', websiteLabel: 'Visit UCBMUN website',
+    leadershipCapabilities: ['Diplomatic Facilitation', 'Negotiation', 'Public Speaking', 'Conference Planning', 'Team Building'],
     details: ['Designed and chaired a committee for 500+ delegates from 15+ institutions.', 'Guided debate, facilitated discussion, and shaped the delegate experience across the conference.'],
     tasks: [
       { title: 'Designing the committee', bullets: ['Designed and chaired a committee for 500+ delegates from 15+ institutions.'], facts: ['500+', '15+'] },
       { title: 'Leading the room', bullets: ['Guided debate, facilitated discussion, and shaped the delegate experience across the conference.'], facts: [] },
     ],
+    timelineOverview: [
+      { role: 'Competitive Delegate', description: 'Served as Competitive Delegate representing UC Berkeley on the North American circuit, with the team placing 3rd nationally.' },
+      { role: 'Vice Chair; Chair', description: 'Staffed UC Berkeley’s annual San Francisco conference for 500+ delegates from 15+ institutions, twice as Vice Chair and once as Chair, designing committees, authoring 40+ page background guides, and leading four-day conferences.' },
+    ],
+    leadershipTimeline: [
+      {
+        date: 'Mar. 2 to 5, 2023',
+        role: 'Vice Chair',
+        conference: 'UCBMUN XXVII',
+        images: [
+          { src: '/ucbmun-2023-vice-chair.jpg', alt: 'Shang Zhu with the UCBMUN XXVII dais team', caption: 'With members of my dais team during UCBMUN XXVII, my first conference serving as Vice Chair.' },
+        ],
+      },
+      {
+        date: 'Mar. 23 to 26, 2023',
+        role: 'Competitive Delegate',
+        conference: 'VICS XXVII · United Kingdom',
+        images: [
+          { src: '/vics-2023-double-delegation.jpg', alt: 'Shang Zhu with her double-delegation partner at VICS XXVII', caption: 'Representing the United Kingdom with my double-delegation partner at VICS XXVII.', portrait: true },
+        ],
+      },
+      {
+        date: 'Nov. 16 to 19, 2023',
+        role: 'Competitive Delegate',
+        conference: 'SBIMUN XIV · India',
+        images: [
+          { src: '/sbimun-2023-dais.jpg', alt: 'Shang Zhu with members of the SBIMUN XIV committee', caption: 'After committee at SBIMUN XIV, representing India, with the dais.' },
+          { src: '/sbimun-2023-bloc.jpg', alt: 'Shang Zhu having lunch with her committee bloc at SBIMUN XIV', caption: 'Lunch with my bloc and the relationships behind the resolutions.' },
+        ],
+      },
+      {
+        date: 'Feb. 29 to Mar. 3, 2024',
+        role: 'Vice Chair',
+        conference: 'UCBMUN XXVIII.',
+        images: [
+          { src: '/ucbmun-2024-chair.jpg', alt: 'Shang Zhu with her chair at UCBMUN XXVIII', caption: 'With my Chair at UCBMUN XXVIII.' },
+          { src: '/ucbmun-2024-dais.jpg', alt: 'Shang Zhu with the UCBMUN XXVIII dais team', caption: 'With members of my dais team during UCBMUN XXVIII.' },
+        ],
+      },
+      {
+        date: 'Feb. 27 to Mar. 2, 2025',
+        role: 'Chair',
+        conference: 'UCBMUN XXIX',
+        images: [
+          { src: '/ucbmun-2025-chair-portrait.jpg', alt: 'Shang Zhu holding the gavel as Chair at UCBMUN XXIX', caption: 'Serving as Chair at UCBMUN XXIX.', portrait: true },
+          { src: '/ucbmun-2025-dais.jpg', alt: 'Shang Zhu with members of her UCBMUN XXIX dais team', caption: 'With members of my dais team during UCBMUN XXIX.' },
+        ],
+      },
+    ],
   },
   {
-    slug: 'asuc-marketing', company: 'Associated Students of the University of California', role: 'Marketing & Design Executive', year: 'Jun. 2023 — May 2024', location: 'Berkeley, CA',
-    brandLogo: '/asuc-logo-cutout.png', brandAccent: '#fdb515', brandInk: '#003262', brandSurface: '#edf4fb', brandAccentInk: '#003262', brandLogoClass: 'brand-logo-asuc',
+    slug: 'asuc-marketing', company: 'Associated Students of the University of California', role: 'Marketing & Design Executive', year: 'Sep. 2022 — May 2024', listYear: 'June 2023 — May 2024', location: 'Berkeley, CA', caseTitleLines: ['Project Coordinator;', 'Marketing & Design Executive'], caseSubtitle: 'Associated Students of the University of California',
+    brandLogo: '/asuc-logo-cutout.png', brandAccent: '#2f6f9f', brandInk: '#003262', brandSurface: '#edf4fb', brandAccentInk: '#fff', brandLogoClass: 'brand-logo-asuc',
     summary: 'Led marketing and design initiatives for UC Berkeley’s largest student organization.',
-    about: 'The Associated Students of the University of California supports Berkeley’s campus community through student-led services, events, programs, and responsible businesses. As Marketing & Design Executive in Senator Andy Liu’s Office, I helped translate student priorities into accessible campaigns and communications.',
+    about: 'The UC Berkeley Student Union partners with student leaders to provide community services, programs, events, and opportunities for students to learn and grow. Across two senate offices, I supported projects for international students and later led design, marketing, and office operations.',
+    url: 'https://studentunion.berkeley.edu/', websiteLabel: 'Visit Berkeley Student Union website',
+    leadershipCapabilities: ['Project Coordination', 'Team Leadership', 'Marketing Strategy', 'Visual Design', 'Campus Outreach'],
     details: ['Led a five-person team across 12+ marketing initiatives.', 'Reached a 2,000+ audience through campaigns and campus communications.'],
     tasks: [
       { title: 'Leading creative delivery', bullets: ['Led a five-person team across 12+ marketing initiatives.'], facts: ['five-person team', '12+'] },
       { title: 'Growing campus reach', bullets: ['Reached a 2,000+ audience through campaigns and campus communications.'], facts: ['2,000+'] },
+    ],
+    timelineLabel: 'The journey',
+    leadershipTimeline: [
+      {
+        date: 'Sep. 2022 — Jun. 2023',
+        role: 'Project Coordinator',
+        conference: 'Senator Kailen Grottel-Brown’s Office',
+        description: 'Contributed to semester long projects and weekly meetings focused on improving campus life for international students.',
+      },
+      {
+        date: 'Jun. 2023 — May 2024',
+        role: 'Marketing & Design Executive',
+        conference: 'Senator Andy Liu’s Office',
+        description: 'Managed a five person team, oversaw office operations, and led marketing across 12+ initiatives reaching an audience of 2,000+.',
+      },
     ],
   },
 ]
@@ -457,7 +536,44 @@ const leadership = [
 const lifePages = {
   writer: { title: 'Creative Writer', intro: 'Writing is where I slow down, notice more, and make sense of the world in words.' },
   tennis: { title: 'Tennis Player', intro: 'A practice in patience, focus, and enjoying the long game.' },
-  fashion: { title: 'Fashion Model', intro: 'A creative space for expression, collaboration, and visual storytelling.' },
+  fashion: {
+    type: 'fashion',
+    title: 'Fashion Model',
+    intro: 'As a recurring runway model for the Bay Area’s largest fashion show, I also work across editorial shoots with photographers, makeup and beauty artists, stylists, and designers. What I enjoy most is building a visual world together and turning a shared idea into art.',
+    runway: [
+      {
+        slug: 'reverie',
+        title: 'Reverie',
+        description: 'A dreamlike world shaped through luminous layers, raw edges, and romantic movement.',
+        images: ['/fashion-reverie-01.jpg', '/fashion-reverie-02.jpg'],
+      },
+      {
+        slug: 'crescendo',
+        title: 'Crescendo',
+        description: 'Half human and half machine, the look builds tension until technology and emotion become overwhelming.',
+        images: ['/fashion-crescendo-01.jpg', '/fashion-crescendo-02.jpg'],
+      },
+      {
+        slug: 'sonder',
+        title: 'Sonder',
+        description: 'A study in shadow and solitude, grounded in the idea that every stranger carries a life as vivid as our own.',
+        images: ['/fashion-sonder-01.jpg', '/fashion-sonder-02.jpg'],
+      },
+      {
+        slug: 'just-down-the-street',
+        title: 'Just Down the Street',
+        description: 'A Y2K inspired street story that turns denim, animal print, and neighborhood nostalgia into attitude.',
+        images: ['/fashion-just-down-the-street-01.jpg', '/fashion-just-down-the-street-02.jpg'],
+      },
+      {
+        slug: 'all-that-remains',
+        title: 'All That Remains',
+        description: 'Childhood color and retro playfulness reconstructed from the fragments of memory that stay with us.',
+        images: ['/fashion-all-that-remains-01.jpg'],
+      },
+    ],
+    editorial: Array.from({ length: 22 }, (_, index) => `/fashion-editorial-${String(index + 1).padStart(2, '0')}.jpg`),
+  },
   travel: { title: 'Traveler', intro: 'New places have taught me to stay curious, adaptable, and open to different ways of living.' },
 }
 
@@ -502,7 +618,7 @@ function ToolIcon({ type }) {
 function PortfolioRow({ item, index }) {
   const name = item.company || item.school
   const title = item.role || item.program
-  const date = item.year || item.date
+  const date = item.listYear || item.year || item.date
   const isEducation = Boolean(item.school)
   return <article className={`portfolio-row reveal-on-scroll ${isEducation ? 'education-item' : ''}`} style={{ '--reveal-delay': `${index * 55}ms` }}>
     <a className="portfolio-row-top" href={`#case/${item.slug}`} aria-label={`Open ${name}`}>
@@ -536,6 +652,62 @@ function StoryParagraph({ paragraph }) {
   if (typeof paragraph === 'string') return paragraph
   if (paragraph.quote) return <>{paragraph.text}<em className="reflection-question">{paragraph.quote}</em></>
   return <><strong>{paragraph.bold}</strong>{paragraph.text}</>
+}
+
+function ReflectionMedia({ media }) {
+  return media.video
+    ? <video src={media.src} aria-label={media.alt} controls playsInline preload="metadata"/>
+    : <img src={media.src} alt={media.alt}/>
+}
+
+function LeadershipAbout({ item }) {
+  return <section className="leadership-about" style={{ '--case-accent': item.brandAccent, '--case-accent-ink': item.brandAccentInk }}>
+    <p className="hand-label"># About</p>
+    <div className="education-about-panel leadership-about-panel">
+      <div className="education-about-copy"><p className="case-lead">{item.about}</p><a href={item.url} target="_blank" rel="noreferrer">{item.websiteLabel} <Arrow /></a></div>
+      <div className="education-skill-map">
+        <p>Capabilities developed</p>
+        <div className="skill-hover-note" aria-hidden="true"><HandArrow direction="bubble"/><span className="hover-copy">hover over me</span><span className="tap-copy">tap to explore</span></div>
+        <div className="skill-orbit" role="list" aria-label={`Capabilities developed through ${item.company}`}>
+          {item.leadershipCapabilities.map((skill, index) => <span className={skill.length >= 20 ? 'skill-label-long' : skill.length >= 15 ? 'skill-label-medium' : ''} role="listitem" tabIndex="0" data-description={capabilityDescription(skill)} aria-label={`${skill}: ${capabilityDescription(skill)}`} style={{ '--bubble-index': index }} key={skill}>{skill}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+function LeadershipTimeline({ events, label = 'The journey', overview }) {
+  return <section className="leadership-timeline-section">
+    <header className="leadership-timeline-header">
+      <p className="hand-label"># {label}</p>
+    </header>
+    {overview?.length && <div className="leadership-role-summaries">{overview.map(item => <article key={item.role}><strong>{item.role}</strong><p>{item.description}</p></article>)}</div>}
+    <div className="leadership-timeline" aria-label={`${label} timeline`}>
+      {events.map((event, index) => {
+        const expandable = Boolean(event.images?.length)
+        const SummaryTag = expandable ? 'summary' : 'div'
+        const content = <>
+        <SummaryTag className={expandable ? undefined : 'timeline-static-summary'}>
+          <span className="timeline-marker" aria-hidden="true"><i/></span>
+          <span className="timeline-date">{event.date}</span>
+          <span className={`timeline-title ${event.description ? 'has-description' : ''}`}><span className="timeline-role-group"><strong>{event.role}</strong><small>{event.conference}</small></span>{event.description && <p>{event.description}</p>}</span>
+          {expandable && <span className="timeline-toggle" aria-hidden="true"><i/><i/></span>}
+        </SummaryTag>
+        {expandable && <div className="timeline-event-body">
+          <div className={`timeline-gallery ${event.images.length === 1 ? 'single-image' : ''}`}>
+            {event.images.map((image, imageIndex) => <figure className={`leadership-timeline-image reflection-image ${image.portrait ? 'portrait-timeline-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${180 + imageIndex * 150}ms` }} key={image.src}>
+              <ReflectionMedia media={image}/>
+              <figcaption>{image.caption}</figcaption>
+            </figure>)}
+          </div>
+        </div>}
+        </>
+        return expandable
+          ? <details className="leadership-timeline-event reveal-on-scroll" defaultOpen={index === events.length - 1} style={{ '--reveal-delay': `${index * 90}ms` }} key={`${event.conference}-${event.date}`}>{content}</details>
+          : <article className="leadership-timeline-event timeline-event-static reveal-on-scroll" style={{ '--reveal-delay': `${index * 90}ms` }} key={`${event.conference}-${event.date}`}>{content}</article>
+      })}
+    </div>
+  </section>
 }
 
 function AcademicPortfolio({ portfolio, accent }) {
@@ -605,7 +777,7 @@ function EducationCasePage({ item }) {
       </div>
     </section>}
     {item.academicPortfolio ? <AcademicPortfolio portfolio={item.academicPortfolio} accent={item.institutionAccent}/> : <section className="education-about" style={{ '--case-accent': item.institutionAccent || '#159660', '--case-accent-ink': item.accentInk || '#fff' }}><p className="hand-label"># About</p><div className="education-about-panel"><div className="education-about-copy"><p className="case-lead">{item.summary}</p><a href={item.url} target="_blank" rel="noreferrer">{item.websiteLabel} <Arrow /></a></div>{item.skillsPlaceholder ? <div className="education-skill-placeholder" aria-label="Capabilities placeholder"><span>Capabilities · In progress</span><div className="skill-placeholder-rings" aria-hidden="true"><i/><i/><i/></div><h3>Learning profile<br/>coming into focus.</h3><p>Specific capabilities will be added as the track and coursework are confirmed.</p></div> : <div className="education-skill-map"><p>Capabilities developed</p><div className="skill-hover-note" aria-hidden="true"><HandArrow direction="bubble"/><span className="hover-copy">hover over me</span><span className="tap-copy">tap to explore</span></div><div className="skill-orbit" role="list" aria-label="Skills developed through this program">{item.skills.map((skill, index) => <span className={skill.length >= 20 ? 'skill-label-long' : skill.length >= 15 ? 'skill-label-medium' : ''} role="listitem" tabIndex="0" data-description={capabilityDescription(skill)} aria-label={`${skill}: ${capabilityDescription(skill)}`} style={{ '--bubble-index': index }} key={skill}>{skill}</span>)}</div></div>}</div></section>}
-    {item.hideReflection ? null : item.reflection ? <section className="case-reflection education-case-reflection" style={{ '--case-accent': item.institutionAccent || '#159660', '--case-accent-ink': item.accentInk || '#fff' }}><p className="hand-label"># Reflection</p><div className="reflection-stories">{item.reflection.stories.map((story, index) => <article className={`reflection-story story-${index + 1} ${story.compact ? 'compact' : ''} ${story.magazine ? 'magazine-layout' : ''} ${story.wide ? 'wide-layout' : ''} ${!story.images?.length ? 'no-photo-column' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 90}ms` }} key={story.title || `story-${index}`}>{story.images?.length ? <div className="story-photo-column">{story.images.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><img src={image.src} alt={image.alt}/><figcaption>{image.caption}</figcaption></figure>)}</div> : null}<div className="story-copy-block">{story.date && <p className="story-date">{story.date}</p>}{story.title && <h2>{story.title}</h2>}{story.intro && <p className="story-intro">{story.intro}</p>}{story.paragraphs.map((paragraph, paragraphIndex) => <Fragment key={typeof paragraph === 'string' ? paragraph : paragraph.bold || paragraph.quote}><p><StoryParagraph paragraph={paragraph}/></p>{story.midImages && paragraphIndex === story.midImageAfter && <div className="story-mid-images">{story.midImages.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><img src={image.src} alt={image.alt}/><figcaption>{image.caption}</figcaption></figure>)}</div>}</Fragment>)}</div></article>)}</div></section> : <section className="case-reflection education-case-reflection" style={{ '--case-accent': item.institutionAccent || '#159660', '--case-accent-ink': item.accentInk || '#fff' }}><p className="hand-label"># Reflection</p><div className="reflection-stories"><article className="reflection-story no-photo-column"><div className="story-copy-block"><h2>Reflections<br/>coming soon.</h2><p className="story-intro">This section is ready for the same image-and-story format used across the experience case studies.</p><p>Photos and personal writing for this learning chapter will live here.</p></div></article></div></section>}
+    {item.hideReflection ? null : item.reflection ? <section className="case-reflection education-case-reflection" style={{ '--case-accent': item.institutionAccent || '#159660', '--case-accent-ink': item.accentInk || '#fff' }}><p className="hand-label"># Reflection</p><div className="reflection-stories">{item.reflection.stories.map((story, index) => <article className={`reflection-story story-${index + 1} ${story.compact ? 'compact' : ''} ${story.magazine ? 'magazine-layout' : ''} ${story.wide ? 'wide-layout' : ''} ${!story.images?.length ? 'no-photo-column' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 90}ms` }} key={story.title || `story-${index}`}>{story.images?.length ? <div className="story-photo-column">{story.images.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><ReflectionMedia media={image}/><figcaption>{image.caption}</figcaption></figure>)}</div> : null}<div className="story-copy-block">{story.date && <p className="story-date">{story.date}</p>}{story.title && <h2>{story.title}</h2>}{story.intro && <p className="story-intro">{story.intro}</p>}{story.paragraphs.map((paragraph, paragraphIndex) => <Fragment key={typeof paragraph === 'string' ? paragraph : paragraph.bold || paragraph.quote}><p><StoryParagraph paragraph={paragraph}/></p>{story.midImages && paragraphIndex === story.midImageAfter && <div className="story-mid-images">{story.midImages.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><ReflectionMedia media={image}/><figcaption>{image.caption}</figcaption></figure>)}</div>}</Fragment>)}</div></article>)}</div></section> : <section className="case-reflection education-case-reflection" style={{ '--case-accent': item.institutionAccent || '#159660', '--case-accent-ink': item.accentInk || '#fff' }}><p className="hand-label"># Reflection</p><div className="reflection-stories"><article className="reflection-story no-photo-column"><div className="story-copy-block"><h2>Reflections<br/>coming soon.</h2><p className="story-intro">This section is ready for the same image-and-story format used across the experience case studies.</p><p>Photos and personal writing for this learning chapter will live here.</p></div></article></div></section>}
     <footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer>
   </main>
 }
@@ -625,10 +797,11 @@ function CasePage({ item, sectionHref = '#experience', sectionLabel = 'Experienc
   }, [])
   return <main className={`case-page branded-experience-page case-${item.slug}`} style={{ '--brand-accent': item.brandAccent || '#159660', '--brand-ink': item.brandInk || '#183228', '--brand-surface': item.brandSurface || '#edf6ef', '--brand-accent-ink': item.brandAccentInk || '#fff' }}>
     <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href={sectionHref} className="case-home">Back to {sectionLabel}</a><a href="#contact" className="contact-pill">Contact Me</a></header>
-    <section className="experience-profile-hero"><div className="experience-profile-card"><div className={`experience-logo-panel ${item.brandLogoClass || ''}`}><span>{chapterLabel} chapter</span>{item.brandLogo ? <img src={item.brandLogo} alt={`${name} logo`}/> : <strong>{name}</strong>}</div><div className="experience-profile-copy"><p className="hand-label"># {chapterLabel}</p><h1>{name}</h1><p className="experience-role">{title}</p><div className="experience-meta"><span>{date}</span><span>{item.location || '—'}</span></div></div></div></section>
+    <section className="experience-profile-hero"><div className="experience-profile-card"><div className={`experience-logo-panel ${item.brandLogoClass || ''}`}><span>{chapterLabel} chapter</span>{item.brandLogo ? <img src={item.brandLogo} alt={`${name} logo`}/> : <strong>{name}</strong>}</div><div className="experience-profile-copy"><p className="hand-label"># {chapterLabel}</p><h1>{item.caseTitleLines ? item.caseTitleLines.map(line => <span className="case-title-line" key={line}>{line}</span>) : item.caseTitle || name}</h1><p className="experience-role">{item.caseSubtitle || title}</p><div className="experience-meta"><span>{date}</span><span>{item.location || '—'}</span></div></div></div></section>
     {item.results && !item.hideResults && <section className="result-grid">{item.results.map(([number, label], index) => <div key={label}><span>Result 0{index + 1}</span><b>{number}</b><p>{label}</p></div>)}</section>}
-    <section className={`case-about experience-about ${item.tasks ? 'case-about-simple' : ''}`}><div><p className="hand-label"># About</p><h2>{item.aboutTitle || <>The work,<br/><i>in context.</i></>}</h2></div><div><p className="case-lead">{item.aboutLines ? item.aboutLines.join(' ') : about}</p>{!item.tasks && <ul>{details.map(detail => <li key={detail}>{detail}</li>)}</ul>}{item.url && <a href={item.url} target="_blank" rel="noreferrer">Visit company website <Arrow /></a>}</div></section>
-    {item.tasks && <section className="case-tasks experience-tasks"><div className="experience-work-header"><p className="hand-label"># The work</p>{item.tools && <div className="experience-tools-inline"><strong>Tools</strong><div>{item.tools.map(tool => <span className="experience-tool-chip" key={tool.name}><span className="tool-icon"><ToolIcon type={tool.type}/></span><span>{tool.name}</span></span>)}</div></div>}</div><div className="task-list">{item.tasks.map((task, index) => {
+    {item.leadershipCapabilities ? <LeadershipAbout item={item}/> : <section className={`case-about experience-about ${item.tasks ? 'case-about-simple' : ''}`}><div><p className="hand-label"># About</p><h2>{item.aboutTitle || <>The work,<br/><i>in context.</i></>}</h2></div><div><p className="case-lead">{item.aboutLines ? item.aboutLines.join(' ') : about}</p>{!item.tasks && <ul>{details.map(detail => <li key={detail}>{detail}</li>)}</ul>}{item.url && <a href={item.url} target="_blank" rel="noreferrer">Visit company website <Arrow /></a>}</div></section>}
+    {item.leadershipTimeline && <LeadershipTimeline events={item.leadershipTimeline} label={item.timelineLabel} overview={item.timelineOverview}/>}
+    {item.tasks && !item.leadershipTimeline && <section className="case-tasks experience-tasks"><div className="experience-work-header"><p className="hand-label"># The work</p>{item.tools && <div className="experience-tools-inline"><strong>Tools</strong><div>{item.tools.map(tool => <span className="experience-tool-chip" key={tool.name}><span className="tool-icon"><ToolIcon type={tool.type}/></span><span>{tool.name}</span></span>)}</div></div>}</div><div className="task-list">{item.tasks.map((task, index) => {
       const taskText = task.bullets ? task.bullets.join(' ') : task.text
       const unmatchedFacts = task.facts.filter(fact => !taskText.includes(factToken(fact)))
       return <article className="reveal-on-scroll" style={{ '--reveal-delay': `${index * 120}ms` }} key={task.title}>
@@ -637,13 +810,74 @@ function CasePage({ item, sectionHref = '#experience', sectionLabel = 'Experienc
       </article>
     })}</div></section>}
     {item.recommendation && <section className="case-recommendation experience-recommendation"><p className="hand-label"># Recommendation</p><article className="recommendation-card">{item.recommendation.pending ? <div className="recommendation-pending"><span className="quote-mark">“</span><p>{item.recommendation.message}</p></div> : <><span className="quote-mark">“</span><div className="recommendation-quote">{item.recommendation.quote.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div><div className="recommendation-author"><div><span>A note from</span><h3>{item.recommendation.name}</h3><p>{item.recommendation.role}</p></div><small>{item.recommendation.date}</small></div><a className="recommendation-link" href={item.recommendation.url} target="_blank" rel="noreferrer">Open LinkedIn to read more <Arrow /></a></>}</article></section>}
-    {item.reflection ? item.reflection.pending ? <section className="case-reflection experience-reflection reflection-pending"><p className="hand-label"># Reflection</p><h2>Research notes<br/>and <i>reflections.</i></h2><p>A longer reflection on this work will live here.</p></section> : <section className="case-reflection experience-reflection"><p className="hand-label"># Reflection</p><div className="reflection-stories">{item.reflection.stories.map((story, index) => <article className={`reflection-story story-${index + 1} ${story.compact ? 'compact' : ''} ${story.wide ? 'wide-layout' : ''} ${!story.images?.length ? 'no-photo-column' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 90}ms` }} key={story.title || `story-${index}`}>{story.images?.length ? <div className="story-photo-column">{story.images.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><img src={image.src} alt={image.alt}/><figcaption>{image.caption}</figcaption></figure>)}</div> : null}<div className="story-copy-block">{story.date && <p className="story-date">{story.date}</p>}{story.title && <h2>{story.title}</h2>}{story.intro && <p className="story-intro">{story.intro}</p>}{story.paragraphs.map((paragraph, paragraphIndex) => <Fragment key={typeof paragraph === 'string' ? paragraph : paragraph.bold || paragraph.quote}><p><StoryParagraph paragraph={paragraph}/></p>{story.midImages && paragraphIndex === story.midImageAfter && <div className="story-mid-images">{story.midImages.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><img src={image.src} alt={image.alt}/><figcaption>{image.caption}</figcaption></figure>)}</div>}</Fragment>)}</div></article>)}</div></section> : !item.tasks ? <section className="case-placeholder"><p className="hand-label"># More to come</p><h2>Artifacts, images,<br/>and <i>impact.</i></h2><p>This page is ready for project materials, process notes, and a deeper impact story.</p></section> : null}
+    {item.reflection ? item.reflection.pending ? <section className="case-reflection experience-reflection reflection-pending"><p className="hand-label"># Reflection</p><h2>Research notes<br/>and <i>reflections.</i></h2><p>A longer reflection on this work will live here.</p></section> : <section className="case-reflection experience-reflection"><p className="hand-label"># Reflection</p><div className="reflection-stories">{item.reflection.stories.map((story, index) => <article className={`reflection-story story-${index + 1} ${story.compact ? 'compact' : ''} ${story.wide ? 'wide-layout' : ''} ${!story.images?.length ? 'no-photo-column' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 90}ms` }} key={story.title || `story-${index}`}>{story.images?.length ? <div className="story-photo-column">{story.images.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><ReflectionMedia media={image}/><figcaption>{image.caption}</figcaption></figure>)}</div> : null}<div className="story-copy-block">{story.date && <p className="story-date">{story.date}</p>}{story.title && <h2>{story.title}</h2>}{story.intro && <p className="story-intro">{story.intro}</p>}{story.paragraphs.map((paragraph, paragraphIndex) => <Fragment key={typeof paragraph === 'string' ? paragraph : paragraph.bold || paragraph.quote}><p><StoryParagraph paragraph={paragraph}/></p>{story.midImages && paragraphIndex === story.midImageAfter && <div className="story-mid-images">{story.midImages.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><ReflectionMedia media={image}/><figcaption>{image.caption}</figcaption></figure>)}</div>}</Fragment>)}</div></article>)}</div></section> : !item.tasks ? <section className="case-placeholder"><p className="hand-label"># More to come</p><h2>Artifacts, images,<br/>and <i>impact.</i></h2><p>This page is ready for project materials, process notes, and a deeper impact story.</p></section> : null}
     <footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer>
   </main>
 }
 
 function LifePage({ page }) {
+  if (page.type === 'fashion') return <FashionPage page={page}/>
   return <main className="life-page"><header className="case-nav"><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header><section className="life-hero"><p className="hand-label"># Beyond work</p><h1>{page.title}</h1><p>{page.intro}</p></section><section className="life-gallery"><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div></section><footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer></main>
+}
+
+function FashionPage({ page }) {
+  const [navCompact, setNavCompact] = useState(false)
+  const fashionCoverRef = useRef(null)
+  const fashionPointerFrame = useRef(null)
+  const coverEditorialIndices = [4, 10, 6, 13, 15, 9, 18, 20, 8]
+  const coverEditorialImages = coverEditorialIndices.map(originalIndex => ({ src: page.editorial[originalIndex], originalIndex }))
+  useEffect(() => {
+    const onScroll = () => setNavCompact(window.scrollY > 80)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  useEffect(() => () => window.cancelAnimationFrame(fashionPointerFrame.current), [])
+  const moveFashionCover = event => {
+    const cover = fashionCoverRef.current
+    if (!cover) return
+    const bounds = cover.getBoundingClientRect()
+    const x = (event.clientX - bounds.left) / bounds.width - .5
+    const y = (event.clientY - bounds.top) / bounds.height - .5
+    window.cancelAnimationFrame(fashionPointerFrame.current)
+    fashionPointerFrame.current = window.requestAnimationFrame(() => {
+      ;[1, 2, 3, 4].forEach(depth => {
+        cover.style.setProperty(`--fashion-x-${depth}`, `${x * depth * 25}px`)
+        cover.style.setProperty(`--fashion-y-${depth}`, `${y * depth * 20}px`)
+      })
+    })
+  }
+  const resetFashionCover = () => {
+    const cover = fashionCoverRef.current
+    if (!cover) return
+    ;[1, 2, 3, 4].forEach(depth => {
+      cover.style.setProperty(`--fashion-x-${depth}`, '0px')
+      cover.style.setProperty(`--fashion-y-${depth}`, '0px')
+    })
+  }
+  return <main className="fashion-page">
+    <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header>
+    <section className="fashion-cover" id="fashion-editorial" ref={fashionCoverRef} onPointerMove={moveFashionCover} onPointerLeave={resetFashionCover}>
+      <div className="fashion-cover-cloud" aria-hidden="true">{coverEditorialImages.map(({ src }, index) => <figure className={`fashion-cover-photo fashion-cover-photo-${index + 1} fashion-depth-${index % 4 + 1}`} key={src}><span className="fashion-cover-drift"><img src={src} alt="" decoding="async"/></span></figure>)}</div>
+      <div className="fashion-cover-title"><p>Editorial practice · Runway presence</p><h1>FASHION MODEL</h1></div>
+    </section>
+    <section className="fashion-practice-intro reveal-on-scroll">
+      <div className="fashion-practice-heading"><p className="hand-label"># In practice</p><h2>Fashion is<br/><i>made together.</i></h2></div>
+      <div className="fashion-practice-notes">
+        <article><span>01</span><div><h3>Editorial</h3><p>Editorial work lets me move between very different visual languages. Each shoot is a collaboration with photographers, makeup and beauty artists, stylists, and designers. I love building a visual world and making art together.</p></div></article>
+        <article><span>02</span><div><h3>Runway</h3><p>{page.intro} Each show begins with a designer’s story. My role is to make that story visible through the walk, the pose, and the energy of the room.</p></div></article>
+        <a href="#fashion-runway">See the runway archive <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+    <section className="fashion-runway-intro reveal-on-scroll" id="fashion-runway"><p className="hand-label"># Runway</p><div><h2>Five shows.<br/><i>Five stories.</i></h2></div></section>
+    <section className="fashion-runway-archive">
+      {page.runway.map((theme, index) => <article className={`fashion-story fashion-story-${index + 1} ${theme.images.length === 1 ? 'single-look' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 70}ms` }} id={`fashion-${theme.slug}`} key={theme.title}>
+        <header><span>0{index + 1} / Runway</span><h2>{theme.title}</h2><p>{theme.description}</p></header>
+        <div className="fashion-story-gallery">{theme.images.map(src => <figure key={src}><img src={src} alt={`Shang modeling the ${theme.title} runway collection`} loading="lazy" decoding="async"/></figure>)}</div>
+      </article>)}
+    </section>
+    <footer className="case-footer fashion-footer"><span>© 2026 SHANG ZHU</span></footer>
+  </main>
 }
 
 function App() {
