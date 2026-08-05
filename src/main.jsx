@@ -535,7 +535,7 @@ const leadership = [
 
 const lifePages = {
   writer: { title: 'Creative Writer', intro: 'Writing is where I slow down, notice more, and make sense of the world in words.' },
-  tennis: { title: 'Tennis Player', intro: 'A practice in patience, focus, and enjoying the long game.' },
+  tennis: { title: 'Amateur Athlete', intro: 'A practice in patience, focus, and enjoying the long game.' },
   fashion: {
     type: 'fashion',
     title: 'Fashion Model',
@@ -817,7 +817,14 @@ function CasePage({ item, sectionHref = '#experience', sectionLabel = 'Experienc
 
 function LifePage({ page }) {
   if (page.type === 'fashion') return <FashionPage page={page}/>
-  return <main className="life-page"><header className="case-nav"><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header><section className="life-hero"><p className="hand-label"># Beyond work</p><h1>{page.title}</h1><p>{page.intro}</p></section><section className="life-gallery"><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div></section><footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer></main>
+  const [navCompact, setNavCompact] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setNavCompact(window.scrollY > 80)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return <main className="life-page"><header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header><section className="life-hero"><p className="hand-label"># Beyond work</p><h1>{page.title}</h1><p>{page.intro}</p></section><section className="life-gallery"><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div></section><footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer></main>
 }
 
 function FashionPage({ page }) {
@@ -855,7 +862,7 @@ function FashionPage({ page }) {
     <section className="fashion-cover" id="fashion-editorial" ref={fashionCoverRef} onPointerMove={moveFashionCover} onPointerLeave={resetFashionCover}>
       <div className="fashion-cover-cloud" aria-hidden="true">
         <div className="fashion-cover-track">
-          {[0, 1].map(copy => <div className={`fashion-cover-set fashion-cover-set-${copy + 1}`} key={copy}>
+          {[0, 1, 2, 3].map(copy => <div className={`fashion-cover-set fashion-cover-set-${copy + 1}`} key={copy}>
             {coverEditorialImages.map((src, index) => <figure className={`fashion-cover-photo fashion-cover-photo-${index + 1}`} key={`${copy}-${src}-${index}`}><img src={src} alt="" decoding="async"/></figure>)}
           </div>)}
         </div>
@@ -866,8 +873,7 @@ function FashionPage({ page }) {
       <div className="fashion-practice-heading"><p className="hand-label"># In practice</p><h2>Fashion is<br/><i>made together.</i></h2></div>
       <div className="fashion-practice-notes">
         <article><span>01</span><div><h3>Editorial</h3><p>Editorial work lets me move between very different visual languages. Each shoot is a collaboration with photographers, makeup and beauty artists, stylists, and designers. I love building a visual world and making art together.</p></div></article>
-        <article><span>02</span><div><h3>Runway</h3><p>{page.intro} Each show begins with a designer’s story. My role is to make that story visible through the walk, the pose, and the energy of the room.</p></div></article>
-        <a href="#fashion-runway-content">See the runway archive <span aria-hidden="true">↓</span></a>
+        <article><span>02</span><div><h3>Runway</h3><p>Runway asks for a different kind of presence: precise, responsive, and fully alive to the clothes and the room. Rehearsals turn timing, posture, and movement into a shared rhythm across the full cast. My role is to make that story visible through the walk, the pose, and the energy of the room.</p></div></article>
       </div>
     </section>
     <section className="fashion-runway-archive" id="fashion-runway-content">
@@ -924,7 +930,7 @@ function App() {
       <div className="hero-center"><div className="portrait-stage"><div className="quiet-summary"><span>Research & strategy</span><span>Market intelligence</span><span>Data analysis & storytelling</span><span>Python · R · SQL · Excel</span></div><p className="hand-note note-click">click me <HandArrow direction="down"/></p><div className={`portrait-card ${showSummary ? 'show-summary' : ''}`} onClick={togglePortrait} onKeyDown={(event) => { if (event.key === 'Enter') togglePortrait() }} role="button" tabIndex="0" aria-label="Show Shang's quick profile"><span className="portrait-face"><img src="/hero-headshot.jpg" alt="Shang Zhu"/></span><span key={nameRevealKey} className="portrait-name">{'Shang'.split('').map((letter, index) => <span key={letter} style={{ '--letter-delay': `${index * 120}ms` }}>{letter}</span>)}</span><span className="summary-card"><b>Who I Am</b><small className="who-lines">MS&E @ Stanford<br/>Applied Math, Political Economy & Data Science @ UC Berkeley</small><b className="bring-title">What I Bring</b><small>Research & Strategy<br/>Market Intelligence<br/>Data Analysis & Storytelling<br/>Python · R · SQL · Excel</small><a href="#contact" onClick={(event) => event.stopPropagation()}>Contact Me</a></span></div></div></div>
     </section>
 
-    <section className="about reveal-on-scroll" id="about"><div><p className="hand-label"># A little about me</p><h1>I make<br/>complex things<br/><i>clear.</i></h1></div><div className="about-copy"><p>I’m an interdisciplinary researcher and strategist, originally from Shanghai and now based in the Bay Area. I translate between numbers and words, research and markets, and people across disciplines and places.</p><p>My work pairs rigorous analysis with human context to address complex social challenges and help create opportunities for people who have not had the ones I have.</p><div className="outside-work"><p>Outside My Work</p><div>{[['writer', 'Writer'], ['tennis', 'Tennis Player'], ['fashion', 'Fashion Model'], ['travel', 'Traveler']].map(([type, label]) => <a href={`#life/${type}`} key={type} aria-label={label}><LifeIcon type={type}/><span className="life-label"><HandArrow /><b>{label}</b></span></a>)}</div></div></div></section>
+    <section className="about reveal-on-scroll" id="about"><div><p className="hand-label"># A little about me</p><h1>I make<br/>complex things<br/><i>clear.</i></h1></div><div className="about-copy"><p>I’m an interdisciplinary researcher and strategist, originally from Shanghai and now based in the Bay Area. I translate between numbers and words, research and markets, and people across disciplines and places.</p><p>My work pairs rigorous analysis with human context to address complex social challenges and help create opportunities for people who have not had the ones I have.</p><div className="outside-work"><p>Outside My Work</p><div>{[['tennis', 'Amateur Athlete'], ['fashion', 'Fashion Model'], ['writer', 'Writer'], ['travel', 'Traveler']].map(([type, label]) => <a href={`#life/${type}`} key={type} aria-label={label}><LifeIcon type={type}/><span className="life-label"><HandArrow /><b>{label}</b></span></a>)}</div></div></div></section>
 
     <section className="list-section work" id="experience"><p className="hand-label"># Selected experience</p><div className="section-intro reveal-on-scroll"><div><h2>What I’ve <i>worked on.</i></h2><p>With a global perspective across the U.S., China, and Europe.</p></div></div><div className="expand-list">{experiences.map((item, index) => <PortfolioRow item={item} index={index} key={item.slug} />)}</div></section>
 

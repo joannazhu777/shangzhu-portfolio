@@ -15,10 +15,11 @@
 }
 .fashion-cover:before, .fashion-cover:after { display: none; }
 .fashion-cover-cloud {
-  --fashion-photo-scale: clamp(230px, 19vw, 340px);
-  --fashion-photo-gap: clamp(34px, 3vw, 56px);
-  --fashion-loop-x: 118vw;
-  --fashion-loop-y: 118vh;
+  --fashion-photo-scale: clamp(230px, 22vw, 360px);
+  --fashion-column-gap: clamp(50px, 4vw, 80px);
+  --fashion-row-gap: clamp(65px, 6vw, 105px);
+  --fashion-grid-width: calc(6 * var(--fashion-photo-scale) + 5 * var(--fashion-column-gap));
+  --fashion-grid-height: calc(4 * var(--fashion-photo-scale) + 3 * var(--fashion-row-gap));
   position: absolute;
   inset: -8%;
   z-index: 1;
@@ -29,38 +30,48 @@
 }
 .fashion-cover-track {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  animation: fashion-cloud-drift 76s linear infinite;
+  left: -38vw;
+  top: -72vh;
+  width: var(--fashion-grid-width);
+  height: var(--fashion-grid-height);
+  animation: fashion-cloud-drift 108s linear infinite;
   will-change: transform;
 }
 .fashion-cover-set {
   position: absolute;
-  left: -34vw;
-  top: -68vh;
+  inset: 0;
   display: grid;
   grid-template-columns: repeat(6, var(--fashion-photo-scale));
   grid-auto-rows: var(--fashion-photo-scale);
-  gap: var(--fashion-photo-gap);
-  width: max-content;
+  column-gap: var(--fashion-column-gap);
+  row-gap: var(--fashion-row-gap);
+  width: var(--fashion-grid-width);
+  height: var(--fashion-grid-height);
 }
-.fashion-cover-set-2 { transform: translate3d(calc(-1 * var(--fashion-loop-x)), calc(-1 * var(--fashion-loop-y)), 0); }
+.fashion-cover-set-2 { transform: translate3d(calc(-1 * var(--fashion-grid-width)), 0, 0); }
+.fashion-cover-set-3 { transform: translate3d(0, calc(-1 * var(--fashion-grid-height)), 0); }
+.fashion-cover-set-4 { transform: translate3d(calc(-1 * var(--fashion-grid-width)), calc(-1 * var(--fashion-grid-height)), 0); }
 .fashion-cover-photo {
+  position: relative;
+  inset: auto;
   display: grid;
   place-items: center;
   width: var(--fashion-photo-scale);
   height: var(--fashion-photo-scale);
+  aspect-ratio: auto;
   margin: 0;
   overflow: visible;
   background: none;
+  box-shadow: none;
+  transition: none;
+  will-change: auto;
 }
 .fashion-cover-photo img {
   display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  width: var(--fashion-photo-scale);
+  height: var(--fashion-photo-scale);
+  max-width: none;
+  max-height: none;
   object-fit: contain;
   filter: saturate(.92) contrast(1.025) drop-shadow(0 18px 28px rgba(22,18,28,.18));
 }
@@ -76,7 +87,7 @@
 
 @keyframes fashion-cloud-drift {
   0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(var(--fashion-loop-x), var(--fashion-loop-y), 0); }
+  100% { transform: translate3d(var(--fashion-grid-width), var(--fashion-grid-height), 0); }
 }
 
 .fashion-practice-intro { display: grid; grid-template-columns: minmax(300px, .78fr) minmax(0, 1.22fr); gap: clamp(60px, 9vw, 150px); padding: clamp(92px, 10vw, 150px) 6vw; overflow: hidden; background: #6542d7; color: #f8f4ff; }
@@ -97,16 +108,17 @@
   .fashion-cover { height: 820px; min-height: 820px; max-height: none; }
   .fashion-cover-title { left: 1.5%; right: 1.5%; }
   .fashion-cover-title h1 { font-size: clamp(64px, 8.8vw, 86px); letter-spacing: -.065em; }
-  .fashion-cover-cloud { --fashion-photo-scale: clamp(190px, 25vw, 270px); --fashion-photo-gap: clamp(30px, 4vw, 46px); --fashion-loop-x: 130vw; --fashion-loop-y: 120vh; }
-  .fashion-cover-set { left: -55vw; top: -66vh; grid-template-columns: repeat(5, var(--fashion-photo-scale)); }
+  .fashion-cover-cloud { --fashion-photo-scale: clamp(190px, 30vw, 280px); --fashion-column-gap: clamp(48px, 7vw, 76px); --fashion-row-gap: clamp(55px, 7vw, 82px); --fashion-grid-width: calc(5 * var(--fashion-photo-scale) + 4 * var(--fashion-column-gap)); --fashion-grid-height: calc(5 * var(--fashion-photo-scale) + 4 * var(--fashion-row-gap)); }
+  .fashion-cover-track { left: -58vw; top: -68vh; }
+  .fashion-cover-set { grid-template-columns: repeat(5, var(--fashion-photo-scale)); }
   .fashion-practice-intro { grid-template-columns: 1fr; gap: 55px; }
 }
 
 @media (max-width: 720px) {
   .fashion-cover { height: 830px; min-height: 830px; padding: 0; cursor: default; }
-  .fashion-cover-cloud { --fashion-photo-scale: clamp(150px, 43vw, 210px); --fashion-photo-gap: 26px; --fashion-loop-x: 150vw; --fashion-loop-y: 115vh; }
-  .fashion-cover-track { animation-duration: 70s; }
-  .fashion-cover-set { left: -90vw; top: -62vh; grid-template-columns: repeat(4, var(--fashion-photo-scale)); }
+  .fashion-cover-cloud { --fashion-photo-scale: clamp(145px, 42vw, 190px); --fashion-column-gap: 54px; --fashion-row-gap: 48px; --fashion-grid-width: calc(4 * var(--fashion-photo-scale) + 3 * var(--fashion-column-gap)); --fashion-grid-height: calc(6 * var(--fashion-photo-scale) + 5 * var(--fashion-row-gap)); }
+  .fashion-cover-track { left: -102vw; top: -72vh; animation-duration: 98s; }
+  .fashion-cover-set { grid-template-columns: repeat(4, var(--fashion-photo-scale)); }
   .fashion-cover-title { inset: 39% 10px auto; }
   .fashion-cover-title p { margin-bottom: 12px; font-size: 9px; }
   .fashion-cover-title h1 { font-size: clamp(48px, 15vw, 68px); line-height: .86; white-space: normal; }
@@ -120,5 +132,5 @@
 @media (prefers-reduced-motion: reduce) {
   .fashion-cover-cloud { translate: 0 0 !important; transition: none; }
   .fashion-cover-track { animation: none; }
-  .fashion-cover-set-2 { display: none; }
+  .fashion-cover-set-2, .fashion-cover-set-3, .fashion-cover-set-4 { display: none; }
 }
