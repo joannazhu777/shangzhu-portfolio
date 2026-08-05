@@ -824,8 +824,7 @@ function FashionPage({ page }) {
   const [navCompact, setNavCompact] = useState(false)
   const fashionCoverRef = useRef(null)
   const fashionPointerFrame = useRef(null)
-  const coverEditorialIndices = [4, 10, 6, 13, 15, 9, 18, 20, 8]
-  const coverEditorialImages = coverEditorialIndices.map(originalIndex => ({ src: page.editorial[originalIndex], originalIndex }))
+  const coverEditorialImages = page.editorial
   useEffect(() => {
     const onScroll = () => setNavCompact(window.scrollY > 80)
     onScroll()
@@ -841,24 +840,26 @@ function FashionPage({ page }) {
     const y = (event.clientY - bounds.top) / bounds.height - .5
     window.cancelAnimationFrame(fashionPointerFrame.current)
     fashionPointerFrame.current = window.requestAnimationFrame(() => {
-      ;[1, 2, 3, 4].forEach(depth => {
-        cover.style.setProperty(`--fashion-x-${depth}`, `${x * depth * 25}px`)
-        cover.style.setProperty(`--fashion-y-${depth}`, `${y * depth * 20}px`)
-      })
+      cover.style.setProperty('--fashion-pointer-x', `${x * 110}px`)
+      cover.style.setProperty('--fashion-pointer-y', `${y * 90}px`)
     })
   }
   const resetFashionCover = () => {
     const cover = fashionCoverRef.current
     if (!cover) return
-    ;[1, 2, 3, 4].forEach(depth => {
-      cover.style.setProperty(`--fashion-x-${depth}`, '0px')
-      cover.style.setProperty(`--fashion-y-${depth}`, '0px')
-    })
+    cover.style.setProperty('--fashion-pointer-x', '0px')
+    cover.style.setProperty('--fashion-pointer-y', '0px')
   }
   return <main className="fashion-page">
     <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header>
     <section className="fashion-cover" id="fashion-editorial" ref={fashionCoverRef} onPointerMove={moveFashionCover} onPointerLeave={resetFashionCover}>
-      <div className="fashion-cover-cloud" aria-hidden="true">{coverEditorialImages.map(({ src }, index) => <figure className={`fashion-cover-photo fashion-cover-photo-${index + 1} fashion-depth-${index % 4 + 1}`} key={src}><span className="fashion-cover-drift"><img src={src} alt="" decoding="async"/></span></figure>)}</div>
+      <div className="fashion-cover-cloud" aria-hidden="true">
+        <div className="fashion-cover-track">
+          {[0, 1].map(copy => <div className={`fashion-cover-set fashion-cover-set-${copy + 1}`} key={copy}>
+            {coverEditorialImages.map((src, index) => <figure className={`fashion-cover-photo fashion-cover-photo-${index + 1}`} key={`${copy}-${src}-${index}`}><img src={src} alt="" decoding="async"/></figure>)}
+          </div>)}
+        </div>
+      </div>
       <div className="fashion-cover-title"><p>Editorial practice · Runway presence</p><h1>FASHION MODEL</h1></div>
     </section>
     <section className="fashion-practice-intro reveal-on-scroll">
@@ -866,11 +867,10 @@ function FashionPage({ page }) {
       <div className="fashion-practice-notes">
         <article><span>01</span><div><h3>Editorial</h3><p>Editorial work lets me move between very different visual languages. Each shoot is a collaboration with photographers, makeup and beauty artists, stylists, and designers. I love building a visual world and making art together.</p></div></article>
         <article><span>02</span><div><h3>Runway</h3><p>{page.intro} Each show begins with a designer’s story. My role is to make that story visible through the walk, the pose, and the energy of the room.</p></div></article>
-        <a href="#fashion-runway">See the runway archive <span aria-hidden="true">↓</span></a>
+        <a href="#fashion-runway-content">See the runway archive <span aria-hidden="true">↓</span></a>
       </div>
     </section>
-    <section className="fashion-runway-intro reveal-on-scroll" id="fashion-runway"><p className="hand-label"># Runway</p><div><h2>Five shows.<br/><i>Five stories.</i></h2></div></section>
-    <section className="fashion-runway-archive">
+    <section className="fashion-runway-archive" id="fashion-runway-content">
       {page.runway.map((theme, index) => <article className={`fashion-story fashion-story-${index + 1} ${theme.images.length === 1 ? 'single-look' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 70}ms` }} id={`fashion-${theme.slug}`} key={theme.title}>
         <header><span>0{index + 1} / Runway</span><h2>{theme.title}</h2><p>{theme.description}</p></header>
         <div className="fashion-story-gallery">{theme.images.map(src => <figure key={src}><img src={src} alt={`Shang modeling the ${theme.title} runway collection`} loading="lazy" decoding="async"/></figure>)}</div>
