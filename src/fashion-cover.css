@@ -129,6 +129,43 @@
   .fashion-practice-notes p { font-size: 18px; }
 }
 
+/* Shared typography for all four Outside My Work pages */
+.fashion-cover-title h1,
+.tennis-title-lockup h1,
+.writer-hero-heading h1,
+.traveler-heading h1,
+.travel-journal-intro h1 { font: 800 clamp(78px,9vw,146px)/.8 Manrope,Arial,sans-serif; letter-spacing:-.08em; }
+
+.tennis-intro p,
+.writer-hero-note p,
+.traveler-heading > p:last-child,
+.travel-journal-intro > p:not(.hand-label),
+.fashion-practice-notes p { font:400 clamp(19px,1.45vw,22px)/1.58 Newsreader,Georgia,serif; }
+
+.tennis-title-lockup .hand-label,
+.writer-hero-heading .hand-label,
+.traveler-heading .hand-label,
+.travel-journal-intro .hand-label,
+.fashion-practice-heading .hand-label { font:600 clamp(22px,2vw,29px)/1 Caveat,cursive; letter-spacing:0; text-transform:none; }
+
+.tennis-intro > span,
+.writer-hero-note > span,
+.travel-journal-stats span,
+.fashion-cover-title p { font:850 10px/1.35 Manrope,Arial,sans-serif; letter-spacing:.17em; text-transform:uppercase; }
+
+@media (max-width:720px) {
+  .fashion-cover-title h1,
+  .tennis-title-lockup h1,
+  .writer-hero-heading h1,
+  .traveler-heading h1,
+  .travel-journal-intro h1 { font-size:clamp(58px,16vw,76px); line-height:.82; }
+  .tennis-intro p,
+  .writer-hero-note p,
+  .traveler-heading > p:last-child,
+  .travel-journal-intro > p:not(.hand-label),
+  .fashion-practice-notes p { font-size:18px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fashion-cover-cloud { translate: 0 0 !important; transition: none; }
   .fashion-cover-track { animation: none; }

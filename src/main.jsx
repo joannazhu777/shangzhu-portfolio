@@ -1,5 +1,7 @@
 import { Fragment, StrictMode, useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
+import usaMap from '@svg-maps/usa'
+import chinaMap from '@svg-maps/china'
 import './styles.css'
 import './fashion-cover.css'
 
@@ -534,8 +536,31 @@ const leadership = [
 ]
 
 const lifePages = {
-  writer: { title: 'Creative Writer', intro: 'Writing is where I slow down, notice more, and make sense of the world in words.' },
-  tennis: { title: 'Amateur Athlete', intro: 'A practice in patience, focus, and enjoying the long game.' },
+  writer: {
+    type: 'writer',
+    title: 'Reflective Writer',
+    intro: 'I have written for as long as I can remember, from daily thoughts and personal experiences to research progress, news, and small moments that catch my attention. Most of it stays private. Writing makes me slow down, think, rearrange what I carry, and keep living.',
+    community: 'Publishing has quietly built a community around that practice. Across platforms, my writing has reached about 10K followers and more than one million cumulative views. What matters most are the readers who found language for their own experiences, as well as the unexpected friendships that followed.',
+    platforms: [
+      { year: '2016', name: 'WeChat Official Account', note: 'Where public blogging began.' },
+      { year: '2019', name: 'RedNote', note: 'A new home for everyday observations.' },
+      { year: 'Now', name: 'LinkedIn + Substack', note: 'New formats, still finding their voice.' },
+    ],
+  },
+  tennis: {
+    type: 'tennis',
+    title: 'Tennis',
+    intro: 'Sports have always been my favorite way to spend a day, from high jump in elementary and middle school, to girls’ varsity basketball in high school, and now recreational everything, especially tennis.',
+    takeaway: 'Competing regularly with my USTA team has brought lasting friendships across generations, along with a deeper instinct for teamwork, encouragement, and showing up for one another.',
+    photos: [
+      { src: '/tennis-first-usta-match.jpg', alt: 'Shang on a blue tennis court in her first USTA match', caption: 'First-ever USTA match, an honorable loss.' },
+      { src: '/tennis-captain-selfie.jpg', alt: 'Shang taking a post-match selfie with her USTA captain', caption: 'Post-match with my captain, now my “tennis mom” and, of course, one of my best friends.' },
+      { src: '/tennis-mixed-doubles-01.jpg', alt: 'Shang with a mixed doubles partner after a tennis match', caption: 'Mixed doubles, our first win together.' },
+      { src: '/tennis-mixed-doubles-02.jpg', alt: 'Shang with another mixed doubles partner overlooking the courts', caption: 'Mixed doubles, another win for the books.' },
+      { src: '/tennis-latest-singles.jpg', alt: 'Shang in an orange tennis top during her latest USTA singles match', caption: 'Latest USTA match, a hard-earned tiebreak win after 2.5 hours.' },
+      { src: '/tennis-chabot-canyon.jpg', alt: 'Shang beside the Chabot Canyon Racquet Club sign', caption: 'Home court, Chabot Canyon Racquet Club.' },
+    ],
+  },
   fashion: {
     type: 'fashion',
     title: 'Fashion Model',
@@ -574,7 +599,27 @@ const lifePages = {
     ],
     editorial: Array.from({ length: 22 }, (_, index) => `/fashion-editorial-${String(index + 1).padStart(2, '0')}.jpg`),
   },
-  travel: { title: 'Traveler', intro: 'New places have taught me to stay curious, adaptable, and open to different ways of living.' },
+  travel: {
+    type: 'travel',
+    title: 'Curious Traveler',
+    intro: 'I travel to notice how differently a life can be lived, and to return home with a wider sense of what is possible.',
+    places: [
+      { id:'usa', label:'U.S.A.', path:'M88 167 112 138 160 126 199 139 236 135 266 158 251 184 224 197 205 225 162 218 137 196 103 191Z', details:['San Francisco Bay Area, California, the U.S.A.'] },
+      { id:'canada', label:'Canada', path:'M77 91 119 64 181 57 230 74 276 67 304 91 282 120 237 130 199 119 153 125 112 113Z' },
+      { id:'mexico', label:'Mexico', path:'M139 219 202 224 220 250 199 270 177 252 151 244Z' },
+      { id:'france', label:'France', path:'M465 160 484 151 500 164 493 185 472 183Z' },
+      { id:'spain', label:'Spain', path:'M440 180 472 179 478 199 449 207 432 195Z' },
+      { id:'italy', label:'Italy', path:'M501 177 515 185 518 207 534 221 524 229 507 209 497 193Z' },
+      { id:'mauritius', label:'Mauritius', path:'M617 372 625 368 630 378 624 390 616 385Z' },
+      { id:'maldives', label:'Maldives', path:'M681 303 687 307 684 329 678 323Z' },
+      { id:'china', label:'China', path:'M711 154 754 136 801 146 836 173 826 211 799 229 762 220 736 237 707 211 687 181Z', details:['Shanghai, China', 'Ningbo, Zhejiang, China'] },
+      { id:'hong-kong', label:'Hong Kong, China', path:'M790 229 800 228 804 236 795 241 787 236Z' },
+      { id:'macau', label:'Macau, China', path:'M777 231 785 231 787 239 779 242 773 237Z' },
+      { id:'japan', label:'Japan', path:'M861 156 870 168 865 184 873 197 865 213 855 198 858 181 851 170Z' },
+      { id:'australia', label:'Australia', path:'M808 341 850 325 900 345 916 381 890 413 838 406 805 378Z' },
+      { id:'new-zealand', label:'New Zealand', path:'M944 387 956 400 950 419 937 410ZM923 368 934 379 928 391 917 382Z' },
+    ],
+  },
 }
 
 function Arrow() { return <span className="arrow">↗</span> }
@@ -817,6 +862,9 @@ function CasePage({ item, sectionHref = '#experience', sectionLabel = 'Experienc
 
 function LifePage({ page }) {
   if (page.type === 'fashion') return <FashionPage page={page}/>
+  if (page.type === 'tennis') return <TennisPage page={page}/>
+  if (page.type === 'writer') return <WriterPage page={page}/>
+  if (page.type === 'travel') return <TravelerPage page={page}/>
   const [navCompact, setNavCompact] = useState(false)
   useEffect(() => {
     const onScroll = () => setNavCompact(window.scrollY > 80)
@@ -825,6 +873,122 @@ function LifePage({ page }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
   return <main className="life-page"><header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header><section className="life-hero"><p className="hand-label"># Beyond work</p><h1>{page.title}</h1><p>{page.intro}</p></section><section className="life-gallery"><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div></section><footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer></main>
+}
+
+const visitedUsStates = new Set(['ak','ca','fl','hi','il','ma','nj','ny','nv','pa','va','wa','or'])
+const visitedChinaRegions = new Set(['zhejiang','shanghai','jiangsu','guangdong','hainan','jiangxi','hunan','hubei','guizhou','chongqing','sichuan','yunnan','nei-mongol','beijing','tianjin','shandong'])
+const travelRegionGroups = [
+  { label:'North America', countries:['Canada','Mexico'] },
+  { label:'Europe', countries:['Spain','France','Italy'] },
+  { label:'East Asia', countries:['Japan','Hong Kong','Macao'] },
+  { label:'Indian Ocean', countries:['Maldives','Mauritius'] },
+  { label:'Oceania', countries:['Australia','New Zealand'] },
+]
+
+function InteractiveTravelMap({ map, visited, groups, label, active, onActive, onPointerMove, onLeave, className = '' }) {
+  const renderLocation = location => <path className={visited.has(location.id) ? `map-location map-location-${location.id} is-visited ${active === location.id ? 'is-active' : ''}` : `map-location map-location-${location.id}`} d={location.path} tabIndex={visited.has(location.id) ? 0 : undefined} role={visited.has(location.id) ? 'button' : undefined} aria-label={visited.has(location.id) ? location.name : undefined} onMouseEnter={visited.has(location.id) ? event => onActive(location.id, event) : undefined} onMouseMove={visited.has(location.id) && onPointerMove ? event => onPointerMove(location.id, event) : undefined} onMouseLeave={visited.has(location.id) && onLeave ? () => onLeave(location.id) : undefined} onFocus={visited.has(location.id) ? event => onActive(location.id, event) : undefined} onClick={visited.has(location.id) ? event => onActive(location.id, event) : undefined} key={location.id}/>
+  return <svg className={`precise-travel-map ${className}`} viewBox={map.viewBox} role="img" aria-label={label}>
+    {groups ? groups.map(group => <g className={`travel-region travel-region-${group.id}`} key={group.id}>{group.locations.map(id => map.locations.find(location => location.id === id)).filter(Boolean).map(renderLocation)}</g>) : map.locations.map(renderLocation)}
+  </svg>
+}
+
+function TravelerPage({ page }) {
+  const [navCompact, setNavCompact] = useState(false)
+  const [activeAtlas, setActiveAtlas] = useState(null)
+  const [activeUsState, setActiveUsState] = useState('ca')
+  const [activeChinaRegion, setActiveChinaRegion] = useState('shanghai')
+  useEffect(() => {
+    const onScroll = () => setNavCompact(window.scrollY > 80)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  useEffect(() => {
+    const closeDetail = event => event.key === 'Escape' && setActiveAtlas(null)
+    window.addEventListener('keydown', closeDetail)
+    return () => window.removeEventListener('keydown', closeDetail)
+  }, [])
+  const usName = usaMap.locations.find(item => item.id === activeUsState)?.name
+  const chinaName = chinaMap.locations.find(item => item.id === activeChinaRegion)?.name
+  const atlasMap = activeAtlas === 'us' ? usaMap : chinaMap
+  const atlasVisited = activeAtlas === 'us' ? visitedUsStates : visitedChinaRegions
+  const atlasActive = activeAtlas === 'us' ? activeUsState : activeChinaRegion
+  const setAtlasActive = activeAtlas === 'us' ? setActiveUsState : setActiveChinaRegion
+  const atlasName = activeAtlas === 'us' ? usName : chinaName
+  const atlasLocations = atlasMap.locations.filter(item => atlasVisited.has(item.id))
+  return <main className="traveler-page">
+    <header className={`case-nav traveler-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header>
+    <section className="travel-journal">
+      <aside className="travel-journal-intro">
+        <p className="hand-label"># Outside my work</p>
+        <h1>Travel<br/><i>Notes.</i></h1>
+        <p>{page.intro}</p>
+        <div className="travel-journal-stats"><span><b>14</b> countries & regions</span><span><b>5</b> continents</span></div>
+      </aside>
+      <div className="travel-passport-board">
+        <header><span>Passport log · 001</span></header>
+        <div className="travel-hub-note" aria-hidden="true"><HandArrow direction="bubble"/><span>click me</span></div>
+        <div className="travel-hubs">
+          <button className="travel-hub travel-hub-cn" type="button" onClick={() => setActiveAtlas('cn')}><span>01 / Home base</span><strong>China</strong><small>16 regions visited ↗</small></button>
+          <button className="travel-hub travel-hub-us" type="button" onClick={() => setActiveAtlas('us')}><span>02 / Home base</span><strong>United<br/>States</strong><small>13 states visited ↗</small></button>
+        </div>
+        <div className="travel-stamp-grid">{travelRegionGroups.map((region,index) => <article style={{ '--stamp-index':index }} key={region.label}><span>{region.label}</span><div>{region.countries.map(country => <b key={country}>{country}</b>)}</div></article>)}</div>
+        <footer><span>Places I consider home</span><p>San Francisco Bay Area · Shanghai · Ningbo</p></footer>
+        {activeAtlas && <aside className={`travel-atlas-drawer atlas-${activeAtlas}`} aria-live="polite">
+          <header><div><span>{activeAtlas === 'us' ? '13 states visited' : '16 regions visited'}</span><h2>{activeAtlas === 'us' ? 'United States' : 'China'}</h2></div><button type="button" onClick={() => setActiveAtlas(null)} aria-label="Close travel atlas">×</button></header>
+          <div className="travel-atlas-body">
+            <div className="travel-atlas-map"><InteractiveTravelMap map={atlasMap} visited={atlasVisited} active={atlasActive} onActive={setAtlasActive} label={`${activeAtlas === 'us' ? 'United States' : 'China'} places visited`}/><p><span>Now tracing</span>{atlasName}</p></div>
+            <div className="travel-atlas-list">{atlasLocations.map(location => <button className={atlasActive === location.id ? 'is-active' : ''} type="button" onMouseEnter={() => setAtlasActive(location.id)} onFocus={() => setAtlasActive(location.id)} onClick={() => setAtlasActive(location.id)} key={location.id}>{location.name}</button>)}</div>
+          </div>
+        </aside>}
+      </div>
+    </section>
+  </main>
+}
+
+function WriterPage({ page }) {
+  const [navCompact, setNavCompact] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setNavCompact(window.scrollY > 80)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return <main className="writer-page">
+    <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header>
+    <section className="writer-hero">
+      <div className="writer-hero-heading"><p className="hand-label"># Outside my work</p><h1>Reflective<br/><i>Writer.</i></h1></div>
+      <div className="writer-hero-note"><span>Private pages, public echoes</span><p>{page.intro}</p></div>
+    </section>
+    <section className="writer-process reveal-on-scroll">
+      <p className="hand-label"># Why I write</p>
+      <div className="writer-verbs" aria-label="The reflective writing process"><span>Pause.</span><span>Process.</span><span>Reframe.</span><span>Continue.</span></div>
+      <p className="writer-community">{page.community}</p>
+      <div className="writer-impact" aria-label="Writing reach"><div><strong>10K+</strong><span>followers across platforms</span></div><div><strong>1M+</strong><span>cumulative views</span></div></div>
+    </section>
+    <footer className="case-footer writer-footer"><span>© 2026 SHANG ZHU</span></footer>
+  </main>
+}
+
+function TennisPage({ page }) {
+  const [navCompact, setNavCompact] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setNavCompact(window.scrollY > 80)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return <main className="tennis-page">
+    <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header>
+    <section className="tennis-hero">
+      <div className="tennis-title-lockup"><p className="hand-label"># Outside my work</p><h1>Game,<br/><i>set, joy.</i></h1></div>
+      <div className="tennis-intro"><span>USTA team player · lifelong sports lover</span><p>{page.intro}</p><p>{page.takeaway}</p></div>
+    </section>
+    <section className="tennis-photo-wall" aria-label="Tennis memories">
+      {page.photos.map((photo, index) => <figure className={`tennis-photo tennis-photo-${index + 1} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 85}ms` }} key={photo.src}><img src={photo.src} alt={photo.alt} loading={index > 1 ? 'lazy' : 'eager'} decoding="async"/><figcaption><span>0{index + 1}</span>{photo.caption}</figcaption></figure>)}
+    </section>
+    <footer className="case-footer tennis-footer"><span>© 2026 SHANG ZHU</span></footer>
+  </main>
 }
 
 function FashionPage({ page }) {
@@ -870,7 +1034,7 @@ function FashionPage({ page }) {
       <div className="fashion-cover-title"><p>Editorial practice · Runway presence</p><h1>FASHION MODEL</h1></div>
     </section>
     <section className="fashion-practice-intro reveal-on-scroll">
-      <div className="fashion-practice-heading"><p className="hand-label"># In practice</p><h2>Fashion is<br/><i>made together.</i></h2></div>
+      <div className="fashion-practice-heading"><p className="hand-label"># Outside my work</p><h2>Fashion is<br/><i>made together.</i></h2></div>
       <div className="fashion-practice-notes">
         <article><span>01</span><div><h3>Editorial</h3><p>Editorial work lets me move between very different visual languages. Each shoot is a collaboration with photographers, makeup and beauty artists, stylists, and designers. I love building a visual world and making art together.</p></div></article>
         <article><span>02</span><div><h3>Runway</h3><p>Runway asks for a different kind of presence: precise, responsive, and fully alive to the clothes and the room. Rehearsals turn timing, posture, and movement into a shared rhythm across the full cast. My role is to make that story visible through the walk, the pose, and the energy of the room.</p></div></article>
@@ -895,6 +1059,10 @@ function App() {
   useEffect(() => { const onHashChange = () => setRoute(window.location.hash); window.addEventListener('hashchange', onHashChange); return () => window.removeEventListener('hashchange', onHashChange) }, [])
   useEffect(() => { const onScroll = () => setNavCompact(window.scrollY > 80); onScroll(); window.addEventListener('scroll', onScroll, { passive: true }); return () => window.removeEventListener('scroll', onScroll) }, [])
   useEffect(() => {
+    if (route.startsWith('#case/') || route.startsWith('#life/')) {
+      const frame = window.requestAnimationFrame(() => window.scrollTo(0, 0))
+      return () => window.cancelAnimationFrame(frame)
+    }
     if (!['#home', '#about', '#experience', '#education', '#leadership', '#contact'].includes(route)) return
     const frame = window.requestAnimationFrame(() => document.querySelector(route)?.scrollIntoView())
     return () => window.cancelAnimationFrame(frame)
@@ -922,7 +1090,7 @@ function App() {
     const isLeadership = leadership.some(item => item.slug === caseItem.slug)
     return <CasePage item={caseItem} sectionHref={isLeadership ? '#leadership' : '#experience'} sectionLabel={isLeadership ? 'Extracurricular' : 'Experience'} chapterLabel={isLeadership ? 'Leadership' : 'Experience'} />
   }
-  if (lifeSlug && lifePages[lifeSlug]) return <LifePage page={lifePages[lifeSlug]} />
+  if (lifeSlug && lifePages[lifeSlug]) return <LifePage page={lifePages[lifeSlug]} key={lifeSlug} />
   return <main>
     <nav className={`site-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><div className="landing-links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#leadership">Extracurricular</a></div><a href="#contact" className="contact-pill">Contact Me</a></nav>
     <section className="landing" id="home">
@@ -930,7 +1098,7 @@ function App() {
       <div className="hero-center"><div className="portrait-stage"><div className="quiet-summary"><span>Research & strategy</span><span>Market intelligence</span><span>Data analysis & storytelling</span><span>Python · R · SQL · Excel</span></div><p className="hand-note note-click">click me <HandArrow direction="down"/></p><div className={`portrait-card ${showSummary ? 'show-summary' : ''}`} onClick={togglePortrait} onKeyDown={(event) => { if (event.key === 'Enter') togglePortrait() }} role="button" tabIndex="0" aria-label="Show Shang's quick profile"><span className="portrait-face"><img src="/hero-headshot.jpg" alt="Shang Zhu"/></span><span key={nameRevealKey} className="portrait-name">{'Shang'.split('').map((letter, index) => <span key={letter} style={{ '--letter-delay': `${index * 120}ms` }}>{letter}</span>)}</span><span className="summary-card"><b>Who I Am</b><small className="who-lines">MS&E @ Stanford<br/>Applied Math, Political Economy & Data Science @ UC Berkeley</small><b className="bring-title">What I Bring</b><small>Research & Strategy<br/>Market Intelligence<br/>Data Analysis & Storytelling<br/>Python · R · SQL · Excel</small><a href="#contact" onClick={(event) => event.stopPropagation()}>Contact Me</a></span></div></div></div>
     </section>
 
-    <section className="about reveal-on-scroll" id="about"><div><p className="hand-label"># A little about me</p><h1>I make<br/>complex things<br/><i>clear.</i></h1></div><div className="about-copy"><p>I’m an interdisciplinary researcher and strategist, originally from Shanghai and now based in the Bay Area. I translate between numbers and words, research and markets, and people across disciplines and places.</p><p>My work pairs rigorous analysis with human context to address complex social challenges and help create opportunities for people who have not had the ones I have.</p><div className="outside-work"><p>Outside My Work</p><div>{[['tennis', 'Amateur Athlete'], ['fashion', 'Fashion Model'], ['writer', 'Writer'], ['travel', 'Traveler']].map(([type, label]) => <a href={`#life/${type}`} key={type} aria-label={label}><LifeIcon type={type}/><span className="life-label"><HandArrow /><b>{label}</b></span></a>)}</div></div></div></section>
+    <section className="about reveal-on-scroll" id="about"><div><p className="hand-label"># A little about me</p><h1>I make<br/>complex things<br/><i>clear.</i></h1></div><div className="about-copy"><p>I’m an interdisciplinary researcher and strategist, originally from Shanghai and now based in the Bay Area. I translate between numbers and words, research and markets, and people across disciplines and places.</p><p>My work pairs rigorous analysis with human context to address complex social challenges and help create opportunities for people who have not had the ones I have.</p><div className="outside-work"><p>Outside My Work</p><div>{[['tennis', 'Tennis'], ['fashion', 'Fashion Model'], ['writer', 'Writer'], ['travel', 'Traveler']].map(([type, label]) => <a href={`#life/${type}`} key={type} aria-label={label}><LifeIcon type={type}/><span className="life-label"><HandArrow /><b>{label}</b></span></a>)}</div></div></div></section>
 
     <section className="list-section work" id="experience"><p className="hand-label"># Selected experience</p><div className="section-intro reveal-on-scroll"><div><h2>What I’ve <i>worked on.</i></h2><p>With a global perspective across the U.S., China, and Europe.</p></div></div><div className="expand-list">{experiences.map((item, index) => <PortfolioRow item={item} index={index} key={item.slug} />)}</div></section>
 
