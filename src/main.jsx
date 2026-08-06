@@ -5,6 +5,17 @@ import chinaMap from '@svg-maps/china'
 import './styles.css'
 import './fashion-cover.css'
 
+const LINKEDIN_URL = 'https://www.linkedin.com/in/shangzhu77/'
+const BERKELEY_PROGRAMS_URL = 'https://undergraduate.catalog.berkeley.edu/programs'
+
+function resetScrollToTop() {
+  const root = document.documentElement
+  const previous = root.style.scrollBehavior
+  root.style.scrollBehavior = 'auto'
+  window.scrollTo(0, 0)
+  root.style.scrollBehavior = previous
+}
+
 const experiences = [
   {
     slug: 'bright-saver', company: 'Bright Saver', role: 'Research Analyst', year: 'Mar. 2025 — Mar. 2026', location: 'San Francisco Bay Area',
@@ -63,7 +74,7 @@ const experiences = [
     tools: [{ type: 'spreadsheet', name: 'Microsoft Excel' }, { type: 'mixpanel', name: 'Mixpanel' }, { type: 'google-suite', name: 'Google Suite' }, { type: 'notion', name: 'Notion' }, { type: 'figma', name: 'Figma' }],
     url: 'https://www.piperai.com/', visual: 'market-map',
     recommendation: {
-      name: 'Rodrigo Burillo', role: 'Co-Founder @ PiperAI.com', date: 'August 28, 2025', context: 'Rodrigo managed Shang directly', initials: 'RB', url: 'https://www.linkedin.com/in/shangzhu77/',
+      name: 'Rodrigo Burillo', role: 'Co-Founder @ PiperAI.com', date: 'August 28, 2025', context: 'Rodrigo managed Shang directly', initials: 'RB', url: LINKEDIN_URL,
       quote: [
         'I had the pleasure of working with Shang during her internship at Piper, where she quickly stood out for her adaptability, ownership, and ability to thrive in a fast-paced startup environment. From day one, she approached every project with curiosity, professionalism, and a genuine willingness to learn.',
         'What impressed me most was how quickly she took responsibility and delivered results with minimal oversight, while also being proactive in asking thoughtful questions and looking for ways to add value.',
@@ -118,7 +129,7 @@ const experiences = [
       { title: 'Taking a product to production', bullets: ['Led a new snack product from ideation to early production.', 'Built pitch decks and contacted, sourced, and negotiated with 50+ suppliers and partners.'], facts: ['50+ suppliers'] },
     ],
     tools: [{ type: 'spreadsheet', name: 'Microsoft Excel' }, { type: 'canva', name: 'Canva' }], url: 'https://www.eatbangers.com/', recommendation: {
-      name: 'Harry Y.', role: 'Vice President of Operations @ Bangers Snacks', date: 'March 26, 2025', url: 'https://www.linkedin.com/in/shangzhu77/',
+      name: 'Harry Y.', role: 'Vice President of Operations @ Bangers Snacks', date: 'March 26, 2025', url: LINKEDIN_URL,
       quote: ['I had the pleasure of overseeing Shang during her time as a Business Analyst at Bangers, and she consistently impressed me with her strong communication skills, efficiency, and critical thinking abilities. She has a keen eye for problem-solving and approaches challenges with a strategic mindset.', 'Her ability to analyze complex data and translate it into helpful insights made her a valuable asset to the team. I have no doubt she will excel in any role she takes on in the future.'],
     }
   },
@@ -136,9 +147,10 @@ const experiences = [
       { title: 'Sharing and improving the work', bullets: ['Co-authored, published, and presented the team’s methods and findings in an 8-page Frontiers in Education 2024 IEEE conference paper in Washington, D.C.', 'Led user-testing of a reporting tool and synthesized structured interviews to shape the next prototype.'], facts: ['8 pages'] },
     ],
     tools: [{ type: 'python', name: 'Python' }, { type: 'spacy', name: 'spaCy' }, { type: 'spreadsheet', name: 'Microsoft Excel' }, { type: 'google-suite', name: 'Google Suite' }, { type: 'openai', name: 'Open AI' }, { type: 'figma', name: 'Figma' }], recommendation: {
-      name: 'Krina Patel', role: 'PhD Student, UC Berkeley School of Engineering', date: 'March 31, 2025', url: 'https://www.linkedin.com/in/shangzhu77/',
+      name: 'Krina Patel', role: 'PhD Student, UC Berkeley School of Engineering', date: 'March 31, 2025', url: LINKEDIN_URL,
       quote: ['I collaborated with Shang through the Teaming by Design research group on a joint workshop and publication. As an undergraduate researcher, Shang impressed me with her exceptional balance of technical skill and interpersonal warmth. Shang brings reliability, clarity, and shared leadership to team settings.', 'She transitions seamlessly between public speaking, workshop facilitation, coding, and writing, approaching each role with professionalism, open-mindedness, flexibility, and confidence. What truly distinguishes Shang is her genuine warmth and humility. Shang is truly a rare colleague who combines technical excellence with a collaborative spirit. She is someone others genuinely enjoy working with. Any research team would be fortunate to have her contributions.'],
     },
+    url: 'https://haas.berkeley.edu/', websiteLabel: 'Visit institution website',
     reflection: {
       stories: [
         {
@@ -205,7 +217,7 @@ const education = [
   {
     slug: 'uc-berkeley', school: 'University of California, Berkeley', heroTitle: 'UC Berkeley', degreeTitle: 'B.A. Applied Mathematics & Political Economy', degreeLines: ['B.A. in Applied Mathematics;', 'B.A. in Political Economy;', 'Minor in Data Science'], program: 'B.A. Applied Mathematics; B.A. Political Economy; Minor in Data Science', date: 'Aug. 2022 — May 2026', credential: 'Diploma', academicProfile: true, institutionLogo: '/berkeley-logo.png', institutionAccent: '#003262',
     academicDetails: [{ label: 'Timeline', value: 'Aug. 2022 — May 2026' }, { label: 'College', value: 'College of Letters & Science' }, { label: 'Distinction', value: 'Cum Laude' }],
-    summary: 'A cross-disciplinary undergraduate education spanning mathematical reasoning, political economy, and data science. Graduated Cum Laude.', detail: 'Graduated Cum Laude.', skills: ['Applied Mathematics', 'Political Economy', 'Data Science', 'Quantitative Research', 'Statistical Modeling'], url: 'https://www.berkeley.edu/', websiteLabel: 'Visit institution website',
+    summary: 'A cross-disciplinary undergraduate education spanning mathematical reasoning, political economy, and data science. Graduated Cum Laude.', detail: 'Graduated Cum Laude.', skills: ['Applied Mathematics', 'Political Economy', 'Data Science', 'Quantitative Research', 'Statistical Modeling'], url: BERKELEY_PROGRAMS_URL, websiteLabel: 'Visit institution website',
     academicPortfolio: {
       eyebrow: 'Three distinct but connected fields',
       title: 'Math, markets, and the systems around them.',
@@ -217,7 +229,7 @@ const education = [
           about: 'Applied Mathematics pairs rigorous mathematical foundations with a customizable cluster in another field. I chose Data Science, connecting abstract reasoning with numerical methods, optimization, and computational models for problems across research, technology, and industry.',
           skills: ['Proof & abstraction', 'Numerical methods', 'Optimization', 'Mathematical modeling'],
           tools: ['Python', 'R', 'NumPy', 'pandas'],
-          url: 'https://guide.berkeley.edu/undergraduate/degree-programs/applied-mathematics/',
+          url: BERKELEY_PROGRAMS_URL,
           courseGroups: [
             { label: 'Mathematical foundations', courses: [
               { code: 'MATH 53', title: 'Multivariable Calculus', note: 'Calculus of several variables, vector fields, and multidimensional change.' },
@@ -243,7 +255,7 @@ const education = [
           about: 'Political Economy examines the relationship among government, society, and the economy through both scientific and normative lenses. My concentration in The Political Economy of the Environment focused that perspective on climate governance, resource distribution, development, inequality, and the political institutions that shape environmental action.',
           skills: ['Institutional analysis', 'Micro & macroeconomics', 'Policy evaluation', 'Global systems'],
           tools: ['Economic models', 'Comparative case studies', 'Policy research', 'Literature synthesis'],
-          url: 'https://guide.berkeley.edu/undergraduate/degree-programs/political-economy/',
+          url: BERKELEY_PROGRAMS_URL,
           courseGroups: [
             { label: 'History, theory & economic foundations', courses: [
               { code: 'GLOBAL 45', title: 'Survey of World History', note: 'Historical foundations for understanding global institutions and economic change.' },
@@ -269,7 +281,7 @@ const education = [
           about: 'The Data Science minor builds practical fluency in statistics, probability, and computation while emphasizing critical thinking about how data and models are constructed. It prepared me to design rigorous analyses, move from messy information to defensible insight, and communicate results in context.',
           skills: ['Data wrangling', 'Statistical inference', 'Machine learning', 'Data communication'],
           tools: ['Python', 'pandas', 'NumPy', 'R', 'SQL', 'Jupyter'],
-          url: 'https://guide.berkeley.edu/undergraduate/degree-programs/data-science/',
+          url: BERKELEY_PROGRAMS_URL,
           courseGroups: [
             { label: 'Foundations & programming', courses: [
               { code: 'DATA C8', title: 'Foundations of Data Science', note: 'Computation, inference, prediction, and responsible reasoning with data.' },
@@ -630,6 +642,10 @@ function HandArrow({ direction = 'up' }) {
   return <svg className="hand-arrow" viewBox="0 0 52 42" aria-hidden="true"><path d="M5 33c10 2 8-13 18-12 9 1 6-13 17-16"/><path d="m31 5 10 1-3 10"/></svg>
 }
 
+function SiteFooter({ className = '' }) {
+  return <footer className={`case-footer ${className}`.trim()}><span>© 2026 SHANG ZHU</span><a href="mailto:shangzhu@stanford.edu">shangzhu@stanford.edu</a></footer>
+}
+
 function LifeIcon({ type }) {
   if (type === 'writer') return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m10 37 3-10L31 9a4 4 0 0 1 6 6L19 33l-9 4Z"/><path d="m28 12 8 8M10 41h28"/></svg>
   if (type === 'tennis') return <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16"/><path d="M12.7 12.7c7.4 6.8 7.4 15.8 0 22.6M35.3 12.7c-7.4 6.8-7.4 15.8 0 22.6"/></svg>
@@ -814,7 +830,7 @@ function EducationCasePage({ item }) {
   }, [])
   return <main className={`education-case-page education-case-${item.slug}`}>
     <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#education" className="case-home">Back to Education</a><a href="#contact" className="contact-pill">Contact Me</a></header>
-    {item.academicProfile ? <section className={`academic-case-hero ${item.academicPortfolio ? 'berkeley-academic-hero' : ''}`} style={{ '--institution-accent': item.institutionAccent }}><div className="academic-hero-card"><div className="academic-logo-panel"><span>Academic chapter</span><img src={item.institutionLogo} alt={`${item.school} logo`}/></div><div className="academic-profile-copy"><div className="academic-title-lockup"><p className="hand-label"># Education</p><h1>{item.degreeLines ? item.degreeLines.map(line => <span className="degree-line" key={line}>{line}</span>) : item.degreeTitle || item.program}</h1><p className="academic-institution">{item.institutionTitle || item.school}</p></div></div><div className="academic-details" aria-label="Academic details">{item.academicDetails.map(detail => <div key={detail.label}><small>{detail.label}</small><strong>{detail.value}</strong></div>)}</div></div></section> : item.credentialImage ? <section className="credential-profile-hero" style={{ '--institution-accent': item.institutionAccent || '#159660', '--accent-ink': item.accentInk || '#fff' }}><div className={`credential-profile-card ${item.credentialLandscape ? 'is-landscape' : 'is-portrait'}`}><div className="credential-preview-panel"><span>Verified credential</span><a href={item.credentialImage} target="_blank" rel="noreferrer" aria-label={`Open full ${item.program} credential`}><img src={item.credentialImage} alt={`${item.program} credential`}/></a></div><div className="credential-profile-copy"><div className="credential-title-lockup"><p className="hand-label"># Education</p><h1>{item.heroTitle || item.program}</h1><p>{item.school}</p></div><small>{item.date}</small><a className="credential-open-link" href={item.credentialImage} target="_blank" rel="noreferrer">View full credential <Arrow /></a></div></div></section> : <section className="education-case-hero">
+    {item.academicProfile ? <section className={`academic-case-hero page-entrance ${item.academicPortfolio ? 'berkeley-academic-hero' : ''}`} style={{ '--institution-accent': item.institutionAccent }}><div className="academic-hero-card"><div className="academic-logo-panel"><span>Academic chapter</span><img src={item.institutionLogo} alt={`${item.school} logo`}/></div><div className="academic-profile-copy"><div className="academic-title-lockup"><p className="hand-label"># Education</p><h1>{item.degreeLines ? item.degreeLines.map(line => <span className="degree-line" key={line}>{line}</span>) : item.degreeTitle || item.program}</h1><p className="academic-institution">{item.institutionTitle || item.school}</p></div></div><div className="academic-details" aria-label="Academic details">{item.academicDetails.map(detail => <div key={detail.label}><small>{detail.label}</small><strong>{detail.value}</strong></div>)}</div></div></section> : item.credentialImage ? <section className="credential-profile-hero page-entrance" style={{ '--institution-accent': item.institutionAccent || '#159660', '--accent-ink': item.accentInk || '#fff' }}><div className={`credential-profile-card ${item.credentialLandscape ? 'is-landscape' : 'is-portrait'}`}><div className="credential-preview-panel"><span>Verified credential</span><a href={item.credentialImage} target="_blank" rel="noreferrer" aria-label={`Open full ${item.program} credential`}><img src={item.credentialImage} alt={`${item.program} credential`}/></a></div><div className="credential-profile-copy"><div className="credential-title-lockup"><p className="hand-label"># Education</p><h1>{item.heroTitle || item.program}</h1><p>{item.school}</p></div><small>{item.date}</small><a className="credential-open-link" href={item.credentialImage} target="_blank" rel="noreferrer">View full credential <Arrow /></a></div></div></section> : <section className="education-case-hero page-entrance">
       <div className={`credential-stage ${item.credentialImage ? 'has-credential-image' : ''} ${item.credentialLandscape ? 'has-landscape-credential' : ''}`}>
         {item.credentialImage ? <a className={`credential-document credential-image ${item.credentialLandscape ? 'credential-landscape' : ''}`} href={item.credentialImage} target="_blank" rel="noreferrer"><img src={item.credentialImage} alt={`${item.program} credential`}/></a> : <div className="credential-document" aria-label={`Placeholder for ${item.program} credential`}>
           <span className="credential-type">{item.credential}</span><div className="credential-emblem">✦</div><p>Presented by</p><h2>{item.school}</h2><i/><strong>{item.program}</strong><small>{item.date}</small><span className="credential-ready">Credential image can be added here</span>
@@ -823,7 +839,7 @@ function EducationCasePage({ item }) {
     </section>}
     {item.academicPortfolio ? <AcademicPortfolio portfolio={item.academicPortfolio} accent={item.institutionAccent}/> : <section className="education-about" style={{ '--case-accent': item.institutionAccent || '#159660', '--case-accent-ink': item.accentInk || '#fff' }}><p className="hand-label"># About</p><div className="education-about-panel"><div className="education-about-copy"><p className="case-lead">{item.summary}</p><a href={item.url} target="_blank" rel="noreferrer">{item.websiteLabel} <Arrow /></a></div>{item.skillsPlaceholder ? <div className="education-skill-placeholder" aria-label="Capabilities placeholder"><span>Capabilities · In progress</span><div className="skill-placeholder-rings" aria-hidden="true"><i/><i/><i/></div><h3>Learning profile<br/>coming into focus.</h3><p>Specific capabilities will be added as the track and coursework are confirmed.</p></div> : <div className="education-skill-map"><p>Capabilities developed</p><div className="skill-hover-note" aria-hidden="true"><HandArrow direction="bubble"/><span className="hover-copy">hover over me</span><span className="tap-copy">tap to explore</span></div><div className="skill-orbit" role="list" aria-label="Skills developed through this program">{item.skills.map((skill, index) => <span className={skill.length >= 20 ? 'skill-label-long' : skill.length >= 15 ? 'skill-label-medium' : ''} role="listitem" tabIndex="0" data-description={capabilityDescription(skill)} aria-label={`${skill}: ${capabilityDescription(skill)}`} style={{ '--bubble-index': index }} key={skill}>{skill}</span>)}</div></div>}</div></section>}
     {item.hideReflection ? null : item.reflection ? <section className="case-reflection education-case-reflection" style={{ '--case-accent': item.institutionAccent || '#159660', '--case-accent-ink': item.accentInk || '#fff' }}><p className="hand-label"># Reflection</p><div className="reflection-stories">{item.reflection.stories.map((story, index) => <article className={`reflection-story story-${index + 1} ${story.compact ? 'compact' : ''} ${story.magazine ? 'magazine-layout' : ''} ${story.wide ? 'wide-layout' : ''} ${!story.images?.length ? 'no-photo-column' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 90}ms` }} key={story.title || `story-${index}`}>{story.images?.length ? <div className="story-photo-column">{story.images.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><ReflectionMedia media={image}/><figcaption>{image.caption}</figcaption></figure>)}</div> : null}<div className="story-copy-block">{story.date && <p className="story-date">{story.date}</p>}{story.title && <h2>{story.title}</h2>}{story.intro && <p className="story-intro">{story.intro}</p>}{story.paragraphs.map((paragraph, paragraphIndex) => <Fragment key={typeof paragraph === 'string' ? paragraph : paragraph.bold || paragraph.quote}><p><StoryParagraph paragraph={paragraph}/></p>{story.midImages && paragraphIndex === story.midImageAfter && <div className="story-mid-images">{story.midImages.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><ReflectionMedia media={image}/><figcaption>{image.caption}</figcaption></figure>)}</div>}</Fragment>)}</div></article>)}</div></section> : <section className="case-reflection education-case-reflection" style={{ '--case-accent': item.institutionAccent || '#159660', '--case-accent-ink': item.accentInk || '#fff' }}><p className="hand-label"># Reflection</p><div className="reflection-stories"><article className="reflection-story no-photo-column"><div className="story-copy-block"><h2>Reflections<br/>coming soon.</h2><p className="story-intro">This section is ready for the same image-and-story format used across the experience case studies.</p><p>Photos and personal writing for this learning chapter will live here.</p></div></article></div></section>}
-    <footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer>
+    <SiteFooter/>
   </main>
 }
 
@@ -842,9 +858,9 @@ function CasePage({ item, sectionHref = '#experience', sectionLabel = 'Experienc
   }, [])
   return <main className={`case-page branded-experience-page case-${item.slug}`} style={{ '--brand-accent': item.brandAccent || '#159660', '--brand-ink': item.brandInk || '#183228', '--brand-surface': item.brandSurface || '#edf6ef', '--brand-accent-ink': item.brandAccentInk || '#fff' }}>
     <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href={sectionHref} className="case-home">Back to {sectionLabel}</a><a href="#contact" className="contact-pill">Contact Me</a></header>
-    <section className="experience-profile-hero"><div className="experience-profile-card"><div className={`experience-logo-panel ${item.brandLogoClass || ''}`}><span>{chapterLabel} chapter</span>{item.brandLogo ? <img src={item.brandLogo} alt={`${name} logo`}/> : <strong>{name}</strong>}</div><div className="experience-profile-copy"><p className="hand-label"># {chapterLabel}</p><h1>{item.caseTitleLines ? item.caseTitleLines.map(line => <span className="case-title-line" key={line}>{line}</span>) : item.caseTitle || name}</h1><p className="experience-role">{item.caseSubtitle || title}</p><div className="experience-meta"><span>{date}</span><span>{item.location || '—'}</span></div></div></div></section>
+    <section className="experience-profile-hero page-entrance"><div className="experience-profile-card"><div className={`experience-logo-panel ${item.brandLogoClass || ''}`}><span>{chapterLabel} chapter</span>{item.brandLogo ? <img src={item.brandLogo} alt={`${name} logo`}/> : <strong>{name}</strong>}</div><div className="experience-profile-copy"><p className="hand-label"># {chapterLabel}</p><h1>{item.caseTitleLines ? item.caseTitleLines.map(line => <span className="case-title-line" key={line}>{line}</span>) : item.caseTitle || name}</h1><p className="experience-role">{item.caseSubtitle || title}</p><div className="experience-meta"><span>{date}</span><span>{item.location || '—'}</span></div></div></div></section>
     {item.results && !item.hideResults && <section className="result-grid">{item.results.map(([number, label], index) => <div key={label}><span>Result 0{index + 1}</span><b>{number}</b><p>{label}</p></div>)}</section>}
-    {item.leadershipCapabilities ? <LeadershipAbout item={item}/> : <section className={`case-about experience-about ${item.tasks ? 'case-about-simple' : ''}`}><div><p className="hand-label"># About</p><h2>{item.aboutTitle || <>The work,<br/><i>in context.</i></>}</h2></div><div><p className="case-lead">{item.aboutLines ? item.aboutLines.join(' ') : about}</p>{!item.tasks && <ul>{details.map(detail => <li key={detail}>{detail}</li>)}</ul>}{item.url && <a href={item.url} target="_blank" rel="noreferrer">Visit company website <Arrow /></a>}</div></section>}
+    {item.leadershipCapabilities ? <LeadershipAbout item={item}/> : <section className={`case-about experience-about ${item.tasks ? 'case-about-simple' : ''}`}><div><p className="hand-label"># About</p><h2>{item.aboutTitle || <>The work,<br/><i>in context.</i></>}</h2></div><div><p className="case-lead">{item.aboutLines ? item.aboutLines.join(' ') : about}</p>{!item.tasks && <ul>{details.map(detail => <li key={detail}>{detail}</li>)}</ul>}{item.url && <a href={item.url} target="_blank" rel="noreferrer">{item.websiteLabel || 'Visit company website'} <Arrow /></a>}</div></section>}
     {item.leadershipTimeline && <LeadershipTimeline events={item.leadershipTimeline} label={item.timelineLabel} overview={item.timelineOverview}/>}
     {item.tasks && !item.leadershipTimeline && <section className="case-tasks experience-tasks"><div className="experience-work-header"><p className="hand-label"># The work</p>{item.tools && <div className="experience-tools-inline"><strong>Tools</strong><div>{item.tools.map(tool => <span className="experience-tool-chip" key={tool.name}><span className="tool-icon"><ToolIcon type={tool.type}/></span><span>{tool.name}</span></span>)}</div></div>}</div><div className="task-list">{item.tasks.map((task, index) => {
       const taskText = task.bullets ? task.bullets.join(' ') : task.text
@@ -856,7 +872,7 @@ function CasePage({ item, sectionHref = '#experience', sectionLabel = 'Experienc
     })}</div></section>}
     {item.recommendation && <section className="case-recommendation experience-recommendation"><p className="hand-label"># Recommendation</p><article className="recommendation-card">{item.recommendation.pending ? <div className="recommendation-pending"><span className="quote-mark">“</span><p>{item.recommendation.message}</p></div> : <><span className="quote-mark">“</span><div className="recommendation-quote">{item.recommendation.quote.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div><div className="recommendation-author"><div><span>A note from</span><h3>{item.recommendation.name}</h3><p>{item.recommendation.role}</p></div><small>{item.recommendation.date}</small></div><a className="recommendation-link" href={item.recommendation.url} target="_blank" rel="noreferrer">Open LinkedIn to read more <Arrow /></a></>}</article></section>}
     {item.reflection ? item.reflection.pending ? <section className="case-reflection experience-reflection reflection-pending"><p className="hand-label"># Reflection</p><h2>Research notes<br/>and <i>reflections.</i></h2><p>A longer reflection on this work will live here.</p></section> : <section className="case-reflection experience-reflection"><p className="hand-label"># Reflection</p><div className="reflection-stories">{item.reflection.stories.map((story, index) => <article className={`reflection-story story-${index + 1} ${story.compact ? 'compact' : ''} ${story.wide ? 'wide-layout' : ''} ${!story.images?.length ? 'no-photo-column' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 90}ms` }} key={story.title || `story-${index}`}>{story.images?.length ? <div className="story-photo-column">{story.images.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><ReflectionMedia media={image}/><figcaption>{image.caption}</figcaption></figure>)}</div> : null}<div className="story-copy-block">{story.date && <p className="story-date">{story.date}</p>}{story.title && <h2>{story.title}</h2>}{story.intro && <p className="story-intro">{story.intro}</p>}{story.paragraphs.map((paragraph, paragraphIndex) => <Fragment key={typeof paragraph === 'string' ? paragraph : paragraph.bold || paragraph.quote}><p><StoryParagraph paragraph={paragraph}/></p>{story.midImages && paragraphIndex === story.midImageAfter && <div className="story-mid-images">{story.midImages.map((image, imageIndex) => <figure className={`story-image reflection-image ${image.portrait ? 'portrait-reflection-image' : ''} reveal-on-scroll`} style={{ '--reveal-delay': `${220 + imageIndex * 190}ms` }} key={image.src}><ReflectionMedia media={image}/><figcaption>{image.caption}</figcaption></figure>)}</div>}</Fragment>)}</div></article>)}</div></section> : !item.tasks ? <section className="case-placeholder"><p className="hand-label"># More to come</p><h2>Artifacts, images,<br/>and <i>impact.</i></h2><p>This page is ready for project materials, process notes, and a deeper impact story.</p></section> : null}
-    <footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer>
+    <SiteFooter/>
   </main>
 }
 
@@ -872,7 +888,7 @@ function LifePage({ page }) {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-  return <main className="life-page"><header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header><section className="life-hero"><p className="hand-label"># Beyond work</p><h1>{page.title}</h1><p>{page.intro}</p></section><section className="life-gallery"><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div></section><footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer></main>
+  return <main className="life-page"><header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header><section className="life-hero page-entrance"><p className="hand-label"># Beyond work</p><h1>{page.title}</h1><p>{page.intro}</p></section><section className="life-gallery"><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div><div>Photos & Stories<br/>Coming Soon</div></section><SiteFooter/></main>
 }
 
 const visitedUsStates = new Set(['ak','ca','fl','hi','il','ma','nj','ny','nv','pa','va','wa','or'])
@@ -918,22 +934,22 @@ function TravelerPage({ page }) {
   const atlasLocations = atlasMap.locations.filter(item => atlasVisited.has(item.id))
   return <main className="traveler-page">
     <header className={`case-nav traveler-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header>
-    <section className="travel-journal">
+    <section className="travel-journal page-entrance">
       <aside className="travel-journal-intro">
         <p className="hand-label"># Outside my work</p>
         <h1>Travel<br/><i>Notes.</i></h1>
         <p>{page.intro}</p>
         <div className="travel-journal-stats"><span><b>14</b> countries & regions</span><span><b>5</b> continents</span></div>
       </aside>
-      <div className="travel-passport-board">
+      <div className="travel-passport-board page-stagger">
         <header><span>Passport log · 001</span></header>
         <div className="travel-hub-note" aria-hidden="true"><HandArrow direction="bubble"/><span>click me</span></div>
         <div className="travel-hubs">
           <button className="travel-hub travel-hub-cn" type="button" onClick={() => setActiveAtlas('cn')}><span>01 / Home base</span><strong>China</strong><small>16 regions visited ↗</small></button>
-          <button className="travel-hub travel-hub-us" type="button" onClick={() => setActiveAtlas('us')}><span>02 / Home base</span><strong>United<br/>States</strong><small>13 states visited ↗</small></button>
+          <button className="travel-hub travel-hub-us" type="button" onClick={() => setActiveAtlas('us')}><span>02 / Home base</span><strong>United States</strong><small>13 states visited ↗</small></button>
         </div>
         <div className="travel-stamp-grid">{travelRegionGroups.map((region,index) => <article style={{ '--stamp-index':index }} key={region.label}><span>{region.label}</span><div>{region.countries.map(country => <b key={country}>{country}</b>)}</div></article>)}</div>
-        <footer><span>Places I consider home</span><p>San Francisco Bay Area · Shanghai · Ningbo</p></footer>
+        <footer><div><span>Places I consider home</span><p>San Francisco Bay Area · Shanghai · Ningbo</p></div><div className="travel-arrival-stamp" aria-hidden="true"><svg viewBox="0 0 42 28"><path d="M4 15h12L11 5l4-1 10 11h9c3 0 5 2 5 3s-2 3-5 3h-9L15 27l-4-1 5-5H4l-2-3 2-3Z"/></svg><div><span>Arrival</span><strong>OPEN RETURN</strong><small>Travel notes · 2026</small></div></div></footer>
         {activeAtlas && <aside className={`travel-atlas-drawer atlas-${activeAtlas}`} aria-live="polite">
           <header><div><span>{activeAtlas === 'us' ? '13 states visited' : '16 regions visited'}</span><h2>{activeAtlas === 'us' ? 'United States' : 'China'}</h2></div><button type="button" onClick={() => setActiveAtlas(null)} aria-label="Close travel atlas">×</button></header>
           <div className="travel-atlas-body">
@@ -943,6 +959,7 @@ function TravelerPage({ page }) {
         </aside>}
       </div>
     </section>
+    <SiteFooter className="travel-footer"/>
   </main>
 }
 
@@ -956,17 +973,30 @@ function WriterPage({ page }) {
   }, [])
   return <main className="writer-page">
     <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header>
-    <section className="writer-hero">
+    <section className="writer-hero page-entrance">
       <div className="writer-hero-heading"><p className="hand-label"># Outside my work</p><h1>Reflective<br/><i>Writer.</i></h1></div>
       <div className="writer-hero-note"><span>Private pages, public echoes</span><p>{page.intro}</p></div>
     </section>
-    <section className="writer-process reveal-on-scroll">
+    <section className="writer-process reveal-on-scroll page-stagger">
       <p className="hand-label"># Why I write</p>
       <div className="writer-verbs" aria-label="The reflective writing process"><span>Pause.</span><span>Process.</span><span>Reframe.</span><span>Continue.</span></div>
-      <p className="writer-community">{page.community}</p>
-      <div className="writer-impact" aria-label="Writing reach"><div><strong>10K+</strong><span>followers across platforms</span></div><div><strong>1M+</strong><span>cumulative views</span></div></div>
+      <div className="writer-process-side">
+        <div className="writer-note-card">
+          <p className="writer-community">{page.community}</p>
+          <svg className="writer-pen-visual" viewBox="0 0 180 220" aria-hidden="true">
+            <path className="writer-ink-line" d="M8 194c25-26 54 12 78-14 20-21 45 4 83-34"/>
+            <g className="writer-pen-nib">
+              <path d="M63 42q31-24 62 0l-5 25q-26-15-52 0z"/>
+              <path d="M68 66q26-15 52 0l16 58-42 51-42-51z"/>
+              <path d="M94 80v72m-12 23 12-23 12 23"/>
+              <circle cx="94" cy="111" r="6"/>
+            </g>
+          </svg>
+        </div>
+        <div className="writer-impact" aria-label="Writing reach"><div><strong>10K+</strong><span>followers across platforms</span></div><div><strong>1M+</strong><span>cumulative views</span></div></div>
+      </div>
     </section>
-    <footer className="case-footer writer-footer"><span>© 2026 SHANG ZHU</span></footer>
+    <SiteFooter className="writer-footer"/>
   </main>
 }
 
@@ -980,14 +1010,14 @@ function TennisPage({ page }) {
   }, [])
   return <main className="tennis-page">
     <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header>
-    <section className="tennis-hero">
+    <section className="tennis-hero page-entrance">
       <div className="tennis-title-lockup"><p className="hand-label"># Outside my work</p><h1>Game,<br/><i>set, joy.</i></h1></div>
       <div className="tennis-intro"><span>USTA team player · lifelong sports lover</span><p>{page.intro}</p><p>{page.takeaway}</p></div>
     </section>
     <section className="tennis-photo-wall" aria-label="Tennis memories">
       {page.photos.map((photo, index) => <figure className={`tennis-photo tennis-photo-${index + 1} reveal-on-scroll`} style={{ '--reveal-delay': `${index * 85}ms` }} key={photo.src}><img src={photo.src} alt={photo.alt} loading={index > 1 ? 'lazy' : 'eager'} decoding="async"/><figcaption><span>0{index + 1}</span>{photo.caption}</figcaption></figure>)}
     </section>
-    <footer className="case-footer tennis-footer"><span>© 2026 SHANG ZHU</span></footer>
+    <SiteFooter className="tennis-footer"/>
   </main>
 }
 
@@ -1023,7 +1053,7 @@ function FashionPage({ page }) {
   }
   return <main className="fashion-page">
     <header className={`case-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><a href="#about" className="case-home">Back to About</a><a href="#contact" className="contact-pill">Contact Me</a></header>
-    <section className="fashion-cover" id="fashion-editorial" ref={fashionCoverRef} onPointerMove={moveFashionCover} onPointerLeave={resetFashionCover}>
+    <section className="fashion-cover page-entrance" id="fashion-editorial" ref={fashionCoverRef} onPointerMove={moveFashionCover} onPointerLeave={resetFashionCover}>
       <div className="fashion-cover-cloud" aria-hidden="true">
         <div className="fashion-cover-track">
           {[0, 1, 2, 3].map(copy => <div className={`fashion-cover-set fashion-cover-set-${copy + 1}`} key={copy}>
@@ -1046,21 +1076,35 @@ function FashionPage({ page }) {
         <div className="fashion-story-gallery">{theme.images.map(src => <figure key={src}><img src={src} alt={`Shang modeling the ${theme.title} runway collection`} loading="lazy" decoding="async"/></figure>)}</div>
       </article>)}
     </section>
-    <footer className="case-footer fashion-footer"><span>© 2026 SHANG ZHU</span></footer>
+    <SiteFooter className="fashion-footer"/>
   </main>
 }
 
 function App() {
   const [showSummary, setShowSummary] = useState(false)
   const [route, setRoute] = useState(window.location.hash)
-  const [copiedEmail, setCopiedEmail] = useState('')
   const [navCompact, setNavCompact] = useState(false)
   const [nameRevealKey, setNameRevealKey] = useState(0)
+  useEffect(() => {
+    const previous = window.history.scrollRestoration
+    window.history.scrollRestoration = 'manual'
+    return () => { window.history.scrollRestoration = previous }
+  }, [])
   useEffect(() => { const onHashChange = () => setRoute(window.location.hash); window.addEventListener('hashchange', onHashChange); return () => window.removeEventListener('hashchange', onHashChange) }, [])
+  useEffect(() => {
+    const restartPage = event => {
+      const link = event.target.closest?.('a[href]')
+      const href = link?.getAttribute('href')
+      if (!href || (href !== '#home' && !href.startsWith('#case/') && !href.startsWith('#life/'))) return
+      if (href === '#home' || href === window.location.hash) window.requestAnimationFrame(resetScrollToTop)
+    }
+    document.addEventListener('click', restartPage)
+    return () => document.removeEventListener('click', restartPage)
+  }, [])
   useEffect(() => { const onScroll = () => setNavCompact(window.scrollY > 80); onScroll(); window.addEventListener('scroll', onScroll, { passive: true }); return () => window.removeEventListener('scroll', onScroll) }, [])
   useEffect(() => {
     if (route.startsWith('#case/') || route.startsWith('#life/')) {
-      const frame = window.requestAnimationFrame(() => window.scrollTo(0, 0))
+      const frame = window.requestAnimationFrame(resetScrollToTop)
       return () => window.cancelAnimationFrame(frame)
     }
     if (!['#home', '#about', '#experience', '#education', '#leadership', '#contact'].includes(route)) return
@@ -1080,7 +1124,6 @@ function App() {
     })
     return () => observer.disconnect()
   }, [route])
-  const copyEmail = async (email) => { await navigator.clipboard?.writeText(email); setCopiedEmail(email); window.setTimeout(() => setCopiedEmail(''), 1600) }
   const togglePortrait = () => { if (showSummary) setNameRevealKey(key => key + 1); setShowSummary(!showSummary) }
   const caseSlug = route.startsWith('#case/') ? route.replace('#case/', '') : null
   const caseItem = [...experiences, ...education, ...leadership].find(item => item.slug === caseSlug)
@@ -1093,7 +1136,7 @@ function App() {
   if (lifeSlug && lifePages[lifeSlug]) return <LifePage page={lifePages[lifeSlug]} key={lifeSlug} />
   return <main>
     <nav className={`site-nav ${navCompact ? 'nav-compact' : ''}`}><a href="#home" className="logo">Shang</a><div className="landing-links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#leadership">Extracurricular</a></div><a href="#contact" className="contact-pill">Contact Me</a></nav>
-    <section className="landing" id="home">
+    <section className="landing page-entrance" id="home">
       <div className="name-backdrop" aria-hidden="true">Shang Zhu</div>
       <div className="hero-center"><div className="portrait-stage"><div className="quiet-summary"><span>Research & strategy</span><span>Market intelligence</span><span>Data analysis & storytelling</span><span>Python · R · SQL · Excel</span></div><p className="hand-note note-click">click me <HandArrow direction="down"/></p><div className={`portrait-card ${showSummary ? 'show-summary' : ''}`} onClick={togglePortrait} onKeyDown={(event) => { if (event.key === 'Enter') togglePortrait() }} role="button" tabIndex="0" aria-label="Show Shang's quick profile"><span className="portrait-face"><img src="/hero-headshot.jpg" alt="Shang Zhu"/></span><span key={nameRevealKey} className="portrait-name">{'Shang'.split('').map((letter, index) => <span key={letter} style={{ '--letter-delay': `${index * 120}ms` }}>{letter}</span>)}</span><span className="summary-card"><b>Who I Am</b><small className="who-lines">MS&E @ Stanford<br/>Applied Math, Political Economy & Data Science @ UC Berkeley</small><b className="bring-title">What I Bring</b><small>Research & Strategy<br/>Market Intelligence<br/>Data Analysis & Storytelling<br/>Python · R · SQL · Excel</small><a href="#contact" onClick={(event) => event.stopPropagation()}>Contact Me</a></span></div></div></div>
     </section>
@@ -1106,8 +1149,8 @@ function App() {
 
     <section className="list-section leadership" id="leadership"><p className="hand-label"># Leadership</p><div className="section-intro reveal-on-scroll"><div><h2>How I’ve <i>led.</i></h2><p>Building communities, ideas, and momentum beyond the classroom.</p></div></div><div className="expand-list">{leadership.map((item, index) => <PortfolioRow item={item} index={index} key={item.slug} />)}</div></section>
 
-    <section className="contact-section" id="contact"><div><p className="hand-label"># Hire me</p><h2>Let’s get in touch.</h2><p>Open to conversations, questions, and new ideas!</p></div><div className="contact-details"><div><small>Work Email</small><p>shangzhu@stanford.edu <button onClick={() => copyEmail('shangzhu@stanford.edu')}>{copiedEmail === 'shangzhu@stanford.edu' ? 'Copied!' : 'Copy'}</button></p></div><div><small>Personal Email</small><p>shang.zhu.77@gmail.com <button onClick={() => copyEmail('shang.zhu.77@gmail.com')}>{copiedEmail === 'shang.zhu.77@gmail.com' ? 'Copied!' : 'Copy'}</button></p></div><a href="https://www.linkedin.com/in/shangzhu77/" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a></div></section>
-    <footer className="case-footer"><span>© 2026 SHANG ZHU</span></footer>
+    <section className="contact-section" id="contact"><div><p className="hand-label"># Hire me</p><h2>Let’s get in touch.</h2><p>Open to conversations, questions, and new ideas!</p></div><div className="contact-details"><div><small>Work Email</small><a href="mailto:shangzhu@stanford.edu">shangzhu@stanford.edu <Arrow /></a></div><div><small>Personal Email</small><a href="mailto:shang.zhu.77@gmail.com">shang.zhu.77@gmail.com <Arrow /></a></div><a href={LINKEDIN_URL} target="_blank" rel="noreferrer">LinkedIn <Arrow /></a></div></section>
+    <SiteFooter/>
   </main>
 }
 

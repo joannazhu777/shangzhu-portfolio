@@ -138,9 +138,13 @@
 
 .tennis-intro p,
 .writer-hero-note p,
+.writer-community,
 .traveler-heading > p:last-child,
 .travel-journal-intro > p:not(.hand-label),
-.fashion-practice-notes p { font:400 clamp(19px,1.45vw,22px)/1.58 Newsreader,Georgia,serif; }
+.travel-stamp-grid b,
+.travel-passport-board > footer p,
+.fashion-practice-notes p,
+.fashion-story header p { font:400 clamp(19px,1.45vw,22px)/1.58 Newsreader,Georgia,serif; }
 
 .tennis-title-lockup .hand-label,
 .writer-hero-heading .hand-label,
@@ -150,8 +154,23 @@
 
 .tennis-intro > span,
 .writer-hero-note > span,
+.writer-impact span,
+.tennis-photo figcaption,
+.tennis-photo figcaption span,
 .travel-journal-stats span,
-.fashion-cover-title p { font:850 10px/1.35 Manrope,Arial,sans-serif; letter-spacing:.17em; text-transform:uppercase; }
+.travel-passport-board > header span,
+.travel-hub > span,
+.travel-hub small,
+.travel-stamp-grid article > span,
+.travel-passport-board > footer span,
+.fashion-cover-title p,
+.fashion-practice-notes article > span,
+.fashion-story > header > span { font-size:clamp(12px,.9vw,14px); }
+
+.travel-passport-board > footer p { margin-top:7px; line-height:1.35; }
+.travel-stamp-grid b { line-height:1.05; }
+.travel-arrival-stamp span { font-size:9px!important; }
+.travel-arrival-stamp small { font-size:8px; }
 
 @media (max-width:720px) {
   .fashion-cover-title h1,
@@ -161,9 +180,13 @@
   .travel-journal-intro h1 { font-size:clamp(58px,16vw,76px); line-height:.82; }
   .tennis-intro p,
   .writer-hero-note p,
+  .writer-community,
   .traveler-heading > p:last-child,
   .travel-journal-intro > p:not(.hand-label),
-  .fashion-practice-notes p { font-size:18px; }
+  .travel-stamp-grid b,
+  .travel-passport-board > footer p,
+  .fashion-practice-notes p,
+  .fashion-story header p { font-size:18px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
